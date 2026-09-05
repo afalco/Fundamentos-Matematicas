@@ -13,6 +13,7 @@
 *.nav
 *.snm
 *.synctex.gz
+*.pdf
 *~ *.swp
 
 # Editor
