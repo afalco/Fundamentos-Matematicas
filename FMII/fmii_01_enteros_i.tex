@@ -1,0 +1,204 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 01: Números enteros I
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 01]{Números enteros I}
+\subtitle{Ampliación de los naturales, opuesto y orden}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Motivar la construcción de \(\mathbb{Z}\).
+  \item Distinguir naturales, enteros positivos, cero y enteros negativos.
+  \item Trabajar con opuesto, suma y orden en \(\mathbb{Z}\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Motivación}
+
+\begin{frame}{Motivación}
+\begin{block}{Por qué ampliar \(\mathbb{N}\)}
+\begin{itemize}
+  \item En \(\mathbb{N}\), ecuaciones como \(10+x=7\) no tienen solución.
+  \item Los enteros introducen números que representan diferencias negativas.
+  \item La ampliación responde a una necesidad algebraica concreta.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Motivación}
+\begin{block}{El conjunto \(\mathbb{Z}\)}
+\begin{itemize}
+  \item \(\mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}\).
+  \item Todo natural es entero: \(\mathbb{N}\subset\mathbb{Z}\).
+  \item No todo entero es natural: \(-4\in\mathbb{Z}\), pero \(-4\notin\mathbb{N}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Motivación}
+\begin{block}{Opuesto}
+\begin{itemize}
+  \item Cada entero \(a\) tiene un opuesto \(-a\).
+  \item Se cumple \(a+(-a)=0\).
+  \item El cero es su propio opuesto: \(-0=0\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Orden y operaciones}
+
+\begin{frame}{Orden y operaciones}
+\begin{block}{Suma y producto}
+\begin{itemize}
+  \item Si \(a,b\in\mathbb{Z}\), entonces \(a+b\in\mathbb{Z}\) y \(ab\in\mathbb{Z}\).
+  \item La suma y el producto son operaciones internas en \(\mathbb{Z}\).
+  \item Estas operaciones extienden las operaciones conocidas en \(\mathbb{N}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Orden y operaciones}
+\begin{block}{Orden}
+\begin{itemize}
+  \item El orden en \(\mathbb{Z}\) permite comparar enteros positivos y negativos.
+  \item Si \(a<b\), entonces \(a+c<b+c\).
+  \item Multiplicar por un entero negativo invierte desigualdades.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Orden y operaciones}
+\begin{block}{Errores frecuentes}
+\begin{itemize}
+  \item Interpretar \(-3\) como una resta pendiente.
+  \item Olvidar que \(0\) no es positivo ni negativo.
+  \item Suponer que las reglas de signos son convenciones sin justificación estructural.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Modelo de lectura}
+\begin{itemize}
+  \item Antes de usar \(a< b\), declarar que \(a,b\in\mathbb{Z}\).
+  \item Antes de multiplicar desigualdades, revisar el signo del factor.
+  \item Distinguir propiedades de suma y propiedades de producto.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplo guiado}
+\begin{itemize}
+  \item Resolver \(5+x=-2\) en \(\mathbb{Z}\).
+  \item Sumamos el opuesto de \(5\): \(x=-2-5\).
+  \item Por tanto, \(x=-7\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Pregunta de control}
+\begin{itemize}
+  \item ¿Qué ecuaciones tienen solución en \(\mathbb{N}\) pero no en \(\mathbb{Z}\)?
+  \item ¿Qué ecuaciones no tienen solución en \(\mathbb{N}\) y sí en \(\mathbb{Z}\)?
+  \item ¿Qué propiedad algebraica aporta el opuesto?
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Construcción por diferencias}
+\begin{itemize}
+  \item Una forma rigurosa de construir \(\mathbb{Z}\) consiste en representar un entero como una diferencia \(a-b\), con \(a,b\in\mathbb{N}\).
+  \item Pares distintos pueden representar el mismo entero: \(5-2\) y \(7-4\) representan \(3\).
+  \item La igualdad correcta es \(a-b=c-d\) si y solo si \(a+d=b+c\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Representar \(-3\) mediante tres diferencias distintas de naturales.
+  \item Decidir si los pares \((2,7)\) y \((5,10)\) representan el mismo entero.
+  \item Justificar por qué la suma de clases de diferencias está bien definida.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Los enteros permiten resolver ecuaciones aditivas que no se resuelven en \(\mathbb{N}\).
+  \item La suma y el producto siguen siendo operaciones internas.
+  \item El orden exige cuidado al multiplicar por números negativos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

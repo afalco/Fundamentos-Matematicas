@@ -1,0 +1,607 @@
+\chapter{Lógica y razonamiento matemático}
+
+\begin{objetivos}
+  \item Introducir el concepto de proposición matemática.
+  \item Comprender los conectores lógicos fundamentales.
+  \item Manejar cuantificadores universales y existenciales.
+  \item Aprender los métodos básicos de demostración.
+\end{objetivos}
+
+\section{Motivación}
+
+La matemática no se limita a manipular símbolos o a realizar cálculos. Una parte esencial de la actividad matemática consiste en formular afirmaciones precisas y decidir, mediante razonamientos rigurosos, si dichas afirmaciones son verdaderas o falsas. Para ello es necesario disponer de un lenguaje lógico básico.
+
+En este capítulo se introducen las nociones elementales de lógica que se utilizarán durante todo el curso. No se pretende desarrollar una teoría formal completa de la lógica, sino proporcionar las herramientas necesarias para leer, escribir y demostrar enunciados matemáticos con precisión.
+
+La regla metodológica que seguiremos es la misma que en el capítulo anterior: todo símbolo relevante debe definirse antes de utilizarse. Por esta razón, cada conector lógico y cada cuantificador se introducirá indicando primero su significado.
+
+\section{Proposiciones}
+\label{sec:proposiciones}
+
+\begin{definicion}[Proposición]
+Una \emph{proposición} es una oración declarativa a la que se puede asignar un valor de verdad: verdadero o falso.
+\end{definicion}
+
+En matemáticas, las proposiciones son las unidades básicas sobre las que se construyen los razonamientos. Una proposición no tiene por qué ser verdadera; basta con que tenga sentido afirmar que es verdadera o falsa.
+
+\begin{ejemplo}
+Las siguientes oraciones son proposiciones:
+\begin{enumerate}
+  \item El número $2$ es par.
+  \item El número $7$ es múltiplo de $3$.
+  \item Todo número natural mayor que $1$ es primo.
+  \item Existe un número entero $x$ tal que $x^2=4$.
+\end{enumerate}
+La primera y la cuarta son verdaderas. La segunda y la tercera son falsas.
+\end{ejemplo}
+
+\begin{contraejemplo}
+Las siguientes oraciones no son proposiciones matemáticas:
+\begin{enumerate}
+  \item Calcula $2+3$.
+  \item ¿Es $5$ un número primo?
+  \item Sea $x$ un número natural.
+  \item El número $x$ es mayor que $3$.
+\end{enumerate}
+Las dos primeras no son oraciones declarativas. La tercera introduce una variable, pero no afirma nada. La cuarta depende del valor de $x$; antes de decidir si es verdadera o falsa hay que saber qué objeto representa $x$.
+\end{contraejemplo}
+
+\begin{convencion}[Variables y proposiciones]
+Si una afirmación contiene una variable, no la consideraremos una proposición cerrada hasta que se especifique el conjunto al que pertenece la variable o se introduzca un cuantificador.
+\end{convencion}
+
+Por ejemplo, la frase
+\[
+  x^2 \geq 0
+\]
+no es todavía una proposición cerrada, porque no se ha indicado qué es $x$. En cambio, sí son proposiciones las siguientes afirmaciones:
+\[
+  \text{Para todo } x\in\mathbb{R},\ x^2\geq 0,
+\]
+y
+\[
+  \text{Existe } x\in\mathbb{R} \text{ tal que } x^2<0.
+\]
+La primera es verdadera y la segunda es falsa.
+
+\section{Negación, conjunción y disyunción}
+\label{sec:negacion-conjuncion}
+
+En esta sección introducimos tres conectores lógicos básicos: negación, conjunción y disyunción. Para evitar ambigüedades, primero fijamos el significado de cada símbolo.
+
+\begin{definicion}[Negación]
+Si $P$ es una proposición, la \emph{negación} de $P$ se denota por $\neg P$ y se lee ``no $P$''. La proposición $\neg P$ es verdadera exactamente cuando $P$ es falsa.
+\end{definicion}
+
+\begin{ejemplo}
+Sea $P$ la proposición ``$6$ es primo''. Entonces $\neg P$ es la proposición ``$6$ no es primo''. En este caso, $P$ es falsa y $\neg P$ es verdadera.
+\end{ejemplo}
+
+\begin{definicion}[Conjunción]
+Si $P$ y $Q$ son proposiciones, la \emph{conjunción} de $P$ y $Q$ se denota por
+\[
+  P\wedge Q
+\]
+y se lee ``$P$ y $Q$''. La proposición $P\wedge Q$ es verdadera exactamente cuando $P$ y $Q$ son ambas verdaderas.
+\end{definicion}
+
+\begin{ejemplo}
+La proposición
+\[
+  2 \text{ es primo } \wedge 2 \text{ es par}
+\]
+es verdadera, porque las dos proposiciones que la componen son verdaderas.
+\end{ejemplo}
+
+\begin{definicion}[Disyunción]
+Si $P$ y $Q$ son proposiciones, la \emph{disyunción} de $P$ y $Q$ se denota por
+\[
+  P\vee Q
+\]
+y se lee ``$P$ o $Q$''. En matemáticas, salvo que se indique lo contrario, esta ``o'' es inclusiva: $P\vee Q$ es verdadera cuando al menos una de las proposiciones $P$ o $Q$ es verdadera.
+\end{definicion}
+
+\begin{ejemplo}
+La proposición
+\[
+  4 \text{ es par } \vee 4 \text{ es primo}
+\]
+es verdadera, porque $4$ es par, aunque no sea primo.
+\end{ejemplo}
+
+\begin{advertencia}
+En el lenguaje natural la palabra ``o'' puede ser ambigua. En matemáticas, la disyunción $P\vee Q$ se interpreta normalmente de forma inclusiva: permite que $P$ y $Q$ sean simultáneamente verdaderas.
+\end{advertencia}
+
+% --------------------------------------------------------------
+%  Bloque nuevo: Razonamiento formal y método axiomático
+% --------------------------------------------------------------
+
+\section{Razonamiento formal y método axiomático}
+\label{subsec:razonamiento-bourbaki}
+
+En la introducción de los \emph{Éléments de mathématique}, Bourbaki describe
+el método axiomático como el arte de redactar textos cuya
+\textbf{formalización} sea sencilla:
+
+\begin{quote}
+  « El método axiomático no es otra cosa que el arte de redactar textos
+  cuya formalización sea fácil de concebir.  No es una invención nueva,
+  pero su empleo sistemático como instrumento de descubrimiento es uno
+  de los rasgos originales de la matemática contemporánea. »
+  \hfill \textit{(Éléments de mathématique, p.~9)}
+\end{quote}
+
+De aquí se desprende una guía práctica para la construcción de pruebas:
+
+\begin{enumerate}
+  \item \textbf{Definir previamente} todos los símbolos que aparecen.
+  \item \textbf{Expresar la hipótesis} en forma de proposición bien
+        estructurada (p. \ref{sec:proposiciones}).
+  \item \textbf{Utilizar los conectores lógicos} (\(\neg,\wedge,\vee,\Rightarrow,\Leftrightarrow\))
+        exactamente según sus definiciones (\ref{sec:negacion-conjuncion}, \ref{sec:implicacion-equivalencia}).
+  \item \textbf{Aplicar cuantificadores} (\(\forall,\exists\)) respetando las reglas de
+        negación (\ref{sec:negacion-cuantificados}).
+  \item \textbf{Concluir} señalando que la cadena de inferencias corresponde
+        a una \emph{implicación lógica} cuya verdad queda garantizada
+        por el esquema axiomático.
+\end{enumerate}
+
+En otras palabras, una demostración es una \emph{traducción} de la
+implicación lógica que queremos validar a una *cadena de pasos* que
+cumple los criterios de \textbf{definición previa} y \textbf{formalidad}
+establecidos en el capítulo anterior.
+
+\begin{cita}
+  « La verificación de un texto formalizado no pide más que una
+  atención mecánica; cuando la formalización es posible, el
+  razonamiento queda completamente determinado por la sintaxis. »
+  \hfill \textit{(Éléments de mathématique, p.~8)}
+\end{cita}
+
+\section{Implicación y equivalencia}
+\label{sec:implicacion-equivalencia}
+
+Los conectores de implicación y equivalencia son fundamentales para formular teoremas y definiciones.
+
+\begin{definicion}[Implicación]
+Si $P$ y $Q$ son proposiciones, la \emph{implicación}
+\[
+  P\Rightarrow Q
+\]
+se lee ``si $P$, entonces $Q$''. La proposición $P$ se llama \emph{hipótesis} o \emph{antecedente}, y la proposición $Q$ se llama \emph{conclusión} o \emph{consecuente}.
+\end{definicion}
+
+Demostrar una implicación $P\Rightarrow Q$ significa justificar que siempre que $P$ sea verdadera, también lo será $Q$.
+
+\begin{ejemplo}
+La afirmación
+\[
+  n \text{ es múltiplo de }4 \Rightarrow n \text{ es par}
+\]
+es verdadera para todo número entero $n$. En efecto, si $n$ es múltiplo de $4$, existe un entero $k$ tal que $n=4k$. Entonces $n=2(2k)$, luego $n$ es par.
+\end{ejemplo}
+
+\begin{definicion}[Recíproca]
+Dada una implicación $P\Rightarrow Q$, su \emph{recíproca} es la implicación
+\[
+  Q\Rightarrow P.
+\]
+\end{definicion}
+
+\begin{advertencia}
+Una implicación y su recíproca no tienen por qué tener el mismo valor de verdad. Que $P\Rightarrow Q$ sea verdadera no implica que $Q\Rightarrow P$ sea verdadera.
+\end{advertencia}
+
+\begin{ejemplo}
+La implicación
+\[
+  n \text{ es múltiplo de }4 \Rightarrow n \text{ es par}
+\]
+es verdadera. Sin embargo, su recíproca
+\[
+  n \text{ es par } \Rightarrow n \text{ es múltiplo de }4
+\]
+es falsa. Por ejemplo, $6$ es par, pero no es múltiplo de $4$.
+\end{ejemplo}
+
+\begin{definicion}[Equivalencia]
+Si $P$ y $Q$ son proposiciones, la \emph{equivalencia}
+\[
+  P\Leftrightarrow Q
+\]
+se lee ``$P$ si y solo si $Q$''. Significa que se cumplen simultáneamente las dos implicaciones
+\[
+  P\Rightarrow Q
+  \qquad \text{y} \qquad
+  Q\Rightarrow P.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Para un número entero $n$, se tiene
+\[
+  n \text{ es par } \Leftrightarrow \text{ existe } k\in\mathbb{Z} \text{ tal que } n=2k.
+\]
+Esta equivalencia expresa la definición usual de número par.
+\end{ejemplo}
+
+\section{Cuantificadores}
+
+En matemáticas se formulan con frecuencia enunciados que hablan de todos los objetos de una colección o de la existencia de al menos un objeto con cierta propiedad. Para ello se utilizan cuantificadores.
+
+\begin{definicion}[Cuantificador universal]
+El símbolo $\forall$ se llama \emph{cuantificador universal} y se lee ``para todo''. Si $A$ es un conjunto y $P(x)$ es una propiedad que depende de un elemento $x\in A$, la expresión
+\[
+  \forall x\in A,\ P(x)
+\]
+significa que la propiedad $P(x)$ se cumple para todos los elementos $x$ del conjunto $A$.
+\end{definicion}
+
+\begin{ejemplo}
+La proposición
+\[
+  \forall n\in\mathbb{N},\ n+1>n
+\]
+afirma que todo número natural es menor que su sucesor. Aquí $\mathbb{N}$ denota el conjunto de los números naturales.
+\end{ejemplo}
+
+\begin{definicion}[Cuantificador existencial]
+El símbolo $\exists$ se llama \emph{cuantificador existencial} y se lee ``existe''. Si $A$ es un conjunto y $P(x)$ es una propiedad que depende de un elemento $x\in A$, la expresión
+\[
+  \exists x\in A \text{ tal que } P(x)
+\]
+significa que hay al menos un elemento $x$ de $A$ para el cual la propiedad $P(x)$ se cumple.
+\end{definicion}
+
+\begin{ejemplo}
+La proposición
+\[
+  \exists n\in\mathbb{N} \text{ tal que } n^2=9
+\]
+es verdadera, porque $3\in\mathbb{N}$ y $3^2=9$.
+\end{ejemplo}
+
+\begin{definicion}[Cuantificador existencial único]
+El símbolo $\exists!$ se lee ``existe un único''. La expresión
+\[
+  \exists! x\in A \text{ tal que } P(x)
+\]
+significa que existe un elemento $x\in A$ que cumple $P(x)$ y que no hay ningún otro elemento de $A$ con esa propiedad.
+\end{definicion}
+
+\begin{ejemplo}
+La proposición
+\[
+  \exists! n\in\mathbb{N} \text{ tal que } n+1=1
+\]
+es verdadera si consideramos $0\in\mathbb{N}$, porque el único número natural que la satisface es $n=0$.
+\end{ejemplo}
+
+\begin{advertencia}
+La notación $\mathbb{N}$ puede variar entre textos. Algunos autores incluyen el $0$ en los números naturales y otros no. En este curso se indicará explícitamente qué convención se adopta antes de utilizarla en resultados donde sea relevante.
+\end{advertencia}
+
+\section{Negación de enunciados cuantificados}
+\label{sec:negacion-cuantificados}
+
+Negar correctamente enunciados con cuantificadores es una habilidad esencial para comprender demostraciones, formular contraejemplos y aplicar razonamientos por contradicción.
+
+\begin{proposicion}[Negación del cuantificador universal]
+Sea $A$ un conjunto y sea $P(x)$ una propiedad definida para los elementos $x\in A$. La negación de
+\[
+  \forall x\in A,\ P(x)
+\]
+es
+\[
+  \exists x\in A \text{ tal que } \neg P(x).
+\]
+\end{proposicion}
+
+En palabras: negar que una propiedad se cumple para todos los elementos de $A$ equivale a afirmar que existe al menos un elemento de $A$ para el que la propiedad no se cumple.
+
+\begin{ejemplo}
+La negación de
+\[
+  \forall n\in\mathbb{N},\ n \text{ es par}
+\]
+es
+\[
+  \exists n\in\mathbb{N} \text{ tal que } n \text{ no es par}.
+\]
+\end{ejemplo}
+
+\begin{proposicion}[Negación del cuantificador existencial]
+Sea $A$ un conjunto y sea $P(x)$ una propiedad definida para los elementos $x\in A$. La negación de
+\[
+  \exists x\in A \text{ tal que } P(x)
+\]
+es
+\[
+  \forall x\in A,\ \neg P(x).
+\]
+\end{proposicion}
+
+En palabras: negar que exista un elemento con cierta propiedad equivale a afirmar que ningún elemento tiene esa propiedad.
+
+\begin{ejemplo}
+La negación de
+\[
+  \exists x\in\mathbb{R} \text{ tal que } x^2<0
+\]
+es
+\[
+  \forall x\in\mathbb{R},\ x^2\geq 0.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+Al negar un enunciado cuantificado hay que cambiar el cuantificador y negar la propiedad. Un error frecuente es negar solo la propiedad y conservar el cuantificador original.
+\end{advertencia}
+
+\begin{ejemplo}
+La negación correcta de
+\[
+  \forall x\in\mathbb{R},\ x^2>0
+\]
+es
+\[
+  \exists x\in\mathbb{R} \text{ tal que } x^2\leq 0.
+\]
+No es correcto escribir
+\[
+  \forall x\in\mathbb{R},\ x^2\leq 0.
+\]
+\end{ejemplo}
+
+\section{Condiciones necesarias y suficientes}
+
+Las expresiones ``condición necesaria'' y ``condición suficiente'' aparecen con frecuencia en definiciones, criterios y teoremas. Conviene fijar su significado con precisión.
+
+\begin{definicion}[Condición suficiente]
+Sean $P$ y $Q$ dos proposiciones. Si se cumple la implicación
+\[
+  P\Rightarrow Q,
+\]
+decimos que $P$ es una \emph{condición suficiente} para $Q$.
+\end{definicion}
+
+Es decir, saber que $P$ es verdadera basta para concluir que $Q$ es verdadera.
+
+\begin{definicion}[Condición necesaria]
+Sean $P$ y $Q$ dos proposiciones. Si se cumple la implicación
+\[
+  P\Rightarrow Q,
+\]
+decimos también que $Q$ es una \emph{condición necesaria} para $P$.
+\end{definicion}
+
+Es decir, para que $P$ pueda ser verdadera es necesario que $Q$ sea verdadera.
+
+\begin{ejemplo}
+Para un número entero $n$, la afirmación
+\[
+  n \text{ es múltiplo de }4 \Rightarrow n \text{ es par}
+\]
+indica que ser múltiplo de $4$ es condición suficiente para ser par. También indica que ser par es condición necesaria para ser múltiplo de $4$.
+\end{ejemplo}
+
+\begin{definicion}[Condición necesaria y suficiente]
+Sean $P$ y $Q$ dos proposiciones. Decimos que $P$ es una \emph{condición necesaria y suficiente} para $Q$ cuando se cumple
+\[
+  P\Leftrightarrow Q.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Para un número entero $n$, ser par es condición necesaria y suficiente para que exista un entero $k$ tal que $n=2k$.
+\end{ejemplo}
+
+\section{Métodos de demostración}
+
+Una demostración es un razonamiento que justifica la verdad de un enunciado matemático a partir de definiciones, resultados ya conocidos y reglas lógicas aceptadas.
+
+En esta sección se presentan varios métodos básicos de demostración. No son recetas mecánicas, pero proporcionan estructuras útiles para organizar el razonamiento.
+
+\subsection{Demostración directa}
+
+La demostración directa se utiliza habitualmente para probar una implicación $P\Rightarrow Q$.
+
+\begin{definicion}[Demostración directa]
+Una \emph{demostración directa} de $P\Rightarrow Q$ consiste en suponer que $P$ es verdadera y deducir, mediante pasos justificados, que $Q$ también es verdadera.
+\end{definicion}
+
+\begin{ejemplo}
+Demostremos que si $n$ es un número entero par, entonces $n^2$ es par.
+
+Supongamos que $n$ es par. Por definición de número par, existe $k\in\mathbb{Z}$ tal que
+\[
+  n=2k.
+\]
+Entonces
+\[
+  n^2=(2k)^2=4k^2=2(2k^2).
+\]
+Como $2k^2\in\mathbb{Z}$, se deduce que $n^2$ es par.
+\end{ejemplo}
+
+\subsection{Demostración por contraposición}
+
+Antes de definir el método, introducimos la contrapositiva de una implicación.
+
+\begin{definicion}[Contrapositiva]
+Dada una implicación
+\[
+  P\Rightarrow Q,
+\]
+su \emph{contrapositiva} es la implicación
+\[
+  \neg Q\Rightarrow \neg P.
+\]
+\end{definicion}
+
+Una implicación y su contrapositiva son lógicamente equivalentes: demostrar una es equivalente a demostrar la otra.
+
+\begin{definicion}[Demostración por contraposición]
+Una \emph{demostración por contraposición} de $P\Rightarrow Q$ consiste en demostrar la implicación equivalente
+\[
+  \neg Q\Rightarrow \neg P.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Demostremos que si $n^2$ es par, entonces $n$ es par.
+
+En lugar de demostrar directamente esta implicación, probamos su contrapositiva: si $n$ no es par, entonces $n^2$ no es par.
+
+Supongamos que $n$ no es par. Entonces $n$ es impar, es decir, existe $k\in\mathbb{Z}$ tal que
+\[
+  n=2k+1.
+\]
+Por tanto,
+\[
+  n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.
+\]
+Como $2k^2+2k\in\mathbb{Z}$, se deduce que $n^2$ es impar. Luego $n^2$ no es par. Por contraposición, si $n^2$ es par, entonces $n$ es par.
+\end{ejemplo}
+
+\subsection{Demostración por contradicción}
+
+\begin{definicion}[Demostración por contradicción]
+Una \emph{demostración por contradicción} de una proposición $P$ consiste en suponer que $P$ es falsa, es decir, suponer $\neg P$, y deducir una contradicción. Al obtener una contradicción, se concluye que $P$ debe ser verdadera.
+\end{definicion}
+
+Una contradicción puede aparecer, por ejemplo, cuando se deduce simultáneamente una proposición y su negación, o cuando se obtiene una afirmación manifiestamente falsa, como $0=1$.
+
+\begin{ejemplo}
+Demostremos que no existe un número entero $n$ tal que $n$ sea par e impar simultáneamente.
+
+Supongamos, por contradicción, que existe $n\in\mathbb{Z}$ que es par e impar. Como $n$ es par, existe $a\in\mathbb{Z}$ tal que $n=2a$. Como $n$ es impar, existe $b\in\mathbb{Z}$ tal que $n=2b+1$. Por tanto,
+\[
+  2a=2b+1.
+\]
+De aquí se obtiene
+\[
+  2(a-b)=1.
+\]
+El lado izquierdo es un número par, mientras que $1$ no es par. Esto es una contradicción. Por tanto, no existe tal número entero $n$.
+\end{ejemplo}
+
+\begin{advertencia}
+En una demostración por contradicción no basta con suponer lo contrario y obtener una dificultad. Hay que obtener una contradicción precisa con una definición, una hipótesis, un resultado conocido o una propiedad elemental aceptada.
+\end{advertencia}
+
+\subsection{Demostración por casos}
+
+\begin{definicion}[Demostración por casos]
+Una \emph{demostración por casos} consiste en dividir la situación en un número finito de posibilidades que cubren todos los casos posibles, y demostrar el resultado en cada una de ellas.
+\end{definicion}
+
+\begin{ejemplo}
+Demostremos que para todo número entero $n$, el producto $n(n+1)$ es par.
+
+Sea $n\in\mathbb{Z}$. Hay dos casos posibles:
+
+\begin{enumerate}
+  \item Si $n$ es par, entonces existe $k\in\mathbb{Z}$ tal que $n=2k$. Por tanto,
+  \[
+    n(n+1)=2k(n+1),
+  \]
+  luego $n(n+1)$ es par.
+
+  \item Si $n$ es impar, entonces $n+1$ es par. Por tanto, existe $k\in\mathbb{Z}$ tal que $n+1=2k$. Entonces
+  \[
+    n(n+1)=n\cdot 2k=2(nk),
+  \]
+  luego $n(n+1)$ es par.
+\end{enumerate}
+
+En ambos casos, $n(n+1)$ es par. Por tanto, para todo $n\in\mathbb{Z}$, el número $n(n+1)$ es par.
+\end{ejemplo}
+
+\begin{advertencia}
+En una demostración por casos hay que comprobar que los casos considerados cubren todas las posibilidades. Si falta algún caso, la demostración no es completa.
+\end{advertencia}
+
+\subsection{Demostración de equivalencias}
+
+Para demostrar una equivalencia $P\Leftrightarrow Q$ hay que demostrar dos implicaciones.
+
+\begin{definicion}[Demostración de una equivalencia]
+Una demostración de
+\[
+  P\Leftrightarrow Q
+\]
+consiste en demostrar, por separado, las implicaciones
+\[
+  P\Rightarrow Q
+  \qquad \text{y} \qquad
+  Q\Rightarrow P.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Demostremos que, para un número entero $n$, se cumple
+\[
+  n \text{ es par } \Leftrightarrow n^2 \text{ es par}.
+\]
+
+Primero demostramos que si $n$ es par, entonces $n^2$ es par. Esta implicación ya se demostró mediante demostración directa.
+
+Ahora demostramos la implicación recíproca: si $n^2$ es par, entonces $n$ es par. Esta implicación ya se demostró por contraposición.
+
+Como se han probado las dos implicaciones, queda demostrada la equivalencia.
+\end{ejemplo}
+
+\begin{erroresfrecuentes}
+  \item Confundir una implicación con su recíproca. De $P\Rightarrow Q$ no se deduce automáticamente $Q\Rightarrow P$.
+  \item Negar incorrectamente un enunciado con cuantificadores. La negación de ``para todo'' es ``existe un caso en que no'', y la negación de ``existe'' es ``para todo no''.
+  \item Usar un símbolo lógico antes de explicar su significado. Por ejemplo, no debe utilizarse $\forall$, $\exists$, $\Rightarrow$ o $\Leftrightarrow$ sin haber indicado previamente cómo se leen y qué significan.
+  \item Probar una afirmación universal mediante ejemplos. Los ejemplos pueden orientar, pero no sustituyen una demostración general.
+  \item Creer que una demostración por contradicción consiste solo en decir ``supongamos lo contrario''. Es necesario obtener una contradicción explícita.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Traducción de frases al lenguaje lógico.
+  \item Negación de enunciados con uno o varios cuantificadores.
+  \item Demostraciones directas elementales.
+  \item Identificación de hipótesis y conclusiones en una implicación.
+  \item Comparación entre una implicación, su recíproca y su contrapositiva.
+  \item Redacción de demostraciones breves cuidando la definición previa de todos los símbolos relevantes.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Escribe la negación de los siguientes enunciados:
+  \begin{enumerate}
+    \item Para todo $n\in\mathbb{N}$, $n+1>n$.
+    \item Existe $x\in\mathbb{R}$ tal que $x^2=2$.
+    \item Para todo $x\in\mathbb{R}$, existe $y\in\mathbb{R}$ tal que $y>x$.
+    \item Existe $n\in\mathbb{Z}$ tal que $n$ es par y $n$ es primo.
+  \end{enumerate}
+
+  \item Distingue entre condición necesaria, condición suficiente y condición necesaria y suficiente en los siguientes ejemplos:
+  \begin{enumerate}
+    \item Ser múltiplo de $4$ y ser par.
+    \item Ser cuadrado y ser rectángulo.
+    \item Ser número entero par y ser de la forma $2k$ para algún $k\in\mathbb{Z}$.
+  \end{enumerate}
+
+  \item Para cada una de las siguientes implicaciones, escribe su recíproca y su contrapositiva:
+  \begin{enumerate}
+    \item Si $n$ es múltiplo de $6$, entonces $n$ es múltiplo de $3$.
+    \item Si $x>2$, entonces $x^2>4$.
+    \item Si un número entero es múltiplo de $10$, entonces termina en $0$.
+  \end{enumerate}
+
+  \item Demuestra directamente que si $n$ es un número entero impar, entonces $n^2$ es impar.
+
+  \item Demuestra por contraposición que si $n^2$ es impar, entonces $n$ es impar.
+
+  \item Demuestra por casos que para todo $n\in\mathbb{Z}$, el número $n^2+n$ es par.
+
+  \item Escribe un ejemplo de una implicación verdadera cuya recíproca sea falsa.
+
+  \item Escribe un ejemplo de una equivalencia matemática y demuestra las dos implicaciones que contiene.
+\end{ejerciciospropuestos}
+
+\resumen{El capítulo introduce el lenguaje lógico elemental necesario para formular y demostrar enunciados matemáticos. Se han definido las proposiciones, los conectores lógicos, los cuantificadores y los métodos básicos de demostración. La idea central es que razonar matemáticamente exige identificar con precisión las hipótesis, las conclusiones y el significado de cada símbolo utilizado.}

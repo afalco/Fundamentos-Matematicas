@@ -1,0 +1,194 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 11: Aritmética modular III
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 11]{Aritmética modular III}
+\subtitle{Congruencias lineales y Teorema Chino del Resto}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Resolver congruencias lineales.
+  \item Aplicar el criterio \(\mcd(a,n)mid b\).
+  \item Enunciar y usar el Teorema Chino del Resto.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Congruencias lineales}
+
+\begin{frame}{Congruencias lineales}
+\begin{block}{Forma}
+\begin{itemize}
+  \item Una congruencia lineal tiene la forma \(ax\equiv b\pmod n\).
+  \item La incógnita es un entero \(x\).
+  \item Se buscan clases de soluciones módulo \(n\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Congruencias lineales}
+\begin{block}{Criterio}
+\begin{itemize}
+  \item \(ax\equiv b\pmod n\) tiene solución si y solo si \(\mcd(a,n)mid b\).
+  \item Si \(\mcd(a,n)=1\), se puede multiplicar por el inverso de \([a]_n\).
+  \item Si el \(\mcd\) es mayor que \(1\), hay que reducir con cuidado.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Congruencias lineales}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item Resolver \(3x\equiv 4\pmod 7\).
+  \item El inverso de \(3\) módulo \(7\) es \(5\).
+  \item Entonces \(x\equiv 5\cdot 4\equiv 6\pmod 7\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Teorema Chino}
+
+\begin{frame}{Teorema Chino}
+\begin{block}{Enunciado}
+\begin{itemize}
+  \item Si los módulos \(n_1,\ldots,n_r\) son coprimos dos a dos, el sistema tiene solución única módulo \(N=n_1\cdots n_r\).
+  \item El teorema permite reconstruir una clase a partir de varios restos.
+  \item La coprimalidad dos a dos es la hipótesis clave.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Teorema Chino}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item Resolver \(x\equiv 2\pmod 3\), \(x\equiv 3\pmod 5\).
+  \item Probando clases módulo \(15\), se obtiene \(x\equiv 8\pmod {15}\).
+  \item Todas las soluciones son \(x=8+15k\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Dividir congruencias}
+\begin{itemize}
+  \item No siempre se puede dividir por un entero.
+  \item Dividir por \(d\) exige modificar también el módulo si \(d\) divide a todos los términos.
+  \item La forma segura es usar el criterio del \(\mcd\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Construcción TCR}
+\begin{itemize}
+  \item Se trabaja módulo \(N=n_1\cdots n_r\).
+  \item Para cada módulo se construye un término que valga \(1\) en ese módulo y \(0\) en los demás.
+  \item La suma ponderada produce la solución.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Errores frecuentes}
+\begin{itemize}
+  \item Aplicar TCR con módulos no coprimos.
+  \item Dar una solución entera y olvidar la clase módulo \(N\).
+  \item Cancelar sin comprobar invertibilidad.
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Inversos modulares}
+\begin{itemize}
+  \item Un elemento \(a\) tiene inverso módulo \(n\) si existe \(x\) tal que \(ax\equiv 1\pmod n\).
+  \item Esto ocurre exactamente cuando \(\mcd(a,n)=1\).
+  \item El algoritmo extendido de Euclides construye el inverso.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Encontrar el inverso de \(7\) módulo \(26\).
+  \item Resolver \(7x\equiv 5\pmod {26}\).
+  \item Explicar por qué \(6x\equiv 1\pmod {26}\) no tiene solución.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Las congruencias lineales se deciden con el \(\mcd\).
+  \item El TCR combina restos compatibles.
+  \item La unicidad siempre es módulo el producto de los módulos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,520 @@
+% !TEX program = lualatex
+% ============================================================
+% Manual de Fundamentos de Matemáticas
+% Esqueleto inicial para FdM1 y FdM2
+% Filosofía del curso:
+%   Todo símbolo relevante debe definirse antes de utilizarse.
+% ============================================================
+
+\documentclass[11pt,a4paper,openany]{book}
+
+% ------------------------------------------------------------
+% Codificación, idioma y tipografía
+% ------------------------------------------------------------
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot,es-tabla]{babel}
+\usepackage{microtype}
+\usepackage{csquotes}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+% ------------------------------------------------------------
+% Geometría y diseño general
+% ------------------------------------------------------------
+\usepackage[a4paper,margin=3cm,headheight=15pt]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+% Ajuste del ancho reservado para numeros de capitulo en el indice.
+\makeatletter
+\renewcommand*{\l@chapter}[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{3em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\renewcommand*{\l@section}{\@dottedtocline{1}{1.5em}{3em}}
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{4.5em}{3.8em}}
+\makeatother
+
+% ------------------------------------------------------------
+% Matemáticas
+% ------------------------------------------------------------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{thmtools}
+\usepackage{bm}
+\usepackage{mathrsfs}
+
+% ------------------------------------------------------------
+% Hiperenlaces y referencias
+% ------------------------------------------------------------
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black,
+  pdftitle={Fundamentos de Matemáticas},
+  pdfauthor={Antonio Falcó Montesinos},
+  pdfsubject={Manual de Fundamentos de Matemáticas},
+  pdfkeywords={lógica, conjuntos, relaciones, estructuras algebraicas, números}
+}
+
+% ------------------------------------------------------------
+% Colores institucionales discretos
+% ------------------------------------------------------------
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMGray}{RGB}{245,245,245}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+% ------------------------------------------------------------
+% Encabezados
+% ------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+
+% ------------------------------------------------------------
+% Formato de títulos
+% ------------------------------------------------------------
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{FdMBlue}}
+  {\chaptertitlename\ \thechapter}
+  {20pt}
+  {\Huge}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{FdMBlue}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{FdMBlue}}
+  {\thesubsection}{1em}{}
+
+% ------------------------------------------------------------
+% Entornos de teoremas
+% ------------------------------------------------------------
+% ------------------------------------------------------------
+% Entornos de teoremas
+% ------------------------------------------------------------
+\declaretheoremstyle[
+  headfont=\bfseries\color{FdMBlue},
+  bodyfont=\normalfont,
+  spaceabove=10pt,
+  spacebelow=10pt,
+  mdframed={
+    nobreak=true,
+    shadow=true,
+    shadowsize=3pt,
+    shadowcolor=black!35,
+    backgroundcolor=FdMGray,
+    linecolor=FdMBlue,
+    linewidth=0.8pt,
+    roundcorner=4pt,
+    skipabove=10pt,
+    skipbelow=10pt,
+    innertopmargin=7pt,
+    innerbottommargin=7pt,
+    innerleftmargin=8pt,
+    innerrightmargin=8pt
+  }
+]{fdmdefstyle}
+
+\declaretheoremstyle[
+  headfont=\bfseries\color{FdMRed},
+  bodyfont=\normalfont,
+  spaceabove=10pt,
+  spacebelow=10pt,
+  mdframed={
+    nobreak=true,
+    shadow=true,
+    shadowsize=3pt,
+    shadowcolor=black!35,
+    backgroundcolor=FdMRed!4!white,
+    linecolor=FdMRed,
+    linewidth=0.8pt,
+    roundcorner=4pt,
+    skipabove=10pt,
+    skipbelow=10pt,
+    innertopmargin=7pt,
+    innerbottommargin=7pt,
+    innerleftmargin=8pt,
+    innerrightmargin=8pt
+  }
+]{fdmthmstyle}
+
+\declaretheoremstyle[
+  headfont=\bfseries\color{FdMGreen},
+  bodyfont=\normalfont,
+  spaceabove=10pt,
+  spacebelow=10pt,
+  mdframed={
+    nobreak=true,
+    shadow=true,
+    shadowsize=3pt,
+    shadowcolor=black!35,
+    backgroundcolor=FdMGreen!4!white,
+    linecolor=FdMGreen,
+    linewidth=0.8pt,
+    roundcorner=4pt,
+    skipabove=10pt,
+    skipbelow=10pt,
+    innertopmargin=7pt,
+    innerbottommargin=7pt,
+    innerleftmargin=8pt,
+    innerrightmargin=8pt
+  }
+]{fdmexstyle}
+
+
+\declaretheorem[style=fdmdefstyle,numberwithin=chapter,name=Definición]{definicion}
+\declaretheorem[style=fdmthmstyle,sibling=definicion,name=Teorema]{teorema}
+\declaretheorem[style=fdmthmstyle,sibling=definicion,name=Proposición]{proposicion}
+\declaretheorem[style=fdmthmstyle,sibling=definicion,name=Lema]{lema}
+\declaretheorem[style=fdmthmstyle,sibling=definicion,name=Corolario]{corolario}
+\declaretheorem[style=fdmexstyle,sibling=definicion,name=Ejemplo]{ejemplo}
+\declaretheorem[style=fdmexstyle,sibling=definicion,name=Contraejemplo]{contraejemplo}
+\declaretheorem[style=fdmdefstyle,sibling=definicion,name=Método]{metodo}
+\declaretheorem[style=fdmdefstyle,sibling=definicion,name=Advertencia]{advertencia}
+\declaretheorem[style=fdmdefstyle,sibling=definicion,name=Convención]{convencion}
+
+\renewcommand{\theHdefinicion}{\thechapter.\arabic{definicion}}
+\renewcommand{\theHteorema}{\theHdefinicion}
+\renewcommand{\theHproposicion}{\theHdefinicion}
+\renewcommand{\theHlema}{\theHdefinicion}
+\renewcommand{\theHcorolario}{\theHdefinicion}
+\renewcommand{\theHejemplo}{\theHdefinicion}
+\renewcommand{\theHcontraejemplo}{\theHdefinicion}
+\renewcommand{\theHmetodo}{\theHdefinicion}
+\renewcommand{\theHadvertencia}{\theHdefinicion}
+\renewcommand{\theHconvencion}{\theHdefinicion}
+
+% ------------------------------------------------------------
+% Entornos pedagógicos
+% ------------------------------------------------------------
+\newenvironment{objetivos}
+{\section*{Objetivos del capítulo}\phantomsection\addcontentsline{toc}{section}{Objetivos del capítulo}\begin{itemize}[leftmargin=2em]}
+{\end{itemize}}
+
+\newenvironment{seminario}
+{\section*{Seminario asociado}\phantomsection\addcontentsline{toc}{section}{Seminario asociado}\begin{itemize}[leftmargin=2em]}
+{\end{itemize}}
+
+\newenvironment{erroresfrecuentes}
+{\section*{Errores frecuentes}\phantomsection\addcontentsline{toc}{section}{Errores frecuentes}\begin{itemize}[leftmargin=2em]}
+{\end{itemize}}
+
+\newenvironment{ejerciciospropuestos}
+{\section*{Ejercicios propuestos}\phantomsection\addcontentsline{toc}{section}{Ejercicios propuestos}\begin{enumerate}[leftmargin=2em,label=\textbf{\thechapter.\arabic*.}]}
+{\end{enumerate}}
+
+% Citas textuales destacadas dentro del texto.
+\newenvironment{cita}
+{\begin{quote}\small\itshape}
+{\end{quote}}
+
+\newcommand{\resumen}[1]{%
+  \section*{Resumen del capítulo}%
+  \phantomsection%
+  \addcontentsline{toc}{section}{Resumen del capítulo}%
+  #1
+}
+
+% ------------------------------------------------------------
+% Comandos de conjuntos numéricos
+% Cada símbolo se introduce explícitamente en el texto antes de su uso.
+% Estos comandos solo fijan una escritura uniforme.
+% ------------------------------------------------------------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+% ------------------------------------------------------------
+% Datos del documento
+% ------------------------------------------------------------
+\title{\Huge Fundamentos de Matemáticas\\[0.4cm]
+\Large Manual para FdM1 y FdM2}
+\author{Antonio Falcó Montesinos\\Universidad CEU Cardenal Herrera}
+\date{Curso académico 2026--2027}
+
+\begin{document}
+
+% ------------------------------------------------------------
+% Portada
+% ------------------------------------------------------------
+\frontmatter
+\maketitle
+
+\chapter*{Principio rector del manual}
+\addcontentsline{toc}{chapter}{Principio rector del manual}
+
+La filosofía fundamental de este manual es la siguiente:
+
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{\centering\Large
+Todo símbolo relevante debe definirse antes de utilizarse.}}
+\end{center}
+
+Este principio no es una mera regla tipográfica. Es una norma de rigor matemático y de responsabilidad expositiva. En particular, a lo largo del texto se seguirá la siguiente disciplina:
+
+\begin{enumerate}[label=\textbf{R\arabic*.},leftmargin=2.5em]
+  \item Antes de emplear un símbolo matemático, se indicará qué objeto representa.
+  \item Antes de utilizar una operación, se precisará sobre qué conjunto está definida.
+  \item Antes de enunciar una propiedad, se especificará el contexto en el que dicha propiedad tiene sentido.
+  \item Antes de usar una abreviatura o notación especializada, se explicará su significado.
+  \item Los ejemplos se presentarán después de la definición correspondiente, no antes, salvo que tengan una función motivadora explícita.
+  \item Toda demostración deberá indicar claramente cuáles son las hipótesis, cuál es la conclusión y qué método de razonamiento se está empleando.
+\end{enumerate}
+
+Esta norma será especialmente importante en los primeros capítulos, donde el estudiante debe aprender no solo nuevos contenidos, sino también una forma rigurosa de escribir y leer matemáticas.
+
+\chapter*{Prólogo}
+\addcontentsline{toc}{chapter}{Prólogo}
+
+Estas notas constituyen una introducción a los fundamentos del razonamiento matemático y a la construcción de los sistemas numéricos básicos. Su objetivo principal no es únicamente presentar una colección de conceptos, definiciones y resultados, sino ayudar al estudiante a adquirir una forma de pensar propia de la matemática universitaria.
+
+A lo largo del curso se insistirá en tres ideas fundamentales. La primera es que la matemática posee un lenguaje propio, preciso y estructurado. La segunda es que los objetos matemáticos no se estudian de manera aislada, sino a través de sus propiedades, relaciones y estructuras. La tercera es que una afirmación matemática requiere una justificación rigurosa: ejemplos, cálculos y figuras pueden orientar la intuición, pero no sustituyen a una demostración.
+
+El curso se divide en dos partes. En Fundamentos de Matemáticas I se introducen la lógica elemental, el razonamiento matemático, la teoría básica de conjuntos, las aplicaciones, las relaciones binarias, las primeras estructuras algebraicas y los números naturales. En Fundamentos de Matemáticas II se estudian los números enteros, la divisibilidad, el Teorema Fundamental de la Aritmética, la aritmética modular, los números racionales, los números reales y los números complejos.
+
+Las clases magistrales estarán dedicadas a la presentación ordenada de los conceptos y resultados principales. Los seminarios tendrán un papel igualmente importante: en ellos se trabajará la resolución de problemas, la escritura de demostraciones, la construcción de ejemplos y contraejemplos, y la discusión de errores frecuentes.
+
+\tableofcontents
+
+% ------------------------------------------------------------
+% Estructura académica
+% ------------------------------------------------------------
+\chapter*{Organización académica del curso}
+\addcontentsline{toc}{chapter}{Organización académica del curso}
+
+El curso completo de Fundamentos de Matemáticas se organiza en dos asignaturas semestrales:
+
+\begin{center}
+\begin{tabularx}{0.95\textwidth}{>{\bfseries}l X c c}
+\toprule
+Asignatura & Contenido general & Clases magistrales & Seminarios \\
+\midrule
+FdM1 & Lógica, conjuntos, relaciones, estructuras algebraicas y números naturales & 15 sesiones & 15 sesiones \\
+FdM2 & Enteros, divisibilidad, aritmética modular, racionales, reales y complejos & 15 sesiones & 15 sesiones \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Cada capítulo del manual se estructurará, en la medida de lo posible, mediante los siguientes elementos:
+
+\begin{enumerate}[leftmargin=2.5em]
+  \item objetivos del capítulo;
+  \item motivación;
+  \item definiciones fundamentales;
+  \item ejemplos y contraejemplos;
+  \item resultados principales;
+  \item demostraciones modelo;
+  \item errores frecuentes;
+  \item seminario asociado;
+  \item ejercicios propuestos;
+  \item resumen del capítulo.
+\end{enumerate}
+
+% ============================================================
+% FdM1
+% ============================================================
+\mainmatter
+\part{Fundamentos de Matemáticas I}
+
+% ------------------------------------------------------------
+\input{capitulo1.tex}
+% ------------------------------------------------------------
+\input{capitulo2.tex}
+% ------------------------------------------------------------
+\input{capitulo3.tex}
+% ------------------------------------------------------------
+\input{capitulo4.tex}
+% ------------------------------------------------------------
+\input{capitulo5.tex}
+% ------------------------------------------------------------
+\input{capitulo6.tex}
+% ============================================================
+% FdM2
+% ============================================================
+\part{Fundamentos de Matemáticas II}
+
+% ------------------------------------------------------------
+\input{capitulo7.tex}
+% ------------------------------------------------------------
+
+\input{capitulo8.tex}
+
+% ------------------------------------------------------------
+
+\input{capitulo9.tex}
+
+% ------------------------------------------------------------
+
+\input{capitulo10.tex}
+
+% ------------------------------------------------------------
+
+\input{capitulo11.tex}
+
+% ------------------------------------------------------------
+
+\input{capitulo12.tex}
+
+% ------------------------------------------------------------
+
+\input{capitulo13.tex}
+
+% ============================================================
+% Apéndices
+% ============================================================
+\appendix
+\part{Apéndices}
+
+\chapter{Guía de notación}
+
+Este apéndice recoge la notación principal utilizada en el manual. La regla de uso será siempre la misma: un símbolo solo se incorpora a esta guía después de haber sido definido en el texto principal.
+
+\begin{longtable}{>{\bfseries}p{0.18\textwidth}p{0.72\textwidth}}
+\toprule
+Símbolo & Significado \\
+\midrule
+\endhead
+\(\in\) & Relación de pertenencia entre un elemento y un conjunto. \\
+\(\subseteq\) & Relación de inclusión entre conjuntos. \\
+\(\varnothing\) & Conjunto vacío. \\
+\(\Pow(A)\) & Conjunto de las partes de un conjunto \(A\). \\
+\(A\times B\) & Producto cartesiano de los conjuntos \(A\) y \(B\). \\
+\(f:A\to B\) & Aplicación con dominio \(A\) y codominio \(B\). \\
+\(\id_A\) & Aplicación identidad del conjunto \(A\). \\
+\(f^{-1}(C)\) & Imagen recíproca de \(C\) mediante \(f\). \\
+\(\sim\) & Relación de equivalencia. \\
+\([a]\) & Clase de equivalencia del elemento \(a\). \\
+\(\N\) & Conjunto de los números naturales, incluyendo el cero. \\
+\(\N^{\ast}\) & Conjunto de los números naturales positivos. \\
+\(\Z\) & Conjunto de los números enteros. \\
+\(a\mid b\) & Relación de divisibilidad: \(a\) divide a \(b\). \\
+\(\mcd(a,b)\) & Máximo común divisor de \(a\) y \(b\). \\
+\(\mcm(a,b)\) & Mínimo común múltiplo de \(a\) y \(b\). \\
+\(a\equiv b\pmod n\) & Congruencia de \(a\) y \(b\) módulo \(n\). \\
+\(\Z/n\Z\) & Conjunto de clases de congruencia módulo \(n\). \\
+\(\Q\) & Conjunto de los números racionales. \\
+\(\R\) & Conjunto de los números reales. \\
+\(|x|\) & Valor absoluto de un número real o módulo de un número complejo. \\
+\(\sup A\) & Supremo del conjunto \(A\), cuando existe. \\
+\(\inf A\) & Ínfimo del conjunto \(A\), cuando existe. \\
+\(\C\) & Conjunto de los números complejos. \\
+\(i\) & Unidad imaginaria, definida por \(i^2=-1\). \\
+\(\overline{z}\) & Conjugado del número complejo \(z\). \\
+\(\operatorname{Re}(z)\) & Parte real del número complejo \(z\). \\
+\(\operatorname{Im}(z)\) & Parte imaginaria del número complejo \(z\). \\
+\bottomrule
+\end{longtable}
+
+\input{apendice_fronteras_asignaturas.tex}
+
+
+\iffalse
+\chapter{Plantilla de capítulo}
+
+Cada capítulo nuevo podrá desarrollarse siguiendo la siguiente plantilla:
+
+\begin{verbatim}
+\chapter{Título del capítulo}
+
+\begin{objetivos}
+  \item Objetivo 1.
+  \item Objetivo 2.
+\end{objetivos}
+
+\section{Motivación}
+
+\section{Definiciones fundamentales}
+
+\section{Ejemplos}
+
+\section{Resultados principales}
+
+\section{Demostraciones modelo}
+
+\begin{erroresfrecuentes}
+  \item Error frecuente 1.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Actividad 1.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Ejercicio 1.
+\end{ejerciciospropuestos}
+
+\resumen{Resumen del capítulo.}
+\end{verbatim}
+\fi
+
+\backmatter
+
+\renewcommand{\bibname}{Bibliografía inicial recomendada}
+
+\begin{thebibliography}{9}
+\addcontentsline{toc}{chapter}{Bibliografía inicial recomendada}
+
+  \bibitem{bourbaki1970}
+  N. Bourbaki.
+  \emph{Éléments de mathématique}.
+  Springer, 1970.
+  % 2ª edición revisada (1970), reimpresa por
+  % Springer‑Verlag, Berlin–Heidelberg, 2006.
+  ISBN 3-540-34034-3.
+
+  \bibitem{vorkurs}
+Materiales introductorios de matemáticas universitarias y cursos cero de razonamiento matemático.
+
+\bibitem{hammack}
+R. Hammack, \emph{Book of Proof}.
+
+\bibitem{velleman}
+D. J. Velleman, \emph{How to Prove It: A Structured Approach}.
+
+\bibitem{rosen}
+K. H. Rosen, \emph{Discrete Mathematics and Its Applications}.
+
+\bibitem{niven}
+I. Niven, H. S. Zuckerman, H. L. Montgomery, \emph{An Introduction to the Theory of Numbers}.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,170 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 11: Relaciones de equivalencia y de orden
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 11]{Relaciones de equivalencia y de orden}
+\subtitle{Clasificar y comparar}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir relaciones de equivalencia y clases de equivalencia.
+  \item Definir relaciones de orden.
+  \item Distinguir clasificar de comparar.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Equivalencia}
+
+\begin{frame}{Equivalencia}
+\begin{block}{Relación de equivalencia}
+\begin{itemize}
+  \item Una relación es de equivalencia si es reflexiva, simétrica y transitiva.
+  \item Sirve para agrupar objetos que se consideran equivalentes bajo un criterio.
+  \item Ejemplo: tener el mismo resto al dividir por \(n\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Equivalencia}
+\begin{block}{Clases de equivalencia}
+\begin{itemize}
+  \item La clase de \(a\) es \([a]=\{x\in A:x\sim a\}\).
+  \item Las clases agrupan todos los elementos equivalentes a uno dado.
+  \item Dos clases son iguales o disjuntas.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Equivalencia}
+\begin{block}{Partición}
+\begin{itemize}
+  \item Una relación de equivalencia divide el conjunto en bloques.
+  \item Cada elemento pertenece a exactamente una clase.
+  \item Esta idea será esencial para construir cocientes.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Orden}
+
+\begin{frame}{Orden}
+\begin{block}{Relación de orden}
+\begin{itemize}
+  \item Una relación de orden es reflexiva, antisimétrica y transitiva.
+  \item Permite comparar elementos de un conjunto.
+  \item Si todos los pares son comparables, el orden es total.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Orden}
+\begin{block}{Comparación con equivalencia}
+\begin{itemize}
+  \item Equivalencia: agrupa objetos.
+  \item Orden: compara objetos.
+  \item Ambas se definen mediante propiedades lógicas de una relación.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Clases: idea operativa}
+\begin{itemize}
+  \item La clase \([a]\) contiene todos los elementos indistinguibles de \(a\) según la relación.
+  \item Cambiar el representante no cambia la clase si los representantes son equivalentes.
+  \item Esta idea anticipa fracciones, congruencias y construcciones cociente.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Orden parcial y total}
+\begin{itemize}
+  \item En un orden parcial puede haber elementos no comparables.
+  \item En un orden total, cualesquiera dos elementos son comparables.
+  \item \(\subseteq\) en \(\mathcal{P}(A)\) es un orden parcial.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Comparación conceptual}
+\begin{itemize}
+  \item Equivalencia: sustituir un objeto por otro de la misma clase.
+  \item Orden: decidir precedencia, contención o tamaño relativo.
+  \item Ambas nociones dependen de propiedades lógicas precisas.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Las equivalencias producen clases.
+  \item Los órdenes permiten comparar.
+  \item Ambas nociones preparan estructuras más ricas.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

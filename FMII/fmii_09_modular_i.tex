@@ -1,0 +1,194 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 09: Aritmética modular I
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 09]{Aritmética modular I}
+\subtitle{Congruencias y clases de congruencia}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir congruencia módulo \(n\).
+  \item Interpretar clases de congruencia.
+  \item Construir \(\mathbb{Z}/n\mathbb{Z}\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Congruencias}
+
+\begin{frame}{Congruencias}
+\begin{block}{Definición}
+\begin{itemize}
+  \item Sean \(a,b\in\mathbb{Z}\) y \(n\geq 1\).
+  \item Escribimos \(a\equiv b\pmod n\) si \(n\mid(a-b)\).
+  \item La congruencia depende del módulo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Congruencias}
+\begin{block}{Ejemplos}
+\begin{itemize}
+  \item \(17\equiv 2\pmod 5\), porque \(5\mid 15\).
+  \item \(-1\equiv 4\pmod 5\), porque \(5\mid -5\).
+  \item Los enteros congruentes tienen el mismo resto al dividir por \(n\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Congruencias}
+\begin{block}{Relación de equivalencia}
+\begin{itemize}
+  \item La congruencia módulo \(n\) es reflexiva, simétrica y transitiva.
+  \item Por tanto, agrupa \(\mathbb{Z}\) en clases.
+  \item Estas clases son las clases de congruencia.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Clases}
+
+\begin{frame}{Clases}
+\begin{block}{Clase de \(a\)}
+\begin{itemize}
+  \item \([a]_n=\{x\in\mathbb{Z}:x\equiv a\pmod n\}\).
+  \item Todos los elementos de la clase tienen el mismo resto módulo \(n\).
+  \item Distintos representantes pueden nombrar la misma clase.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Clases}
+\begin{block}{Cociente}
+\begin{itemize}
+  \item \(\mathbb{Z}/n\mathbb{Z}=\{[0]_n,[1]_n,\ldots,[n-1]_n\}\).
+  \item Hay exactamente \(n\) clases.
+  \item El representante estándar es el resto entre \(0\) y \(n-1\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Lectura por restos}
+\begin{itemize}
+  \item Calcular módulo \(n\) es trabajar con restos.
+  \item Las clases permiten sustituir un entero por otro congruente.
+  \item La sustitución debe respetar el módulo fijado.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item En módulo \(4\), \([2]_4=\{\ldots,-6,-2,2,6,10,\ldots\}\).
+  \item \([6]_4=[2]_4\).
+  \item \([1]_4\neq [2]_4\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Errores frecuentes}
+\begin{itemize}
+  \item Cambiar de módulo sin avisar.
+  \item Confundir una clase con un único entero.
+  \item Olvidar que \([a]_n=[b]_n\) si y solo si \(a\equiv b\pmod n\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Congruencia como igualdad de restos}
+\begin{itemize}
+  \item \(a\equiv b \pmod n\) significa que \(n\mid(a-b)\).
+  \item Equivalentemente, \(a\) y \(b\) tienen el mismo resto al dividir por \(n\).
+  \item La formulación por divisibilidad suele ser más útil en demostraciones.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Decidir si \(47\equiv 5 \pmod 7\).
+  \item Hallar el representante entre \(0\) y \(8\) de \(-23\) módulo \(9\).
+  \item Probar que la congruencia módulo \(n\) es una relación de equivalencia.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item La congruencia es divisibilidad de diferencias.
+  \item Las clases de congruencia agrupan enteros por restos.
+  \item \(\mathbb{Z}/n\mathbb{Z}\) contiene clases, no enteros sueltos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

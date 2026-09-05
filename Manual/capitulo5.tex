@@ -1,0 +1,395 @@
+\chapter{Estructuras algebraicas elementales}
+
+\begin{objetivos}
+  \item Introducir la noción de operación interna.
+  \item Estudiar las propiedades básicas de las operaciones.
+  \item Presentar semigrupos, monoides, grupos, anillos y cuerpos de forma introductoria.
+  \item Reconocer estructuras algebraicas en ejemplos elementales.
+\end{objetivos}
+
+\section{Motivación}
+
+En los capítulos anteriores se han introducido conjuntos, aplicaciones y relaciones binarias. En este capítulo se añade un nuevo ingrediente: las \emph{operaciones}. Una operación permite combinar elementos de un conjunto para obtener nuevos elementos. Por ejemplo, al sumar dos números naturales se obtiene otro número natural; al componer dos simetrías de una figura se obtiene otra simetría de la misma figura.
+
+La idea fundamental de este capítulo es que muchos objetos matemáticos no se estudian únicamente como conjuntos, sino como conjuntos dotados de operaciones que satisfacen ciertas propiedades. A estos objetos se les llama \emph{estructuras algebraicas}.
+
+\begin{convencion}[Símbolos y operaciones]
+Antes de escribir una expresión como \(a*b\), se debe haber definido previamente qué conjunto contiene a los elementos \(a\) y \(b\), qué significa el símbolo \(*\), y en qué conjunto se encuentra el resultado de la operación.
+\end{convencion}
+
+\section{Operaciones internas}
+
+Sea \(A\) un conjunto. Una \emph{operación interna} en \(A\) es una aplicación que toma dos elementos de \(A\) y devuelve de nuevo un elemento de \(A\).
+
+\begin{definicion}[Operación interna]
+Sea \(A\) un conjunto. Una operación interna en \(A\) es una aplicación
+\[
+  *:A\times A\longrightarrow A.
+\]
+Si \(a\) y \(b\) son elementos de \(A\), se escribe
+\[
+  a*b
+\]
+para denotar el elemento de \(A\) que resulta de aplicar la operación \(*\) al par ordenado \((a,b)\).
+\end{definicion}
+
+La condición de que el resultado pertenezca de nuevo a \(A\) es esencial. Si al operar dos elementos de \(A\) se pudiera obtener un objeto fuera de \(A\), no estaríamos ante una operación interna en \(A\).
+
+\begin{ejemplo}[Suma de números naturales]
+Sea \(\mathbb{N}\) el conjunto de los números naturales. La suma usual define una operación interna
+\[
+  +:\mathbb{N}\times \mathbb{N}\longrightarrow \mathbb{N},
+\]
+porque si \(m\) y \(n\) son números naturales, entonces \(m+n\) también es un número natural.
+\end{ejemplo}
+
+\begin{ejemplo}[Resta en los números naturales]
+La resta usual no define una operación interna en \(\mathbb{N}\) si se toma, por ejemplo, \(2-5\), ya que el resultado no es un número natural.
+\end{ejemplo}
+
+\begin{advertencia}
+Una misma regla puede definir una operación interna en un conjunto y no definirla en otro. Por ejemplo, la resta no es una operación interna en \(\mathbb{N}\), pero sí lo es en el conjunto \(\mathbb{Z}\) de los números enteros.
+\end{advertencia}
+
+\section{Asociatividad y conmutatividad}
+
+Una vez definida una operación interna, se estudian sus propiedades. Las dos primeras propiedades fundamentales son la asociatividad y la conmutatividad.
+
+\begin{definicion}[Asociatividad]
+Sea \(A\) un conjunto y sea \(*:A\times A\to A\) una operación interna. Se dice que \(*\) es \emph{asociativa} si, para cualesquiera \(a,b,c\in A\), se cumple
+\[
+  (a*b)*c=a*(b*c).
+\]
+\end{definicion}
+
+La asociatividad permite escribir expresiones como \(a*b*c\) sin ambigüedad, porque no importa si primero se opera \(a*b\) o si primero se opera \(b*c\).
+
+\begin{definicion}[Conmutatividad]
+Sea \(A\) un conjunto y sea \(*:A\times A\to A\) una operación interna. Se dice que \(*\) es \emph{conmutativa} si, para cualesquiera \(a,b\in A\), se cumple
+\[
+  a*b=b*a.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+La suma usual de números enteros es asociativa y conmutativa. Es decir, para cualesquiera \(a,b,c\in\mathbb{Z}\), se tiene
+\[
+  (a+b)+c=a+(b+c)
+\]
+y
+\[
+  a+b=b+a.
+\]
+\end{ejemplo}
+
+\begin{ejemplo}
+La composición de aplicaciones no es conmutativa en general. Si \(f\) y \(g\) son aplicaciones de un conjunto en sí mismo, normalmente
+\[
+  f\circ g\neq g\circ f.
+\]
+Por tanto, el orden en el que se componen las aplicaciones puede cambiar el resultado.
+\end{ejemplo}
+
+\section{Elemento neutro}
+
+Algunas operaciones tienen un elemento especial que no modifica a los demás elementos cuando se opera con ellos.
+
+\begin{definicion}[Elemento neutro]
+Sea \(A\) un conjunto y sea \(*:A\times A\to A\) una operación interna. Un elemento \(e\in A\) se llama \emph{elemento neutro} para \(*\) si, para todo \(a\in A\), se cumple
+\[
+  e*a=a
+  \qquad\text{y}\qquad
+  a*e=a.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+En \(\mathbb{Z}\), el número \(0\) es el elemento neutro de la suma, porque para todo \(a\in\mathbb{Z}\),
+\[
+  0+a=a
+  \qquad\text{y}\qquad
+  a+0=a.
+\]
+\end{ejemplo}
+
+\begin{ejemplo}
+En \(\mathbb{Z}\), el número \(1\) es el elemento neutro del producto, porque para todo \(a\in\mathbb{Z}\),
+\[
+  1\cdot a=a
+  \qquad\text{y}\qquad
+  a\cdot 1=a.
+\]
+\end{ejemplo}
+
+\begin{proposicion}[Unicidad del elemento neutro]
+Sea \(A\) un conjunto y sea \(*\) una operación interna en \(A\). Si \(*\) tiene elemento neutro, entonces dicho elemento neutro es único.
+\end{proposicion}
+
+\begin{proof}
+Supongamos que \(e\in A\) y \(e'\in A\) son dos elementos neutros para la operación \(*\). Como \(e\) es neutro, se tiene
+\[
+  e*e'=e'.
+\]
+Como \(e'\) también es neutro, se tiene
+\[
+  e*e'=e.
+\]
+Por tanto, ambos elementos son iguales:
+\[
+  e=e'.
+\]
+Así, el elemento neutro, si existe, es único.
+\end{proof}
+
+\section{Elemento inverso}
+
+Cuando una operación tiene elemento neutro, se puede preguntar si un elemento dado puede deshacerse mediante otro elemento.
+
+\begin{definicion}[Elemento inverso]
+Sea \(A\) un conjunto, sea \(*:A\times A\to A\) una operación interna y sea \(e\in A\) un elemento neutro para \(*\). Dado \(a\in A\), se dice que un elemento \(b\in A\) es un \emph{inverso} de \(a\) si
+\[
+  a*b=e
+  \qquad\text{y}\qquad
+  b*a=e.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+En \(\mathbb{Z}\), con la suma usual, el elemento neutro es \(0\). El inverso de \(a\in\mathbb{Z}\) es \(-a\), porque
+\[
+  a+(-a)=0
+  \qquad\text{y}\qquad
+  (-a)+a=0.
+\]
+\end{ejemplo}
+
+\begin{ejemplo}
+En \(\mathbb{Z}\), con el producto usual, el elemento neutro es \(1\). El número \(2\) no tiene inverso multiplicativo en \(\mathbb{Z}\), porque no existe ningún entero \(b\) tal que \(2b=1\).
+\end{ejemplo}
+
+\begin{advertencia}
+La palabra ``inverso'' depende de la operación. El inverso aditivo de \(a\) es \(-a\), mientras que el inverso multiplicativo de \(a\), cuando existe, es un elemento \(b\) tal que \(ab=1\).
+\end{advertencia}
+
+\section{Distributividad}
+
+Algunas estructuras algebraicas tienen dos operaciones. En ese caso, además de estudiar cada operación por separado, interesa estudiar cómo interactúan entre sí.
+
+\begin{definicion}[Distributividad]
+Sea \(A\) un conjunto con dos operaciones internas, que denotamos por \(+\) y \(\cdot\). Se dice que el producto \(\cdot\) es \emph{distributivo} respecto de la suma \(+\) si, para cualesquiera \(a,b,c\in A\), se cumplen
+\[
+  a\cdot (b+c)=a\cdot b+a\cdot c
+\]
+y
+\[
+  (a+b)\cdot c=a\cdot c+b\cdot c.
+\]
+\end{definicion}
+
+La primera igualdad se llama distributividad por la izquierda, y la segunda distributividad por la derecha.
+
+\begin{ejemplo}
+En \(\mathbb{Z}\), el producto usual es distributivo respecto de la suma usual. Por ejemplo,
+\[
+  2\cdot(3+5)=2\cdot 3+2\cdot 5.
+\]
+Ambos miembros valen \(16\).
+\end{ejemplo}
+
+\section{Semigrupos y monoides}
+
+Las primeras estructuras algebraicas se obtienen considerando una sola operación interna.
+
+\begin{definicion}[Semigrupo]
+Un \emph{semigrupo} es un par \((A,*)\), donde \(A\) es un conjunto y \(*:A\times A\to A\) es una operación interna asociativa.
+\end{definicion}
+
+\begin{ejemplo}
+El par \((\mathbb{N},+)\), donde \(+\) es la suma usual, es un semigrupo, porque la suma de números naturales es una operación interna y asociativa.
+\end{ejemplo}
+
+\begin{definicion}[Monoide]
+Un \emph{monoide} es un triple \((A,*,e)\), donde \(A\) es un conjunto, \(*:A\times A\to A\) es una operación interna asociativa y \(e\in A\) es un elemento neutro para \(*\).
+\end{definicion}
+
+A veces se escribe simplemente \((A,*)\) para denotar un monoide, dejando implícito el elemento neutro cuando no hay riesgo de confusión.
+
+\begin{ejemplo}
+El par \((\mathbb{Z},+)\) es un monoide. El elemento neutro es \(0\).
+\end{ejemplo}
+
+\begin{ejemplo}
+Sea \(X\) un conjunto. El conjunto de todas las aplicaciones de \(X\) en \(X\), con la composición de aplicaciones, es un monoide. El elemento neutro es la aplicación identidad \(\operatorname{id}_X:X\to X\), definida por \(\operatorname{id}_X(x)=x\) para todo \(x\in X\).
+\end{ejemplo}
+
+\section{Grupos}
+
+Un grupo es una estructura algebraica con una operación interna asociativa, elemento neutro e inversos para todos sus elementos.
+
+\begin{definicion}[Grupo]
+Un \emph{grupo} es una terna \((G,*,e)\), donde \(G\) es un conjunto, \(*:G\times G\to G\) es una operación interna y \(e\in G\), tal que se cumplen las siguientes propiedades:
+\begin{enumerate}
+  \item \textbf{Asociatividad:} para cualesquiera \(a,b,c\in G\),
+  \[
+    (a*b)*c=a*(b*c).
+  \]
+  \item \textbf{Elemento neutro:} para todo \(a\in G\),
+  \[
+    e*a=a
+    \qquad\text{y}\qquad
+    a*e=a.
+  \]
+  \item \textbf{Elemento inverso:} para todo \(a\in G\), existe \(b\in G\) tal que
+  \[
+    a*b=e
+    \qquad\text{y}\qquad
+    b*a=e.
+  \]
+\end{enumerate}
+\end{definicion}
+
+\begin{definicion}[Grupo abeliano]
+Un grupo \((G,*,e)\) se llama \emph{abeliano} o \emph{conmutativo} si, además, para cualesquiera \(a,b\in G\), se cumple
+\[
+  a*b=b*a.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+El conjunto \(\mathbb{Z}\), con la suma usual, es un grupo abeliano. El elemento neutro es \(0\), y el inverso de \(a\in\mathbb{Z}\) es \(-a\).
+\end{ejemplo}
+
+\begin{contraejemplo}
+El conjunto \(\mathbb{N}\), con la suma usual, no es un grupo si \(\mathbb{N}\) contiene al \(0\), porque el número \(1\) no tiene inverso aditivo dentro de \(\mathbb{N}\). En efecto, no existe \(n\in\mathbb{N}\) tal que \(1+n=0\).
+\end{contraejemplo}
+
+\section{Anillos}
+
+Un anillo es una estructura con dos operaciones, que suelen llamarse suma y producto. La suma proporciona una estructura de grupo abeliano, mientras que el producto es asociativo y distributivo respecto de la suma.
+
+\begin{definicion}[Anillo]
+Un \emph{anillo} es una estructura \((A,+,\cdot,0)\), donde \(A\) es un conjunto, \(+\) y \(\cdot\) son operaciones internas en \(A\), y \(0\in A\), tal que:
+\begin{enumerate}
+  \item \((A,+,0)\) es un grupo abeliano.
+  \item El producto \(\cdot\) es asociativo.
+  \item El producto \(\cdot\) es distributivo respecto de la suma \(+\).
+\end{enumerate}
+\end{definicion}
+
+En algunos textos se exige que un anillo tenga elemento neutro para el producto. En estas notas, cuando se necesite dicha propiedad, se dirá explícitamente que se trata de un anillo con unidad.
+
+\begin{definicion}[Anillo con unidad]
+Un anillo \((A,+,\cdot,0)\) se llama \emph{anillo con unidad} si existe un elemento \(1\in A\) tal que, para todo \(a\in A\),
+\[
+  1\cdot a=a
+  \qquad\text{y}\qquad
+  a\cdot 1=a.
+\]
+El elemento \(1\) se llama unidad o elemento neutro multiplicativo.
+\end{definicion}
+
+\begin{ejemplo}
+El conjunto \(\mathbb{Z}\), con la suma y el producto usuales, es un anillo con unidad. La unidad es el número \(1\).
+\end{ejemplo}
+
+\begin{ejemplo}
+El conjunto de los polinomios con coeficientes reales, denotado por \(\mathbb{R}[x]\), con la suma y el producto usuales de polinomios, es un anillo con unidad.
+\end{ejemplo}
+
+\section{Cuerpos}
+
+Un cuerpo es una estructura algebraica en la que se puede sumar, restar, multiplicar y dividir por cualquier elemento no nulo.
+
+\begin{definicion}[Cuerpo]
+Un \emph{cuerpo} es una estructura \((K,+,\cdot,0,1)\), donde \(K\) es un conjunto, \(+\) y \(\cdot\) son operaciones internas en \(K\), y \(0,1\in K\) son elementos distintos, tal que:
+\begin{enumerate}
+  \item \((K,+,0)\) es un grupo abeliano.
+  \item \((K\setminus\{0\},\cdot,1)\) es un grupo abeliano.
+  \item El producto \(\cdot\) es distributivo respecto de la suma \(+\).
+\end{enumerate}
+\end{definicion}
+
+La condición \((K\setminus\{0\},\cdot,1)\) significa que todo elemento no nulo de \(K\) tiene inverso multiplicativo.
+
+\begin{ejemplo}
+El conjunto \(\mathbb{Q}\) de los números racionales, con la suma y el producto usuales, es un cuerpo.
+\end{ejemplo}
+
+\begin{ejemplo}
+El conjunto \(\mathbb{R}\) de los números reales y el conjunto \(\mathbb{C}\) de los números complejos son cuerpos con sus operaciones usuales.
+\end{ejemplo}
+
+\begin{contraejemplo}
+El conjunto \(\mathbb{Z}\) de los números enteros no es un cuerpo, porque el entero \(2\) no tiene inverso multiplicativo en \(\mathbb{Z}\).
+\end{contraejemplo}
+
+\section{Ejemplos fundamentales}
+
+Esta sección resume algunos ejemplos que aparecerán de forma recurrente en el curso.
+
+\begin{ejemplo}[Números enteros]
+El conjunto \(\mathbb{Z}\), con la suma usual, es un grupo abeliano. Con la suma y el producto usuales, es un anillo con unidad, pero no es un cuerpo.
+\end{ejemplo}
+
+\begin{ejemplo}[Números racionales]
+El conjunto \(\mathbb{Q}\), con la suma y el producto usuales, es un cuerpo. Lo mismo ocurre con \(\mathbb{R}\) y \(\mathbb{C}\).
+\end{ejemplo}
+
+\begin{ejemplo}[Matrices]
+Sea \(n\) un número natural positivo. El conjunto de las matrices cuadradas reales de tamaño \(n\times n\), con la suma y el producto usuales de matrices, es un anillo con unidad. Si \(n\geq 2\), el producto de matrices no es conmutativo en general.
+\end{ejemplo}
+
+\begin{ejemplo}[Simetrías]
+El conjunto de las simetrías de una figura geométrica, con la composición de aplicaciones, forma un grupo. El elemento neutro es la simetría que deja todos los puntos fijos, y el inverso de una simetría es la transformación que deshace su acción.
+\end{ejemplo}
+
+\begin{erroresfrecuentes}
+  \item Confundir operación interna con una regla que a veces produce elementos fuera del conjunto.
+  \item Afirmar que una operación es asociativa comprobando solo algunos ejemplos.
+  \item Confundir el elemento neutro aditivo con el elemento neutro multiplicativo.
+  \item Hablar de inversos sin indicar respecto de qué operación se consideran.
+  \item Suponer que todo anillo es un cuerpo.
+  \item Suponer que todo producto algebraico es conmutativo.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Verificación de axiomas algebraicos.
+  \item Construcción de tablas de operación.
+  \item Identificación de neutros e inversos.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Sea \(A=\{0,1\}\) y sea \(*\) la operación definida por la tabla
+  \[
+  \begin{array}{c|cc}
+    * & 0 & 1 \\
+    \hline
+    0 & 0 & 1 \\
+    1 & 1 & 0
+  \end{array}
+  \]
+  Determina si \(*\) es conmutativa y si tiene elemento neutro.
+
+  \item Determina si la operación \(*\) definida en \(\mathbb{Z}\) por
+  \[
+    a*b=a+b+1
+  \]
+  es asociativa. Encuentra, si existe, su elemento neutro.
+
+  \item Sea \(A=\{a,b,c\}\). Construye una tabla de operación para una operación interna en \(A\) que sea conmutativa.
+
+  \item Da un ejemplo de una operación interna en un conjunto finito que no sea conmutativa.
+
+  \item Explica por qué \((\mathbb{Q},+)\) es un grupo abeliano.
+
+  \item Explica por qué \((\mathbb{Q}\setminus\{0\},\cdot)\) es un grupo abeliano.
+
+  \item Justifica por qué \(\mathbb{Z}\) es un anillo con unidad pero no es un cuerpo.
+
+  \item Busca un ejemplo de dos matrices reales \(2\times 2\), llamadas \(A\) y \(B\), tales que
+  \[
+    AB\neq BA.
+  \]
+\end{ejerciciospropuestos}
+
+\resumen{El capítulo introduce las primeras estructuras algebraicas a partir de la noción de operación interna. Las propiedades de asociatividad, conmutatividad, existencia de elemento neutro, existencia de inversos y distributividad permiten definir semigrupos, monoides, grupos, anillos y cuerpos. Estas estructuras proporcionan un lenguaje común para estudiar sistemas numéricos, matrices, aplicaciones y simetrías.}

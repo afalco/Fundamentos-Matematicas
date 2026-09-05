@@ -1,0 +1,184 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 15: Naturales e inducción
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 15]{Naturales e inducción}
+\subtitle{Principio de inducción, inducción fuerte y buen orden}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Fijar la convención \(\mathbb{N}=\{0,1,2,\ldots\}\).
+  \item Aplicar el principio de inducción.
+  \item Relacionar inducción fuerte y buen orden.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Naturales}
+
+\begin{frame}{Naturales}
+\begin{block}{Convención}
+\begin{itemize}
+  \item En este curso, \(\mathbb{N}=\{0,1,2,3,\ldots\}\).
+  \item Los naturales positivos se denotan por \(\mathbb{N}^{\ast}\).
+  \item La convención debe recordarse cuando el caso inicial importa.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Naturales}
+\begin{block}{Sucesor y orden}
+\begin{itemize}
+  \item El sucesor de \(n\) es \(n+1\).
+  \item El orden \(\leq\) en \(\mathbb{N}\) es total.
+  \item Todo subconjunto no vacío de \(\mathbb{N}\) tiene mínimo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Inducción}
+
+\begin{frame}{Inducción}
+\begin{block}{Principio de inducción}
+\begin{itemize}
+  \item Caso base: se prueba \(P(0)\).
+  \item Paso inductivo: se prueba que \(P(n)\Rightarrow P(n+1)\).
+  \item Conclusión: \(P(n)\) vale para todo \(n\in\mathbb{N}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Inducción}
+\begin{block}{Ejemplo modelo}
+\begin{itemize}
+  \item Para todo \(n\in\mathbb{N}\): \(0+1+\cdots+n=\frac{n(n+1)}{2}\).
+  \item El caso base es \(n=0\).
+  \item El paso inductivo añade \(n+1\) a ambos lados de la fórmula conocida.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Inducción}
+\begin{block}{Inducción fuerte}
+\begin{itemize}
+  \item En el paso inductivo se pueden usar todos los casos anteriores.
+  \item Es útil cuando \(P(n+1)\) depende de más de un caso previo.
+  \item No es más verdadera: es equivalente a la inducción ordinaria en \(\mathbb{N}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Cierre de FdM I}
+
+\begin{frame}{Cierre de FdM I}
+\begin{block}{Síntesis}
+\begin{itemize}
+  \item Lenguaje preciso.
+  \item Lógica y cuantificadores.
+  \item Conjuntos, aplicaciones y relaciones.
+  \item Estructuras algebraicas y razonamiento inductivo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Estructura de una prueba por inducción}
+\begin{itemize}
+  \item Nombrar la propiedad \(P(n)\).
+  \item Probar el caso base correspondiente.
+  \item Formular claramente la hipótesis inductiva.
+  \item Demostrar el caso siguiente y cerrar con el principio de inducción.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Inducción fuerte: cuándo aparece}
+\begin{itemize}
+  \item Problemas de descomposición.
+  \item Propiedades en las que el caso actual depende de varios casos anteriores.
+  \item Demostraciones relacionadas con factorización o algoritmos recursivos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Buen orden y mínimo contraejemplo}
+\begin{itemize}
+  \item Para probar una afirmación universal, se puede suponer que existe un contraejemplo.
+  \item Por buen orden, habría un contraejemplo mínimo.
+  \item Si se demuestra que ese mínimo no puede existir, queda probada la afirmación.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item La inducción es una herramienta de demostración, no una comprobación de ejemplos.
+  \item El caso base depende de la convención sobre \(\mathbb{N}\).
+  \item FdM I cierra con el lenguaje necesario para construir sistemas numéricos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

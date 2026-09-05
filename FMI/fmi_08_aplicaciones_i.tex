@@ -1,0 +1,170 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 08: Aplicaciones I
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 08]{Aplicaciones I}
+\subtitle{Correspondencias, funciones, dominio e imagen}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Distinguir correspondencias y aplicaciones.
+  \item Definir dominio, codominio, imagen e imagen recíproca.
+  \item Leer correctamente la notación \(f:A\to B\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{De correspondencias a aplicaciones}
+
+\begin{frame}{De correspondencias a aplicaciones}
+\begin{block}{Correspondencia}
+\begin{itemize}
+  \item Una correspondencia relaciona elementos de un conjunto con elementos de otro.
+  \item Puede dejar elementos sin imagen o asignar varias imágenes.
+  \item Es una noción más flexible que la de aplicación.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{De correspondencias a aplicaciones}
+\begin{block}{Aplicación}
+\begin{itemize}
+  \item Una aplicación \(f:A\to B\) asigna a cada \(a\in A\) un único elemento de \(B\).
+  \item \(A\) es el dominio y \(B\) es el codominio.
+  \item La unicidad de la imagen es parte de la definición.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{De correspondencias a aplicaciones}
+\begin{block}{Notación}
+\begin{itemize}
+  \item La expresión \(f(a)\) denota la imagen de \(a\).
+  \item No debe confundirse la aplicación \(f\) con el valor \(f(a)\).
+  \item El codominio forma parte de los datos de la aplicación.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Imagen e imagen recíproca}
+
+\begin{frame}{Imagen e imagen recíproca}
+\begin{block}{Imagen}
+\begin{itemize}
+  \item La imagen de \(f\) es \(\operatorname{Im}(f)=\{f(a):a\in A\}\).
+  \item Siempre se cumple \(\operatorname{Im}(f)\subseteq B\).
+  \item La imagen puede ser menor que el codominio.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Imagen e imagen recíproca}
+\begin{block}{Imagen recíproca}
+\begin{itemize}
+  \item Si \(C\subseteq B\), entonces \(f^{-1}(C)=\{a\in A:f(a)\in C\}\).
+  \item No requiere que \(f\) tenga aplicación inversa.
+  \item Es una operación sobre subconjuntos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Datos de una aplicación}
+\begin{itemize}
+  \item Una aplicación no queda determinada solo por una fórmula.
+  \item También importan el dominio y el codominio.
+  \item La misma regla puede definir aplicaciones con propiedades distintas si cambia el codominio.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Imagen e imagen recíproca}
+\begin{itemize}
+  \item La imagen de un subconjunto \(S\subseteq A\) contiene los valores \(f(s)\) con \(s\in S\).
+  \item La imagen recíproca de \(T\subseteq B\) contiene los elementos de \(A\) que llegan a \(T\).
+  \item La imagen recíproca está definida aunque \(f\) no sea biyectiva.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplo de aula}
+\begin{itemize}
+  \item Sea \(f:\mathbb{Z}\to\mathbb{Z}\), \(f(n)=n^2\).
+  \item La imagen no contiene números negativos.
+  \item La imagen recíproca de \(\{4\}\) es \(\{-2,2\}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Una aplicación exige existencia y unicidad de imagen.
+  \item Dominio y codominio son parte de la definición.
+  \item La imagen recíproca no es lo mismo que la inversa de una función.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

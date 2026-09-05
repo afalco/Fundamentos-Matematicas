@@ -1,0 +1,170 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 06: Conjuntos I
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 06]{Conjuntos I}
+\subtitle{Pertenencia, inclusión y operaciones básicas}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir conjuntos, elementos, pertenencia e inclusión.
+  \item Trabajar con unión, intersección, diferencia y complementario.
+  \item Relacionar operaciones de conjuntos con conectores lógicos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Conjuntos y elementos}
+
+\begin{frame}{Conjuntos y elementos}
+\begin{block}{Pertenencia}
+\begin{itemize}
+  \item Un conjunto agrupa objetos llamados elementos.
+  \item \(x\in A\) significa que \(x\) pertenece al conjunto \(A\).
+  \item \(x\notin A\) significa que \(x\) no pertenece a \(A\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Conjuntos y elementos}
+\begin{block}{Inclusión}
+\begin{itemize}
+  \item \(A\subseteq B\) significa que todo elemento de \(A\) pertenece a \(B\).
+  \item Para probar una inclusión, se toma \(x\in A\) y se demuestra \(x\in B\).
+  \item Para refutarla, se busca \(x\in A\) con \(x\notin B\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Conjuntos y elementos}
+\begin{block}{Conjunto vacío}
+\begin{itemize}
+  \item \(\varnothing\) es el conjunto que no tiene elementos.
+  \item Se cumple \(\varnothing\subseteq A\) para todo conjunto \(A\).
+  \item No debe confundirse \(\varnothing\) con \(\{\varnothing\}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Operaciones}
+
+\begin{frame}{Operaciones}
+\begin{block}{Unión e intersección}
+\begin{itemize}
+  \item \(A\cup B=\{x:x\in A\text{ o }x\in B\}\).
+  \item \(A\cap B=\{x:x\in A\text{ y }x\in B\}\).
+  \item La unión corresponde a ``o''; la intersección corresponde a ``y''.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Operaciones}
+\begin{block}{Diferencia y complementario}
+\begin{itemize}
+  \item \(A\setminus B=\{x:x\in A\text{ y }x\notin B\}\).
+  \item El complementario necesita un conjunto universal fijado.
+  \item Sin universo, el complementario no está completamente definido.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Demostrar una inclusión}
+\begin{itemize}
+  \item Para probar \(A\subseteq B\), se toma un elemento arbitrario \(x\in A\).
+  \item Se usa la definición de \(A\) para obtener información sobre \(x\).
+  \item Se prueba que \(x\in B\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Pertenencia frente a inclusión}
+\begin{itemize}
+  \item \(x\in A\) compara un objeto con un conjunto.
+  \item \(A\subseteq B\) compara dos conjuntos.
+  \item Confundir \(\in\) y \(\subseteq\) suele producir enunciados sin sentido.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Conectores y conjuntos}
+\begin{itemize}
+  \item \(x\in A\cap B\) equivale a \(x\in A\) y \(x\in B\).
+  \item \(x\in A\cup B\) equivale a \(x\in A\) o \(x\in B\).
+  \item \(x\in A\setminus B\) equivale a \(x\in A\) y \(x\notin B\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item La pertenencia habla de elementos; la inclusión habla de conjuntos.
+  \item Las operaciones conjuntistas traducen conectores lógicos.
+  \item La próxima clase se centra en producto cartesiano, partes y familias.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

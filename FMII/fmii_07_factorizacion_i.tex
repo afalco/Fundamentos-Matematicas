@@ -1,0 +1,194 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 07: Factorización en primos I
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 07]{Factorización en primos I}
+\subtitle{Existencia de la factorización}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Enunciar la existencia de factorización en primos.
+  \item Usar inducción o buen orden en la prueba.
+  \item Distinguir primos y compuestos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Factorización}
+
+\begin{frame}{Factorización}
+\begin{block}{Objetivo}
+\begin{itemize}
+  \item Todo entero \(n>1\) puede escribirse como producto de números primos.
+  \item La escritura puede tener un solo factor si \(n\) ya es primo.
+  \item La existencia es la primera mitad del Teorema Fundamental de la Aritmética.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Factorización}
+\begin{block}{Idea de prueba}
+\begin{itemize}
+  \item Si \(n\) es primo, ya está factorizado.
+  \item Si \(n\) es compuesto, entonces \(n=ab\) con \(1<a<n\) y \(1<b<n\).
+  \item Se aplica inducción a \(a\) y \(b\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Factorización}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item \(84=2\cdot 42=2\cdot 2\cdot 21=2^2\cdot 3\cdot 7\).
+  \item El proceso termina porque los factores disminuyen.
+  \item La descomposición final contiene solo primos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Herramientas}
+
+\begin{frame}{Herramientas}
+\begin{block}{Inducción fuerte}
+\begin{itemize}
+  \item La existencia de factorización es un ejemplo natural de inducción fuerte.
+  \item Para factorizar \(n\), puede ser necesario conocer factorizaciones de varios menores que \(n\).
+  \item El buen orden ofrece una prueba alternativa por mínimo contraejemplo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Herramientas}
+\begin{block}{Papel del número 1}
+\begin{itemize}
+  \item El \(1\) no es primo.
+  \item Si lo fuera, la factorización no sería única.
+  \item Por ejemplo, \(6=2\cdot 3=1\cdot 2\cdot 3=1^2\cdot 2\cdot 3\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Mínimo contraejemplo}
+\begin{itemize}
+  \item Supongamos que existe un entero \(>1\) sin factorización.
+  \item Por buen orden, existe uno mínimo, \(m\).
+  \item Si \(m\) es compuesto, sus factores menores sí factorizan, contradicción.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Práctica}
+\begin{itemize}
+  \item Descomponer \(126\).
+  \item Descomponer \(360\).
+  \item Explicar en cada paso por qué el proceso termina.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Control}
+\begin{itemize}
+  \item ¿Dónde se usa que los factores son menores que \(n\)?
+  \item ¿Por qué no basta encontrar una descomposición cualquiera?
+  \item ¿Qué falta todavía para el teorema completo?
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Primos y compuestos}
+\begin{itemize}
+  \item Un entero \(p>1\) es primo si sus únicos divisores positivos son \(1\) y \(p\).
+  \item Un entero \(n>1\) es compuesto si admite un divisor positivo distinto de \(1\) y \(n\).
+  \item Para probar que \(n\) es compuesto basta exhibir una factorización no trivial.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Clasificar \(29\), \(51\), \(91\) y \(97\) como primos o compuestos.
+  \item Justificar por qué basta probar divisores primos \(\leq \sqrt{n}\).
+  \item Explicar por qué \(1\) no se considera primo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item La existencia se prueba naturalmente por inducción fuerte.
+  \item El número \(1\) queda excluido de los primos.
+  \item Aún falta demostrar la unicidad.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

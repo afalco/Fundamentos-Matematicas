@@ -1,0 +1,470 @@
+% ============================================================================
+% Capítulo 1
+% Fundamentos de Matemáticas I
+% Fichero independiente para incluir con: \input{capitulo1.tex}
+% ============================================================================
+
+\chapter{El lenguaje de las matemáticas}
+\label{chap:lenguaje-matematicas}
+
+\begin{objetivos}
+  \item Comprender la diferencia entre lenguaje natural y lenguaje matemático.
+  \item Identificar definiciones, enunciados, ejemplos, contraejemplos y demostraciones.
+  \item Reconocer que cada símbolo relevante debe ser definido antes de utilizarse.
+  \item Distinguir entre calcular, justificar, argumentar y demostrar.
+\end{objetivos}
+
+\section{Motivación}
+\label{sec:motivacion-lenguaje}
+
+Este capítulo tiene como finalidad introducir el modo en que se escribe, se lee y se razona en matemáticas. No se trata todavía de desarrollar una teoría específica, sino de fijar las reglas básicas del lenguaje matemático que se utilizarán durante todo el curso.
+
+En matemáticas no basta con tener una intuición correcta. También es necesario expresar esa intuición mediante un lenguaje preciso. Una misma frase del lenguaje natural puede admitir varias interpretaciones, mientras que una afirmación matemática debe tener un significado claramente determinado dentro del contexto en el que aparece.
+
+Por ejemplo, la frase ``un número grande'' no tiene un significado matemático preciso si no se especifica qué se entiende por número, respecto de qué comparación se considera grande y en qué conjunto se está trabajando. En cambio, la afirmación
+\[
+  n > 10,
+\]
+tiene un significado preciso si previamente se ha indicado que \(n\) es un número natural, que \(10\) es el número natural diez y que el símbolo \(>\) denota la relación usual de orden en el conjunto de los números naturales.
+
+Esta observación conduce a una regla fundamental del curso:
+
+\begin{convencion}[Principio de definición previa]
+Todo símbolo relevante debe definirse antes de utilizarse.
+\end{convencion}
+
+Este principio no es una exigencia meramente formal. Es una condición necesaria para que un texto matemático sea comprensible, verificable y riguroso. Durante el curso se insistirá de forma sistemática en la identificación de símbolos no definidos, en la escritura correcta de definiciones y en la formulación precisa de enunciados.
+
+\section{Lenguaje natural y lenguaje matemático}
+\label{sec:lenguaje-natural-matematico}
+
+El lenguaje natural es el lenguaje que utilizamos habitualmente para comunicarnos. Es flexible, admite matices, depende del contexto y puede contener ambigüedades. Esta flexibilidad es útil en la comunicación ordinaria, pero puede ser problemática en matemáticas.
+
+El lenguaje matemático, en cambio, busca reducir la ambigüedad. Para ello utiliza símbolos, definiciones, reglas lógicas y convenciones de notación. Su finalidad no es sustituir por completo al lenguaje natural, sino complementarlo con una estructura precisa.
+
+\begin{definicion}[Lenguaje matemático]
+Llamaremos \emph{lenguaje matemático} al sistema formado por palabras, símbolos, reglas de escritura y reglas de interpretación que se emplean para definir objetos matemáticos, formular enunciados y construir demostraciones.
+\end{definicion}
+
+El lenguaje matemático combina dos componentes:
+
+\begin{itemize}
+  \item una parte verbal, escrita en lenguaje natural;
+  \item una parte simbólica, formada por signos matemáticos como \(=\), \(<\), \(\in\), \(\subseteq\), \(+\), \(\forall\), \(\exists\), entre otros.
+\end{itemize}
+
+Ninguna de estas partes debe aparecer de manera aislada. Un texto matemático correcto debe explicar qué significan los símbolos que utiliza y debe emplear las palabras con un sentido compatible con las definiciones dadas.
+
+\begin{ejemplo}[Ambigüedad en lenguaje natural]
+La frase ``todos los números tienen un siguiente'' puede interpretarse de varias formas. Para que sea una afirmación matemática precisa, debemos indicar el conjunto de números al que nos referimos.
+
+Si trabajamos en el conjunto \(\mathbb{N}\) de los números naturales, y si por ``siguiente'' entendemos el número obtenido al sumar \(1\), entonces la afirmación puede escribirse como:
+\[
+  \text{para todo } n\in \mathbb{N}, \text{ existe } m\in \mathbb{N} \text{ tal que } m=n+1.
+\]
+En esta formulación aparecen símbolos como \(\mathbb{N}\), \(\in\), \(m\), \(n\), \(+\) y \(=\), cuyo significado debe haber sido definido o aceptado previamente como parte de la notación del curso.
+\end{ejemplo}
+
+\begin{advertencia}
+Una expresión simbólica no es necesariamente más rigurosa por el simple hecho de contener símbolos. Una fórmula con símbolos no definidos puede ser menos clara que una frase escrita cuidadosamente en lenguaje natural.
+\end{advertencia}
+
+% --------------------------------------------------------------
+%  Bloque nuevo: Perspectiva histórica y formal del lenguaje
+% --------------------------------------------------------------
+
+\section{Perspectiva histórica y formal del lenguaje}
+\label{sec:perspectiva-bourbaki}
+
+Bourbaki, en su obra \emph{Éléments de mathématique}~\cite{bourbaki1970},
+remarca que la matemática, desde los griegos, se caracteriza por la
+\textbf{demostración rigurosa}.  Una de sus observaciones más importantes es:
+
+\begin{quote}
+  « … el armazón lógico de cada capítulo está constituido por definiciones,
+  axiomas y teoremas.  El lenguaje debe ser rigurosamente correcto;
+  los abusos de lenguaje o de notación, sin los cuales cualquier texto
+  matemático se vuelve pedante e ilegible, han sido señalados. »
+  \hfill \textit{(Éléments de mathématique, p.~6)}
+\end{quote}
+
+A partir de esta reflexión, Bourbaki extrae dos principios que encajan
+perfectamente con los que hemos adoptado en el curso:
+
+\begin{convencion}[Principio de definición previa (Bourbaki)]
+  Todo símbolo relevante debe definirse antes de utilizarse.
+  Este principio asegura que el lector pueda reconstruir el sentido de
+  cada paso sin ambigüedades.
+\end{convencion}
+
+\begin{convencion}[Método axiomático]
+  La escritura de un texto matemático debe seguir el esquema
+  ``definiciones → axiomas → teoremas''; de esta forma el texto es
+  \emph{fácil de formalizar}.
+\end{convencion}
+
+\begin{cita}
+  « La verificación de un texto formalizado sólo requiere una atención en
+  cierto modo mecánica; las únicas fuentes de error provienen de la
+  longitud o la complejidad del texto. » 
+  \hfill \textit{(Éléments de mathématique, p.~8)}
+\end{cita}
+
+Estos principios refuerzan la \hyperref[sec:lenguaje-natural-matematico]{sección~\ref*{sec:lenguaje-natural-matematico}}:
+el lenguaje natural sirve de base, pero la exactitud sólo se consigue
+cuando cada símbolo y cada regla están claramente especificados.
+
+
+\section{Objetos, símbolos y significado}
+\label{sec:objetos-simbolos-significado}
+
+La matemática estudia objetos. Estos objetos pueden ser números, puntos, conjuntos, funciones, relaciones, matrices, espacios, grafos u otras estructuras. Para referirnos a ellos utilizamos símbolos.
+
+\begin{definicion}[Objeto matemático]
+Un \emph{objeto matemático} es una entidad definida dentro de un contexto matemático. Puede ser un número, un conjunto, una función, una relación, una operación o una estructura formada por varios objetos relacionados entre sí.
+\end{definicion}
+
+\begin{definicion}[Símbolo]
+Un \emph{símbolo} es un signo que se utiliza para representar un objeto, una relación, una operación o una propiedad matemática.
+\end{definicion}
+
+Por ejemplo, en la expresión
+\[
+  x \in A,
+\]
+el símbolo \(x\) suele representar un objeto, el símbolo \(A\) suele representar un conjunto y el símbolo \(\in\) representa la relación de pertenencia. La expresión se lee: ``\(x\) pertenece a \(A\)''.
+
+Sin embargo, esta lectura solo es legítima si antes se ha explicado qué representa \(x\), qué representa \(A\) y qué significa \(\in\). Por esta razón adoptamos la siguiente convención.
+
+\begin{convencion}[Definición previa de los símbolos]
+Siempre que se introduzca un símbolo nuevo, se indicará explícitamente qué objeto representa. Por ejemplo, antes de escribir una expresión como \(x\in A\), se deberá haber explicado qué es \(x\), qué es \(A\) y qué significa la relación \(\in\).
+\end{convencion}
+
+\begin{ejemplo}[Introducción correcta de símbolos]
+Una forma correcta de introducir la expresión \(x\in A\) es la siguiente:
+
+Sea \(A\) un conjunto y sea \(x\) un objeto. Escribiremos \(x\in A\) para indicar que \(x\) pertenece al conjunto \(A\).
+\end{ejemplo}
+
+\begin{ejemplo}[Uso incorrecto de símbolos]
+La frase siguiente no es adecuada al comienzo de un texto:
+\[
+  x\in A \Rightarrow x\in B.
+\]
+No se ha indicado qué son \(A\), \(B\), \(x\), ni qué significa el símbolo \(\Rightarrow\). Aunque un lector experto pueda adivinar la intención, el texto no cumple el principio de definición previa.
+\end{ejemplo}
+
+\subsection{Variables y constantes}
+\label{subsec:variables-constantes}
+
+En matemáticas es importante distinguir entre símbolos que representan objetos fijos y símbolos que pueden representar objetos variables.
+
+\begin{definicion}[Variable]
+Una \emph{variable} es un símbolo que puede representar distintos objetos dentro de un conjunto o contexto previamente especificado.
+\end{definicion}
+
+\begin{definicion}[Constante]
+Una \emph{constante} es un símbolo que representa un objeto fijo dentro del contexto considerado.
+\end{definicion}
+
+Por ejemplo, si escribimos ``sea \(n\in \mathbb{N}\)'', el símbolo \(n\) se utiliza como variable que representa un número natural arbitrario. En cambio, el símbolo \(0\), una vez definido, representa un número natural concreto.
+
+\begin{advertencia}
+El mismo símbolo puede tener significados distintos en textos distintos. Por ejemplo, \(n\) puede representar un número natural en un problema, una dimensión en otro y un índice en otro. Por eso es necesario declarar su significado cada vez que se inicia un nuevo contexto.
+\end{advertencia}
+
+\section{Definiciones matemáticas}
+\label{sec:definiciones-matematicas}
+
+Una definición introduce un objeto, una propiedad o una relación. En matemáticas, definir no significa describir de manera aproximada, sino fijar con precisión el significado de un término o símbolo.
+
+\begin{definicion}[Definición matemática]
+Una \emph{definición matemática} es una declaración que asigna un significado preciso a un término, símbolo, objeto, propiedad o relación dentro de un contexto determinado.
+\end{definicion}
+
+Las definiciones son acuerdos de significado. No son verdaderas ni falsas en el mismo sentido que un teorema. Una vez aceptada una definición, podemos utilizarla para formular enunciados y demostrar resultados.
+
+\begin{ejemplo}[Definición de número par]
+Sea \(n\) un número entero. Diremos que \(n\) es \emph{par} si existe un número entero \(k\) tal que
+\[
+  n = 2k.
+\]
+En esta definición se debe haber indicado previamente qué es un número entero y qué significan los símbolos \(=\), \(2\) y el producto \(2k\).
+\end{ejemplo}
+
+\begin{ejemplo}[Definición de subconjunto]
+Sean \(A\) y \(B\) dos conjuntos. Diremos que \(A\) es un \emph{subconjunto} de \(B\), y escribiremos
+\[
+  A\subseteq B,
+\]
+si todo elemento de \(A\) es también un elemento de \(B\).
+\end{ejemplo}
+
+Una buena definición debe cumplir varias condiciones:
+
+\begin{itemize}
+  \item debe indicar el contexto en el que se trabaja;
+  \item debe introducir claramente los símbolos nuevos;
+  \item debe evitar circularidades;
+  \item debe permitir decidir, al menos en los casos básicos, si un objeto satisface o no la propiedad definida;
+  \item debe ser compatible con el uso posterior que se hará del concepto.
+\end{itemize}
+
+\begin{advertencia}[Definiciones circulares]
+Una definición es circular cuando utiliza el término que pretende definir. Por ejemplo, decir que ``un conjunto finito es un conjunto que tiene finitos elementos'' no es una definición satisfactoria si no se ha definido antes qué significa ``finito''.
+\end{advertencia}
+
+\section{Enunciados matemáticos}
+\label{sec:enunciados-matematicos}
+
+No toda frase que contiene palabras matemáticas es un enunciado matemático. Para que una frase sea un enunciado matemático debe afirmar algo susceptible de ser verdadero o falso dentro de un contexto determinado.
+
+\begin{definicion}[Enunciado matemático]
+Un \emph{enunciado matemático} es una afirmación formulada con precisión que, dentro de un contexto matemático dado, tiene un valor de verdad: verdadero o falso.
+\end{definicion}
+
+\begin{ejemplo}[Enunciados matemáticos]
+Las siguientes frases son enunciados matemáticos, siempre que se hayan definido los símbolos implicados:
+\begin{enumerate}
+  \item El número \(2\) es par.
+  \item Para todo número natural \(n\), se cumple \(n+1>n\).
+  \item Existe un número entero \(k\) tal que \(k^2=4\).
+\end{enumerate}
+\end{ejemplo}
+
+\begin{ejemplo}[Frases que no son enunciados matemáticos]
+Las siguientes frases no son enunciados matemáticos en sentido estricto:
+\begin{enumerate}
+  \item ``Calcula \(2+3\)''. Es una orden, no una afirmación.
+  \item ``\(x+1\)''. Es una expresión, no una afirmación.
+  \item ``Los números son interesantes''. Es una valoración, no una afirmación matemática precisa.
+\end{enumerate}
+\end{ejemplo}
+
+Los enunciados matemáticos pueden adoptar distintas formas. Algunas de las más frecuentes son:
+
+\begin{itemize}
+  \item afirmaciones universales: ``para todo objeto se cumple una propiedad'';
+  \item afirmaciones existenciales: ``existe al menos un objeto que cumple una propiedad'';
+  \item implicaciones: ``si se cumple una hipótesis, entonces se cumple una conclusión'';
+  \item equivalencias: ``una propiedad se cumple si y solo si se cumple otra''.
+\end{itemize}
+
+\begin{advertencia}
+En capítulos posteriores se estudiarán con detalle los conectores lógicos y los cuantificadores. En este capítulo basta con comprender que la forma lógica de un enunciado influye en el tipo de demostración que se debe realizar.
+\end{advertencia}
+
+\section{Ejemplos y contraejemplos}
+\label{sec:ejemplos-contraejemplos}
+
+Los ejemplos y contraejemplos son herramientas esenciales para comprender una definición y para analizar la validez de un enunciado.
+
+\begin{definicion}[Ejemplo]
+Un \emph{ejemplo} de una definición o propiedad es un objeto concreto que satisface dicha definición o propiedad.
+\end{definicion}
+
+\begin{definicion}[Contraejemplo]
+Un \emph{contraejemplo} a un enunciado universal es un objeto concreto que cumple las hipótesis del enunciado pero no cumple su conclusión.
+\end{definicion}
+
+\begin{ejemplo}[Ejemplo de número par]
+El número \(8\) es par, porque existe un número entero \(k\), concretamente \(k=4\), tal que
+\[
+  8 = 2k.
+\]
+\end{ejemplo}
+
+\begin{ejemplo}[Contraejemplo]
+Considérese la afirmación:
+
+``Todo número entero positivo es par''.
+
+Esta afirmación es falsa. Un contraejemplo es el número \(3\), porque \(3\) es un número entero positivo y no existe ningún número entero \(k\) tal que \(3=2k\).
+\end{ejemplo}
+
+Un solo contraejemplo basta para demostrar que un enunciado universal es falso. En cambio, muchos ejemplos no bastan para demostrar que un enunciado universal es verdadero.
+
+\begin{advertencia}
+Comprobar muchos casos particulares puede sugerir que una afirmación es verdadera, pero no constituye una demostración general. La matemática exige justificar por qué el resultado se cumple en todos los casos contemplados por el enunciado.
+\end{advertencia}
+
+\section{Demostrar y calcular}
+\label{sec:demostrar-calcular}
+
+Una parte importante del aprendizaje matemático consiste en distinguir entre calcular, justificar, argumentar y demostrar. Estas actividades están relacionadas, pero no son equivalentes.
+
+\begin{definicion}[Cálculo]
+Un \emph{cálculo} es una manipulación de expresiones mediante reglas previamente aceptadas, con el fin de obtener un resultado concreto.
+\end{definicion}
+
+\begin{definicion}[Justificación]
+Una \emph{justificación} es una explicación que indica por qué un paso, una afirmación o un cálculo es válido.
+\end{definicion}
+
+\begin{definicion}[Argumento]
+Un \emph{argumento} es una cadena de razones que pretende apoyar una conclusión.
+\end{definicion}
+
+\begin{definicion}[Demostración]
+Una \emph{demostración} es un argumento matemático completo y riguroso que establece la verdad de un enunciado a partir de definiciones, resultados previamente demostrados y reglas lógicas aceptadas.
+\end{definicion}
+
+\begin{ejemplo}[Cálculo sin demostración]
+La igualdad
+\[
+  2+3=5
+\]
+es un cálculo elemental. Pero si el objetivo fuera demostrar una propiedad general, por ejemplo
+\[
+  n+0=n \quad \text{para todo } n\in\mathbb{N},
+\]
+no bastaría con comprobar algunos casos particulares como \(1+0=1\), \(2+0=2\) y \(3+0=3\). Sería necesario dar una demostración general.
+\end{ejemplo}
+
+\begin{ejemplo}[Demostración sencilla]
+Demostremos que la suma de dos números pares es par.
+
+Sean \(a\) y \(b\) dos números enteros pares. Por definición de número par, existen dos números enteros \(r\) y \(s\) tales que
+\[
+  a=2r
+  \quad \text{y} \quad
+  b=2s.
+\]
+Entonces
+\[
+  a+b = 2r+2s = 2(r+s).
+\]
+Como \(r+s\) es un número entero, se deduce que \(a+b\) es par. Por tanto, la suma de dos números pares es par.
+\end{ejemplo}
+
+En esta demostración se observa una estructura típica:
+
+\begin{enumerate}
+  \item se declaran los objetos con los que se trabaja;
+  \item se usan las definiciones pertinentes;
+  \item se realiza un cálculo justificado;
+  \item se interpreta el resultado obtenido;
+  \item se formula la conclusión.
+\end{enumerate}
+
+\begin{convencion}[Estructura básica de una demostración]
+Siempre que sea posible, una demostración deberá indicar explícitamente qué se supone, qué se quiere probar, qué definiciones se utilizan y cómo se obtiene la conclusión.
+\end{convencion}
+
+\section{Lectura y escritura de textos matemáticos}
+\label{sec:lectura-escritura-textos}
+
+Leer matemáticas no consiste únicamente en pasar la vista por una sucesión de símbolos. Es necesario reconstruir el significado de cada frase, comprobar qué objetos han sido definidos y entender qué papel desempeña cada hipótesis.
+
+Al leer un texto matemático conviene hacerse las siguientes preguntas:
+
+\begin{itemize}
+  \item ¿Cuál es el contexto en el que se trabaja?
+  \item ¿Qué objetos se han definido?
+  \item ¿Qué símbolos aparecen y qué significa cada uno?
+  \item ¿Cuál es la afirmación principal?
+  \item ¿Qué hipótesis se utilizan?
+  \item ¿Qué se quiere demostrar?
+  \item ¿Qué definiciones o resultados previos se están aplicando?
+\end{itemize}
+
+Escribir matemáticas exige el mismo cuidado. Un texto matemático debe ser legible, preciso y ordenado. La claridad no está reñida con el rigor; al contrario, el rigor suele exigir claridad.
+
+\subsection{Plantilla básica para escribir una demostración}
+\label{subsec:plantilla-demostracion}
+
+Una demostración elemental puede organizarse de acuerdo con la siguiente plantilla:
+
+\begin{enumerate}
+  \item \textbf{Declaración de objetos.} Indicar qué objetos se consideran y en qué conjunto o contexto viven.
+  \item \textbf{Hipótesis.} Escribir con precisión qué se supone.
+  \item \textbf{Objetivo.} Indicar qué se quiere probar.
+  \item \textbf{Uso de definiciones.} Traducir las hipótesis mediante las definiciones correspondientes.
+  \item \textbf{Desarrollo.} Encadenar igualdades, implicaciones o argumentos justificados.
+  \item \textbf{Conclusión.} Explicar por qué lo obtenido prueba exactamente lo que se quería demostrar.
+\end{enumerate}
+
+\begin{ejemplo}[Reescritura rigurosa de un enunciado]
+La frase ``si un número acaba en cero, entonces es divisible'' es ambigua. No se especifica qué tipo de número se considera ni por qué número debe ser divisible.
+
+Una formulación más precisa sería:
+
+Sea \(n\) un número entero escrito en base decimal. Si la última cifra decimal de \(n\) es \(0\), entonces \(n\) es divisible por \(10\).
+\end{ejemplo}
+
+\begin{advertencia}[Símbolos introducidos demasiado tarde]
+No es recomendable escribir primero una fórmula y explicar después qué significan sus símbolos. En un texto bien organizado, los símbolos relevantes se presentan antes de ser utilizados.
+\end{advertencia}
+
+\section{Errores frecuentes}
+\label{sec:errores-frecuentes-lenguaje}
+
+En los primeros cursos universitarios aparecen algunos errores recurrentes relacionados con el lenguaje matemático. Conviene identificarlos desde el principio.
+
+\begin{enumerate}
+  \item \textbf{Usar símbolos sin definirlos.} Por ejemplo, escribir \(x\in A\) sin haber explicado qué son \(x\), \(A\) y \(\in\).
+
+  \item \textbf{Confundir ejemplo con demostración.} Verificar un resultado para varios casos particulares no demuestra que sea verdadero en general.
+
+  \item \textbf{Confundir definición con teorema.} Una definición introduce significado; un teorema afirma algo que debe demostrarse.
+
+  \item \textbf{Omitir el contexto.} No es lo mismo trabajar en \(\mathbb{N}\), en \(\mathbb{Z}\), en \(\mathbb{Q}\), en \(\mathbb{R}\) o en \(\mathbb{C}\).
+
+  \item \textbf{Utilizar flechas de manera imprecisa.} Símbolos como \(\Rightarrow\), \(\Leftrightarrow\) o \(\mapsto\) tienen significados concretos y no deben utilizarse como simples signos decorativos.
+
+  \item \textbf{No distinguir entre objeto y propiedad.} Por ejemplo, un número puede tener la propiedad de ser par, pero ``ser par'' no es un número.
+
+  \item \textbf{No cerrar la demostración.} Una demostración debe terminar indicando claramente que se ha probado la afirmación deseada.
+\end{enumerate}
+
+\begin{convencion}[Control de calidad de un texto matemático]
+Antes de dar por correcto un texto matemático, comprobaremos que todos los símbolos relevantes han sido definidos, que las afirmaciones tienen sentido en el contexto fijado y que cada conclusión está justificada.
+\end{convencion}
+
+\begin{seminario}
+  \item Identificación de símbolos no definidos en textos matemáticos breves.
+  \item Reescritura rigurosa de enunciados ambiguos.
+  \item Construcción de ejemplos y contraejemplos elementales.
+  \item Distinción entre definición, enunciado, ejemplo, contraejemplo y demostración.
+  \item Discusión de demostraciones incompletas y detección de pasos no justificados.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Localiza en un texto matemático breve todos los símbolos que aparecen y escribe una lista con su significado.
+
+  \item Escribe tres ejemplos de afirmaciones matemáticas y tres ejemplos de frases que no sean enunciados matemáticos.
+
+  \item Reescribe de forma rigurosa las siguientes frases:
+  \begin{enumerate}
+    \item ``Todo número tiene un siguiente.''
+    \item ``Si un número es grande, su cuadrado también lo es.''
+    \item ``Los números negativos al multiplicarse dan positivo.''
+  \end{enumerate}
+
+  \item Indica cuáles de las siguientes frases son definiciones, cuáles son enunciados y cuáles no son afirmaciones matemáticas:
+  \begin{enumerate}
+    \item ``Un número entero \(n\) es par si existe un entero \(k\) tal que \(n=2k\).''
+    \item ``Todo número primo mayor que \(2\) es impar.''
+    \item ``Calcula \(7+5\).''
+    \item ``Sea \(A\) un conjunto.''
+  \end{enumerate}
+
+  \item Da un contraejemplo para cada una de las siguientes afirmaciones falsas:
+  \begin{enumerate}
+    \item Todo número entero es positivo.
+    \item Todo número impar es primo.
+    \item Si \(a^2=b^2\), entonces \(a=b\), donde \(a\) y \(b\) son números enteros.
+  \end{enumerate}
+
+  \item Explica por qué comprobar que \(1+3\), \(3+5\) y \(5+7\) son números pares no demuestra por sí solo que la suma de dos números impares cualesquiera sea par.
+
+  \item Escribe una demostración completa de la siguiente afirmación: la suma de dos números impares es par. Antes de empezar, define qué significa que un número entero sea impar.
+
+  \item Revisa una solución propia de un ejercicio matemático e identifica todos los símbolos que has utilizado. Comprueba si cada uno de ellos ha sido definido antes de aparecer.
+\end{ejerciciospropuestos}
+
+\resumen{El capítulo introduce la disciplina básica de escritura matemática: ningún símbolo relevante debe aparecer sin haber sido previamente definido. Se ha distinguido entre lenguaje natural y lenguaje matemático, entre definición y enunciado, entre ejemplo y contraejemplo, y entre cálculo, justificación, argumento y demostración. Esta disciplina de precisión será la base de todos los capítulos posteriores.}
+
+% ============================================================================
+% Fin del Capítulo 1
+% ============================================================================

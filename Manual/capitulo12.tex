@@ -1,0 +1,323 @@
+\chapter{Los n\'umeros reales}
+
+\begin{objetivos}
+  \item Explicar por qu\'e los n\'umeros racionales no son suficientes.
+  \item Introducir los n\'umeros reales como sistema num\'erico completo.
+  \item Estudiar intervalos, valor absoluto y distancia.
+  \item Presentar las nociones de supremo e \'infimo.
+\end{objetivos}
+
+\section{La insuficiencia de los racionales}
+
+En el cap\'itulo anterior se introdujo el conjunto de los n\'umeros racionales, denotado por
+\(\mathbb{Q}\). Sus elementos pueden escribirse en forma de fracci\'on
+\[
+  \frac{a}{b},
+\]
+donde \(a\in \mathbb{Z}\), \(b\in \mathbb{Z}\) y \(b\neq 0\). El conjunto \(\mathbb{Q}\) permite sumar, restar, multiplicar y dividir por n\'umeros no nulos. Adem\'as, est\'a ordenado y es denso: entre dos racionales distintos siempre existe otro racional.
+
+Sin embargo, los racionales no bastan para resolver todos los problemas num\'ericos que aparecen de forma natural. Por ejemplo, la longitud de la diagonal de un cuadrado de lado \(1\) no puede expresarse mediante un n\'umero racional.
+
+\begin{ejemplo}[La diagonal del cuadrado unidad]
+Sea un cuadrado de lado \(1\). Por el teorema de Pit\'agoras, si \(d\) denota la longitud de su diagonal, entonces
+\[
+  d^2=1^2+1^2=2.
+\]
+Por tanto, \(d\) deber\'ia ser un n\'umero positivo cuyo cuadrado sea \(2\). Ese n\'umero se denota por \(\sqrt{2}\). Pero \(\sqrt{2}\notin\mathbb{Q}\).
+\end{ejemplo}
+
+La existencia de magnitudes como \(\sqrt{2}\) muestra que \(\mathbb{Q}\) tiene huecos. Es decir, aunque los racionales sean densos, no llenan toda la recta num\'erica.
+
+\begin{advertencia}
+La densidad de \(\mathbb{Q}\) no significa que \(\mathbb{Q}\) contenga todos los n\'umeros necesarios para medir longitudes. Significa solamente que entre dos racionales distintos siempre hay otro racional.
+\end{advertencia}
+
+\section{N\'umeros irracionales}
+
+Un n\'umero irracional es un n\'umero que no puede escribirse como cociente de dos enteros con denominador no nulo.
+
+\begin{definicion}[N\'umero irracional]
+Un n\'umero real \(x\) se llama \emph{irracional} si no pertenece a \(\mathbb{Q}\). Es decir, \(x\) es irracional si no existen enteros \(a,b\in\mathbb{Z}\), con \(b\neq 0\), tales que
+\[
+  x=\frac{a}{b}.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Los n\'umeros
+\[
+  \sqrt{2},\qquad \sqrt{3},\qquad \pi,
+\]
+son ejemplos de n\'umeros irracionales.
+\end{ejemplo}
+
+En este curso no se desarrollar\'a una construcci\'on formal completa de todos los n\'umeros irracionales, pero s\'i se usar\'a la idea fundamental: los n\'umeros reales completan a los racionales a\~nadiendo los puntos que faltan en la recta num\'erica. Desde el punto de vista estructural, trabajaremos con \(\mathbb{R}\) como un cuerpo ordenado completo.
+
+\section{El conjunto de los n\'umeros reales}
+
+El conjunto de los n\'umeros reales se denota por \(\mathbb{R}\). Contiene a los n\'umeros racionales y tambi\'en a los n\'umeros irracionales.
+
+\begin{definicion}[Conjunto de los n\'umeros reales]
+El conjunto de los n\'umeros reales, denotado por \(\mathbb{R}\), es el sistema num\'erico que contiene a \(\mathbb{Q}\), incorpora los n\'umeros irracionales y permite representar de forma continua los puntos de la recta num\'erica.
+\end{definicion}
+
+Se tiene la inclusi\'on
+\[
+  \mathbb{Q}\subset \mathbb{R}.
+\]
+Esto significa que todo n\'umero racional es tambi\'en un n\'umero real. Sin embargo, no todo n\'umero real es racional.
+
+\begin{ejemplo}
+El n\'umero \(3/5\) es racional y, por tanto, real. El n\'umero \(\sqrt{2}\) no es racional, pero s\'i es real.
+\end{ejemplo}
+
+Los n\'umeros reales se representan geom\'etricamente mediante la recta real. Cada punto de la recta real corresponde a un n\'umero real, y cada n\'umero real corresponde a un punto de la recta.
+
+\section{Orden y completitud}
+
+El conjunto \(\mathbb{R}\) est\'a ordenado. Esto significa que, dados dos n\'umeros reales \(x\) e \(y\), tiene sentido comparar si
+\[
+  x<y,\qquad x=y,\qquad \text{o}\qquad x>y.
+\]
+
+\begin{definicion}[Orden en \(\mathbb{R}\)]
+Sean \(x,y\in\mathbb{R}\). Escribimos \(x<y\) si \(x\) es menor que \(y\), y escribimos \(x\leq y\) si \(x<y\) o \(x=y\).
+\end{definicion}
+
+El orden de \(\mathbb{R}\) es compatible con la suma y con el producto por n\'umeros positivos.
+
+\begin{proposicion}[Compatibilidad del orden]
+Sean \(x,y,z\in\mathbb{R}\).
+\begin{enumerate}
+  \item Si \(x\leq y\), entonces \(x+z\leq y+z\).
+  \item Si \(x\leq y\) y \(z\geq 0\), entonces \(xz\leq yz\).
+\end{enumerate}
+\end{proposicion}
+
+La propiedad que distingue de forma esencial a los reales de los racionales es la completitud.
+
+\begin{definicion}[Idea de completitud]
+Decimos, de manera intuitiva, que \(\mathbb{R}\) es completo porque no tiene huecos: toda colecci\'on no vac\'ia de n\'umeros reales que est\'a acotada superiormente posee una menor cota superior en \(\mathbb{R}\).
+\end{definicion}
+
+La formulaci\'on anterior contiene t\'erminos que se precisar\'an m\'as adelante: conjunto no vac\'io, cota superior y menor cota superior. Esta menor cota superior recibe el nombre de supremo.
+
+\begin{advertencia}
+La completitud no significa que entre dos reales haya solamente un n\'umero, sino precisamente lo contrario: entre dos reales distintos hay infinitos n\'umeros reales. La completitud significa que la recta real no presenta huecos.
+\end{advertencia}
+
+\section{Intervalos}
+
+Los intervalos son subconjuntos de \(\mathbb{R}\) definidos mediante desigualdades. Antes de usarlos, fijamos la notaci\'on.
+
+\begin{definicion}[Intervalos abiertos y cerrados]
+Sean \(a,b\in\mathbb{R}\) con \(a<b\).
+\begin{enumerate}
+  \item El intervalo abierto entre \(a\) y \(b\) es
+  \[
+    (a,b)=\{x\in\mathbb{R}: a<x<b\}.
+  \]
+  \item El intervalo cerrado entre \(a\) y \(b\) es
+  \[
+    [a,b]=\{x\in\mathbb{R}: a\leq x\leq b\}.
+  \]
+  \item Los intervalos semiabiertos o semicerrados son
+  \[
+    (a,b]=\{x\in\mathbb{R}: a<x\leq b\},
+  \]
+  y
+  \[
+    [a,b)=\{x\in\mathbb{R}: a\leq x<b\}.
+  \]
+\end{enumerate}
+\end{definicion}
+
+\begin{ejemplo}
+El intervalo \((1,4)\) contiene todos los reales mayores que \(1\) y menores que \(4\). No contiene ni al \(1\) ni al \(4\).
+
+El intervalo \([1,4]\) contiene todos los reales mayores o iguales que \(1\) y menores o iguales que \(4\). S\'i contiene a sus extremos.
+\end{ejemplo}
+
+Tambi\'en se usan intervalos no acotados.
+
+\begin{definicion}[Intervalos no acotados]
+Sea \(a\in\mathbb{R}\). Se definen
+\[
+  (a,+\infty)=\{x\in\mathbb{R}:x>a\},
+\]
+\[
+  [a,+\infty)=\{x\in\mathbb{R}:x\geq a\},
+\]
+\[
+  (-\infty,a)=\{x\in\mathbb{R}:x<a\},
+\]
+y
+\[
+  (-\infty,a]=\{x\in\mathbb{R}:x\leq a\}.
+\]
+\end{definicion}
+
+\begin{advertencia}
+Los s\'imbolos \(+\infty\) y \(-\infty\) no representan n\'umeros reales. Se usan para indicar que un intervalo no est\'a acotado hacia la derecha o hacia la izquierda.
+\end{advertencia}
+
+\section{Valor absoluto y distancia}
+
+El valor absoluto mide la distancia de un n\'umero real al cero.
+
+\begin{definicion}[Valor absoluto]
+Sea \(x\in\mathbb{R}\). El valor absoluto de \(x\), denotado por \(|x|\), se define por
+\[
+  |x|=
+  \begin{cases}
+    x, & \text{si } x\geq 0,\\
+    -x, & \text{si } x<0.
+  \end{cases}
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Se tiene
+\[
+  |5|=5,\qquad |-5|=5,\qquad |0|=0.
+\]
+\end{ejemplo}
+
+El valor absoluto permite definir la distancia entre dos n\'umeros reales.
+
+\begin{definicion}[Distancia en la recta real]
+Sean \(x,y\in\mathbb{R}\). La distancia entre \(x\) e \(y\) se define por
+\[
+  d(x,y)=|x-y|.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+La distancia entre \(2\) y \(7\) es
+\[
+  d(2,7)=|2-7|=|-5|=5.
+\]
+La distancia entre \(-3\) y \(4\) es
+\[
+  d(-3,4)=|-3-4|=|-7|=7.
+\]
+\end{ejemplo}
+
+\begin{proposicion}[Propiedades b\'asicas del valor absoluto]
+Para todo \(x,y\in\mathbb{R}\), se cumple:
+\begin{enumerate}
+  \item \(|x|\geq 0\).
+  \item \(|x|=0\) si y solo si \(x=0\).
+  \item \(|xy|=|x|\,|y|\).
+  \item \(|x+y|\leq |x|+|y|\).
+\end{enumerate}
+\end{proposicion}
+
+La cuarta propiedad se llama desigualdad triangular.
+
+\section{Supremo e \'infimo}
+
+Las nociones de supremo e \'infimo formalizan la idea de menor cota superior y mayor cota inferior.
+
+\begin{definicion}[Cota superior]
+Sea \(A\subset\mathbb{R}\). Un n\'umero \(M\in\mathbb{R}\) se llama cota superior de \(A\) si
+\[
+  x\leq M
+\]
+para todo \(x\in A\).
+\end{definicion}
+
+\begin{definicion}[Cota inferior]
+Sea \(A\subset\mathbb{R}\). Un n\'umero \(m\in\mathbb{R}\) se llama cota inferior de \(A\) si
+\[
+  m\leq x
+\]
+para todo \(x\in A\).
+\end{definicion}
+
+\begin{definicion}[Supremo]
+Sea \(A\subset\mathbb{R}\) un conjunto no vac\'io y acotado superiormente. Un n\'umero \(s\in\mathbb{R}\) se llama supremo de \(A\), y se denota por
+\[
+  s=\sup A,
+\]
+si cumple las dos condiciones siguientes:
+\begin{enumerate}
+  \item \(s\) es una cota superior de \(A\).
+  \item Si \(M\) es cualquier otra cota superior de \(A\), entonces \(s\leq M\).
+\end{enumerate}
+\end{definicion}
+
+\begin{definicion}[\'Infimo]
+Sea \(A\subset\mathbb{R}\) un conjunto no vac\'io y acotado inferiormente. Un n\'umero \(i\in\mathbb{R}\) se llama \'infimo de \(A\), y se denota por
+\[
+  i=\inf A,
+\]
+si cumple las dos condiciones siguientes:
+\begin{enumerate}
+  \item \(i\) es una cota inferior de \(A\).
+  \item Si \(m\) es cualquier otra cota inferior de \(A\), entonces \(m\leq i\).
+\end{enumerate}
+\end{definicion}
+
+\begin{ejemplo}
+Sea
+\[
+  A=(0,1)=\{x\in\mathbb{R}:0<x<1\}.
+\]
+Entonces
+\[
+  \sup A=1,
+  \qquad
+  \inf A=0.
+\]
+Obs\'ervese que ni \(0\) ni \(1\) pertenecen al conjunto \(A\). Por tanto, el supremo o el \'infimo de un conjunto no tienen por qu\'e pertenecer al conjunto.
+\end{ejemplo}
+
+\begin{ejemplo}
+Sea
+\[
+  B=[0,1]=\{x\in\mathbb{R}:0\leq x\leq 1\}.
+\]
+Entonces
+\[
+  \sup B=1,
+  \qquad
+  \inf B=0.
+\]
+En este caso, tanto el supremo como el \'infimo pertenecen a \(B\).
+\end{ejemplo}
+
+\begin{proposicion}[Propiedad de completitud de \(\mathbb{R}\)]
+Todo subconjunto no vac\'io de \(\mathbb{R}\) que est\'a acotado superiormente tiene supremo en \(\mathbb{R}\).
+\end{proposicion}
+
+Esta propiedad no es cierta en \(\mathbb{Q}\) si se exige que el supremo pertenezca a \(\mathbb{Q}\). Por ejemplo, el conjunto de racionales positivos cuyo cuadrado es menor que \(2\) tiene como menor cota superior a \(\sqrt{2}\), que no es racional.
+
+\begin{erroresfrecuentes}
+  \item Confundir densidad con completitud.
+  \item Creer que todo n\'umero decimal es racional.
+  \item Pensar que \(+\infty\) y \(-\infty\) son n\'umeros reales.
+  \item Confundir m\'aximo con supremo, o m\'inimo con \'infimo.
+  \item Suponer que el supremo de un conjunto debe pertenecer siempre al conjunto.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Trabajo con intervalos y desigualdades.
+  \item C\'alculo de supremos e \'infimos en ejemplos sencillos.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Decide si los siguientes intervalos contienen sus extremos:
+  \[
+    (2,5),\qquad [2,5),\qquad (2,5],\qquad [2,5].
+  \]
+  \item Calcula \(|x|\) para \(x=-7\), \(x=0\) y \(x=\frac{3}{2}\).
+  \item Calcula la distancia entre \(-4\) y \(6\).
+  \item Halla el supremo y el \'infimo de los conjuntos
+  \[
+    (1,3),\qquad [1,3),\qquad \left\{\frac{1}{n}:n\in\mathbb{N},\ n\geq 1\right\}.
+  \]
+  \item Da un ejemplo de un subconjunto de \(\mathbb{R}\) que tenga supremo pero no tenga m\'aximo.
+\end{ejerciciospropuestos}
+
+\resumen{El conjunto de los n\'umeros reales ampl\'ia a los racionales incorporando los n\'umeros irracionales y proporcionando un sistema num\'erico completo. La completitud se expresa mediante la existencia de supremos para subconjuntos no vac\'ios y acotados superiormente. Los intervalos, el valor absoluto y la distancia permiten describir la geometr\'ia elemental de la recta real.}

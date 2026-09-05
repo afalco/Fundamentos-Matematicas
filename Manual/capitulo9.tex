@@ -1,0 +1,397 @@
+\chapter{El Teorema Fundamental de la Aritmética}
+
+\begin{objetivos}
+  \item Enunciar y demostrar el Teorema Fundamental de la Aritmética.
+  \item Comprender la existencia y unicidad de la factorización en primos.
+  \item Aplicar la factorización al cálculo de divisores, máximo común divisor y mínimo común múltiplo.
+\end{objetivos}
+
+\section{Factorización en primos}
+
+En este capítulo se estudia uno de los resultados centrales de la aritmética elemental: todo entero positivo mayor que uno puede escribirse como producto de números primos, y esta escritura es única salvo el orden de los factores.
+
+Antes de formular el resultado, fijamos la notación que se utilizará durante todo el capítulo.
+
+\begin{convencion}[Notación básica]
+Denotaremos por \(\mathbb{N}\) el conjunto de los números naturales y por \(\mathbb{Z}\) el conjunto de los números enteros. Si \(a,b\in\mathbb{Z}\), escribiremos \(a\mid b\) para indicar que \(a\) divide a \(b\), es decir, que existe un entero \(k\in\mathbb{Z}\) tal que \(b=ak\).
+\end{convencion}
+
+\begin{definicion}[Número primo]
+Sea \(p\in\mathbb{N}\) con \(p>1\). Diremos que \(p\) es un \emph{número primo} si sus únicos divisores positivos son \(1\) y \(p\).
+\end{definicion}
+
+\begin{definicion}[Número compuesto]
+Sea \(n\in\mathbb{N}\) con \(n>1\). Diremos que \(n\) es \emph{compuesto} si no es primo. Equivalentemente, \(n\) es compuesto si existen enteros positivos \(a,b\in\mathbb{N}\), ambos mayores que \(1\), tales que
+\[
+  n=ab.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Los números \(2,3,5,7,11\) son primos. El número \(12\) no es primo porque
+\[
+  12=3\cdot 4,
+\]
+y tanto \(3\) como \(4\) son divisores positivos de \(12\) distintos de \(1\) y de \(12\).
+\end{ejemplo}
+
+\begin{advertencia}
+El número \(1\) no se considera primo. Esta convención es esencial para que la factorización en primos sea única. Si \(1\) fuese primo, podríamos escribir, por ejemplo,
+\[
+  6=2\cdot 3=1\cdot 2\cdot 3=1^2\cdot 2\cdot 3,
+\]
+y la unicidad dejaría de tener sentido.
+\end{advertencia}
+
+\begin{definicion}[Factorización en primos]
+Sea \(n\in\mathbb{N}\) con \(n>1\). Una \emph{factorización en primos} de \(n\) es una escritura de la forma
+\[
+  n=p_1p_2\cdots p_r,
+\]
+donde \(r\in\mathbb{N}\), y donde \(p_1,p_2,\ldots,p_r\) son números primos.
+\end{definicion}
+
+Por ejemplo,
+\[
+  60=2\cdot 2\cdot 3\cdot 5.
+\]
+También podemos escribir esta factorización agrupando los factores iguales:
+\[
+  60=2^2\cdot 3\cdot 5.
+\]
+
+\section{Existencia de la factorización}
+
+El primer paso consiste en demostrar que todo entero positivo mayor que \(1\) admite al menos una factorización en primos.
+
+\begin{teorema}[Existencia de factorización en primos]
+Sea \(n\in\mathbb{N}\) con \(n>1\). Entonces \(n\) puede escribirse como producto de números primos.
+\end{teorema}
+
+\begin{proof}
+Demostraremos el resultado usando el principio del buen orden.
+
+Supongamos, para llegar a una contradicción, que existe algún entero positivo mayor que \(1\) que no puede escribirse como producto de primos. Consideremos el conjunto
+\[
+  A=\{n\in\mathbb{N}: n>1 \text{ y } n \text{ no puede escribirse como producto de primos}\}.
+\]
+Por hipótesis, \(A\) no es vacío. Por el principio del buen orden, \(A\) tiene un menor elemento. Lo denotamos por \(m\).
+
+El número \(m\) no puede ser primo, porque si \(m\) fuese primo, entonces ya estaría escrito como producto de un único primo, él mismo. Por tanto, \(m\) es compuesto. Luego existen enteros \(a,b\in\mathbb{N}\) tales que
+\[
+  m=ab,
+\]
+con
+\[
+  1<a<m, \qquad 1<b<m.
+\]
+Como \(m\) es el menor elemento de \(A\), los números \(a\) y \(b\) no pertenecen a \(A\). Por tanto, ambos pueden escribirse como producto de primos. Al multiplicar las factorizaciones de \(a\) y \(b\), obtenemos una factorización de \(m=ab\) como producto de primos.
+
+Esto contradice que \(m\in A\). Por tanto, el conjunto \(A\) debe ser vacío. En consecuencia, todo entero positivo mayor que \(1\) puede escribirse como producto de primos.
+\end{proof}
+
+\begin{ejemplo}
+Veamos la existencia en un caso concreto. Como
+\[
+  84=2\cdot 42=2\cdot 2\cdot 21=2\cdot 2\cdot 3\cdot 7,
+\]
+obtenemos la factorización
+\[
+  84=2^2\cdot 3\cdot 7.
+\]
+\end{ejemplo}
+
+\section{Unicidad de la factorización}
+
+La existencia asegura que podemos descomponer un entero positivo mayor que \(1\) en factores primos. Falta demostrar que esta descomposición es única, salvo el orden de los factores.
+
+Para ello necesitamos un resultado previo: el lema de Euclides.
+
+\begin{lema}[Lema de Euclides]
+Sea \(p\) un número primo y sean \(a,b\in\mathbb{Z}\). Si
+\[
+  p\mid ab,
+\]
+entonces
+\[
+  p\mid a \quad \text{o} \quad p\mid b.
+\]
+\end{lema}
+
+\begin{proof}
+Supongamos que \(p\mid ab\). Si \(p\mid a\), no hay nada que demostrar. Supongamos entonces que \(p\nmid a\).
+
+Como \(p\) es primo, sus únicos divisores positivos son \(1\) y \(p\). La hipótesis \(p\nmid a\) implica que \(p\) no es divisor común de \(p\) y \(a\). Por tanto,
+\[
+  \mcd(p,a)=1.
+\]
+Por la identidad de Bézout, existen enteros \(u,v\in\mathbb{Z}\) tales que
+\[
+  up+va=1.
+\]
+Multiplicando por \(b\), obtenemos
+\[
+  upb+vab=b.
+\]
+Como \(p\mid upb\) y, por hipótesis, \(p\mid ab\), también se tiene \(p\mid vab\). Por tanto, \(p\) divide la suma \(upb+vab\), es decir,
+\[
+  p\mid b.
+\]
+Así, si \(p\mid ab\), entonces \(p\mid a\) o \(p\mid b\).
+\end{proof}
+
+\begin{corolario}
+Sea \(p\) un número primo y sean \(a_1,a_2,\ldots,a_r\in\mathbb{Z}\). Si
+\[
+  p\mid a_1a_2\cdots a_r,
+\]
+entonces existe algún índice \(i\in\{1,2,\ldots,r\}\) tal que
+\[
+  p\mid a_i.
+\]
+\end{corolario}
+
+\begin{proof}
+Se demuestra aplicando repetidamente el lema de Euclides. Para \(r=2\) es exactamente el lema anterior. Para \(r>2\), se aplica el lema a
+\[
+  a_1(a_2\cdots a_r).
+\]
+Si \(p\mid a_1\), hemos terminado. Si no, entonces \(p\mid a_2\cdots a_r\), y se repite el razonamiento.
+\end{proof}
+
+\begin{teorema}[Teorema Fundamental de la Aritmética]
+Sea \(n\in\mathbb{N}\) con \(n>1\). Entonces \(n\) puede escribirse como producto de números primos. Además, esta escritura es única salvo el orden de los factores.
+\end{teorema}
+
+\begin{proof}
+La existencia ya ha sido demostrada. Probemos la unicidad.
+
+Supongamos que \(n\) admite dos factorizaciones en primos:
+\[
+  n=p_1p_2\cdots p_r=q_1q_2\cdots q_s,
+\]
+donde todos los \(p_i\) y todos los \(q_j\) son primos.
+
+Como \(p_1\mid n\), tenemos
+\[
+  p_1\mid q_1q_2\cdots q_s.
+\]
+Por el corolario del lema de Euclides, existe algún índice \(j\) tal que
+\[
+  p_1\mid q_j.
+\]
+Pero \(q_j\) es primo y \(p_1\) también es primo. Como \(p_1\) divide a \(q_j\), necesariamente
+\[
+  p_1=q_j.
+\]
+Reordenando los factores \(q_1,\ldots,q_s\), podemos suponer que \(q_j=q_1\). Entonces cancelamos el factor común \(p_1=q_1\) y obtenemos
+\[
+  p_2\cdots p_r=q_2\cdots q_s.
+\]
+Repitiendo este argumento, cada primo de la primera factorización coincide con un primo de la segunda. Por tanto, ambas factorizaciones tienen los mismos factores primos, con las mismas repeticiones, salvo el orden.
+\end{proof}
+
+\begin{convencion}[Forma canónica]
+Gracias al Teorema Fundamental de la Aritmética, todo entero \(n>1\) puede escribirse de manera única en la forma
+\[
+  n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k},
+\]
+donde \(p_1,p_2,\ldots,p_k\) son primos distintos, normalmente ordenados como
+\[
+  p_1<p_2<\cdots<p_k,
+\]
+y donde \(\alpha_1,\alpha_2,\ldots,\alpha_k\in\mathbb{N}\) son exponentes positivos.
+\end{convencion}
+
+\section{Aplicaciones}
+
+El Teorema Fundamental de la Aritmética permite transformar problemas de divisibilidad en problemas sobre exponentes de primos.
+
+\subsection*{Cálculo de divisores}
+
+Sea
+\[
+  n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k}
+\]
+la factorización canónica de \(n\). Entonces todo divisor positivo \(d\) de \(n\) tiene la forma
+\[
+  d=p_1^{\beta_1}p_2^{\beta_2}\cdots p_k^{\beta_k},
+\]
+donde
+\[
+  0\leq \beta_i\leq \alpha_i
+\]
+para cada índice \(i\in\{1,2,\ldots,k\}\).
+
+\begin{ejemplo}
+Como
+\[
+  60=2^2\cdot 3\cdot 5,
+\]
+un divisor positivo de \(60\) tiene la forma
+\[
+  2^a3^b5^c,
+\]
+donde
+\[
+  0\leq a\leq 2, \qquad 0\leq b\leq 1, \qquad 0\leq c\leq 1.
+\]
+Por ejemplo, tomando \(a=1\), \(b=1\), \(c=0\), obtenemos el divisor
+\[
+  2^1 3^1 5^0=6.
+\]
+\end{ejemplo}
+
+\subsection*{Número de divisores positivos}
+
+Si
+\[
+  n=p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_k^{\alpha_k},
+\]
+entonces el número de divisores positivos de \(n\) es
+\[
+  (\alpha_1+1)(\alpha_2+1)\cdots(\alpha_k+1).
+\]
+
+\begin{ejemplo}
+Para \(60=2^2\cdot 3^1\cdot 5^1\), el número de divisores positivos es
+\[
+  (2+1)(1+1)(1+1)=12.
+\]
+\end{ejemplo}
+
+\subsection*{Máximo común divisor y mínimo común múltiplo}
+
+Sean \(a,b\in\mathbb{N}\) dos enteros positivos. Supongamos que, usando todos los primos que aparecen en alguno de ellos, podemos escribir
+\[
+  a=p_1^{\alpha_1}\cdots p_k^{\alpha_k},
+  \qquad
+  b=p_1^{\beta_1}\cdots p_k^{\beta_k},
+\]
+donde algunos exponentes pueden ser cero.
+
+Entonces
+\[
+  \mcd(a,b)=p_1^{\min(\alpha_1,\beta_1)}\cdots p_k^{\min(\alpha_k,\beta_k)},
+\]
+y
+\[
+  \operatorname{mcm}(a,b)=p_1^{\max(\alpha_1,\beta_1)}\cdots p_k^{\max(\alpha_k,\beta_k)}.
+\]
+
+\begin{ejemplo}
+Sean
+\[
+  72=2^3\cdot 3^2,
+  \qquad
+  180=2^2\cdot 3^2\cdot 5.
+\]
+Entonces
+\[
+  \mcd(72,180)=2^2\cdot 3^2=36,
+\]
+y
+\[
+  \operatorname{mcm}(72,180)=2^3\cdot 3^2\cdot 5=360.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+El máximo común divisor se obtiene tomando los exponentes mínimos de los primos comunes, mientras que el mínimo común múltiplo se obtiene tomando los exponentes máximos de todos los primos que aparecen. Confundir estos dos procedimientos es un error frecuente.
+\end{advertencia}
+
+\section{Irracionalidad de ciertas raíces}
+
+La factorización única permite demostrar resultados clásicos sobre números irracionales. Recordemos que un número real \(x\) es racional si existen enteros \(a,b\in\mathbb{Z}\), con \(b\neq 0\), tales que
+\[
+  x=\frac{a}{b}.
+\]
+Si un número real no es racional, se dice que es irracional.
+
+\begin{teorema}[Irracionalidad de \(\sqrt{2}\)]
+El número \(\sqrt{2}\) es irracional.
+\end{teorema}
+
+\begin{proof}
+Supongamos, para llegar a una contradicción, que \(\sqrt{2}\) es racional. Entonces existen enteros positivos \(a,b\in\mathbb{N}\), sin factores comunes mayores que \(1\), tales que
+\[
+  \sqrt{2}=\frac{a}{b}.
+\]
+Elevando al cuadrado, obtenemos
+\[
+  2=\frac{a^2}{b^2},
+\]
+y, por tanto,
+\[
+  a^2=2b^2.
+\]
+Esto implica que \(a^2\) es par. Por la factorización única, si \(a^2\) es divisible por \(2\), entonces \(a\) también es divisible por \(2\). Luego existe \(c\in\mathbb{N}\) tal que
+\[
+  a=2c.
+\]
+Sustituyendo en la igualdad anterior,
+\[
+  (2c)^2=2b^2.
+\]
+Por tanto,
+\[
+  4c^2=2b^2,
+\]
+y dividiendo entre \(2\), obtenemos
+\[
+  b^2=2c^2.
+\]
+Así, \(b^2\) es par, y de nuevo \(b\) es par.
+
+Hemos demostrado que tanto \(a\) como \(b\) son pares. Esto contradice que \(a\) y \(b\) no tengan factores comunes mayores que \(1\). Por tanto, \(\sqrt{2}\) no puede ser racional.
+\end{proof}
+
+\begin{proposicion}
+Sea \(p\) un número primo. Entonces \(\sqrt{p}\) es irracional.
+\end{proposicion}
+
+\begin{proof}
+Supongamos que \(\sqrt{p}=a/b\), donde \(a,b\in\mathbb{N}\) no tienen factores comunes mayores que \(1\). Entonces
+\[
+  p=\frac{a^2}{b^2},
+\]
+y por tanto
+\[
+  a^2=pb^2.
+\]
+Así, \(p\mid a^2\). Por el Teorema Fundamental de la Aritmética, esto implica que \(p\mid a\). Luego existe \(c\in\mathbb{N}\) tal que \(a=pc\). Sustituyendo,
+\[
+  p^2c^2=pb^2.
+\]
+Dividiendo entre \(p\), obtenemos
+\[
+  pc^2=b^2.
+\]
+Por tanto, \(p\mid b^2\), y de nuevo \(p\mid b\). Esto contradice que \(a\) y \(b\) no tengan factores comunes mayores que \(1\). Concluimos que \(\sqrt{p}\) es irracional.
+\end{proof}
+
+\begin{erroresfrecuentes}
+  \item Considerar que \(1\) es primo. Esta convención destruye la unicidad de la factorización.
+  \item Confundir existencia con unicidad: saber que una factorización existe no significa todavía que sea única.
+  \item Olvidar que la unicidad de la factorización es salvo el orden de los factores.
+  \item Calcular el máximo común divisor usando exponentes máximos en lugar de mínimos.
+  \item Calcular el mínimo común múltiplo usando solo los primos comunes.
+  \item En las demostraciones de irracionalidad, no justificar que la fracción se toma en forma irreducible.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Descomposición de enteros positivos en factores primos.
+  \item Aplicaciones a problemas de divisibilidad.
+  \item Demostraciones clásicas de irracionalidad.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Descompón en factores primos los números \(84\), \(126\), \(360\) y \(2025\).
+  \item Calcula el máximo común divisor y el mínimo común múltiplo de \(84\) y \(126\) usando factorización en primos.
+  \item Demuestra que si \(p\) es primo y \(p\mid a^2\), entonces \(p\mid a\).
+  \item Demuestra que \(\sqrt{3}\) es irracional.
+  \item Determina todos los divisores positivos de \(72\).
+  \item Si \(n=2^3\cdot 3^2\cdot 5\), calcula cuántos divisores positivos tiene \(n\).
+\end{ejerciciospropuestos}
+
+\resumen{El Teorema Fundamental de la Aritmética afirma que todo entero positivo mayor que uno admite una factorización en primos y que dicha factorización es única salvo el orden de los factores. Este resultado permite estudiar divisibilidad, divisores, máximo común divisor, mínimo común múltiplo e irracionalidad de ciertas raíces mediante la estructura de los factores primos.}

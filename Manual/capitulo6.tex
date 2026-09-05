@@ -1,0 +1,351 @@
+\chapter{Los números naturales y el principio de inducción}
+
+\begin{objetivos}
+  \item Introducir el conjunto de los números naturales.
+  \item Estudiar el principio de inducción matemática.
+  \item Presentar la inducción fuerte.
+  \item Trabajar con definiciones recursivas y sucesiones.
+\end{objetivos}
+
+\section{El conjunto de los números naturales}
+
+Los números naturales constituyen el primer sistema numérico que aparece de forma sistemática en matemáticas. Se utilizan para contar objetos, ordenar posiciones y formular procesos que avanzan paso a paso.
+
+En este curso denotaremos por \(\mathbb{N}\) el conjunto de los números naturales. Adoptaremos la convención
+\[
+  \mathbb{N}=\{0,1,2,3,\ldots\}.
+\]
+Es decir, el número \(0\) pertenece a \(\mathbb{N}\). Cuando se quiera excluir el cero, escribiremos
+\[
+  \mathbb{N}^{\ast}=\mathbb{N}\setminus\{0\}=\{1,2,3,\ldots\}.
+\]
+
+\begin{convencion}[Uso de \(\mathbb{N}\)]
+En este manual, salvo indicación explícita en sentido contrario, el símbolo \(\mathbb{N}\) designa el conjunto de los números naturales incluyendo el cero. Por tanto, antes de usar una propiedad que dependa de si \(0\) pertenece o no a \(\mathbb{N}\), se deberá recordar esta convención.
+\end{convencion}
+
+Los números naturales pueden pensarse como generados a partir de un primer número, el \(0\), y de una operación de paso al siguiente. Si \(n\in\mathbb{N}\), su sucesor se denota por \(n+1\). Así, el sucesor de \(0\) es \(1\), el sucesor de \(1\) es \(2\), y así sucesivamente.
+
+\begin{definicion}[Sucesor]
+Sea \(n\in\mathbb{N}\). Llamamos \emph{sucesor} de \(n\) al número natural \(n+1\).
+\end{definicion}
+
+Esta idea de sucesor es fundamental porque permite formular propiedades que se transmiten de un número natural al siguiente. Esa transmisión es la base del principio de inducción matemática.
+
+\section{Orden en los números naturales}
+
+Los números naturales están dotados de un orden natural. Si \(m,n\in\mathbb{N}\), escribimos
+\[
+  m\leq n
+\]
+para indicar que \(m\) es menor o igual que \(n\). También escribimos \(m<n\) cuando \(m\leq n\) y \(m\neq n\).
+
+\begin{definicion}[Orden en \(\mathbb{N}\)]
+Sean \(m,n\in\mathbb{N}\). La expresión \(m\leq n\) significa que \(m\) no está situado después de \(n\) en la sucesión ordenada
+\[
+  0,1,2,3,\ldots
+\]
+de los números naturales.
+\end{definicion}
+
+El orden en \(\mathbb{N}\) posee propiedades básicas que se utilizarán constantemente.
+
+\begin{proposicion}[Propiedades elementales del orden]
+Sean \(a,b,c\in\mathbb{N}\). Entonces:
+\begin{enumerate}
+  \item \(a\leq a\).
+  \item Si \(a\leq b\) y \(b\leq a\), entonces \(a=b\).
+  \item Si \(a\leq b\) y \(b\leq c\), entonces \(a\leq c\).
+  \item Dados \(a,b\in\mathbb{N}\), se cumple \(a\leq b\) o \(b\leq a\).
+\end{enumerate}
+\end{proposicion}
+
+Las tres primeras propiedades expresan que \(\leq\) es una relación de orden. La cuarta indica que dos números naturales cualesquiera son comparables; por eso se dice que el orden de \(\mathbb{N}\) es total.
+
+\begin{advertencia}
+El símbolo \(\leq\) no debe leerse únicamente como una instrucción de cálculo. Es una relación entre dos objetos matemáticos. Antes de escribir \(a\leq b\), debe quedar claro qué son \(a\) y \(b\), y en qué conjunto se están considerando.
+\end{advertencia}
+
+\section{Principio de inducción}
+
+El principio de inducción matemática es uno de los métodos de demostración más importantes relacionados con los números naturales. Permite demostrar que una propiedad se verifica para todos los números naturales a partir de dos pasos: comprobarla en un caso inicial y demostrar que se transmite de cada número natural al siguiente.
+
+Para formularlo con precisión, sea \(P(n)\) una proposición que depende de un número natural \(n\). Por ejemplo, \(P(n)\) podría ser la afirmación
+\[
+  0+1+2+\cdots+n=\frac{n(n+1)}{2}.
+\]
+En este caso, para cada valor de \(n\), la expresión \(P(n)\) representa un enunciado concreto.
+
+\begin{teorema}[Principio de inducción]
+Sea \(P(n)\) una proposición dependiente de \(n\in\mathbb{N}\). Supongamos que se cumplen las dos condiciones siguientes:
+\begin{enumerate}
+  \item \textbf{Caso base:} \(P(0)\) es verdadera.
+  \item \textbf{Paso inductivo:} para todo \(n\in\mathbb{N}\), si \(P(n)\) es verdadera, entonces \(P(n+1)\) es verdadera.
+\end{enumerate}
+Entonces \(P(n)\) es verdadera para todo \(n\in\mathbb{N}\).
+\end{teorema}
+
+La proposición \(P(n)\) se denomina \emph{hipótesis inductiva} cuando se usa dentro del paso inductivo. Es importante observar que la hipótesis inductiva no afirma todavía que \(P(n)\) sea verdadera para todo \(n\); se asume provisionalmente para un \(n\) arbitrario con el objetivo de demostrar \(P(n+1)\).
+
+\begin{ejemplo}[Suma de los primeros naturales]
+Demostremos que, para todo \(n\in\mathbb{N}\), se cumple
+\[
+  0+1+2+\cdots+n=\frac{n(n+1)}{2}.
+\]
+
+Sea \(P(n)\) la proposición anterior.
+
+\emph{Caso base.} Para \(n=0\), el miembro izquierdo es \(0\), y el miembro derecho es
+\[
+  \frac{0(0+1)}{2}=0.
+\]
+Por tanto, \(P(0)\) es verdadera.
+
+\emph{Paso inductivo.} Supongamos que \(P(n)\) es verdadera para un cierto \(n\in\mathbb{N}\), es decir, supongamos que
+\[
+  0+1+2+\cdots+n=\frac{n(n+1)}{2}.
+\]
+Queremos demostrar que \(P(n+1)\) es verdadera, es decir, que
+\[
+  0+1+2+\cdots+n+(n+1)=\frac{(n+1)(n+2)}{2}.
+\]
+Usando la hipótesis inductiva, obtenemos
+\[
+\begin{aligned}
+  0+1+2+\cdots+n+(n+1)
+  &= \frac{n(n+1)}{2}+(n+1) \\
+  &= \frac{n(n+1)+2(n+1)}{2} \\
+  &= \frac{(n+1)(n+2)}{2}.
+\end{aligned}
+\]
+Por tanto, \(P(n+1)\) es verdadera. Por el principio de inducción, la fórmula se cumple para todo \(n\in\mathbb{N}\).
+\end{ejemplo}
+
+\begin{advertencia}
+En una demostración por inducción no basta comprobar varios casos particulares. Verificar \(P(0)\), \(P(1)\), \(P(2)\) y \(P(3)\) puede ayudar a descubrir una fórmula, pero no demuestra que \(P(n)\) sea verdadera para todo \(n\in\mathbb{N}\). El paso inductivo es esencial.
+\end{advertencia}
+
+\section{Inducción fuerte}
+
+La inducción fuerte es una variante del principio de inducción. Se utiliza cuando, para demostrar \(P(n+1)\), no basta conocer \(P(n)\), sino que conviene conocer todos los casos anteriores.
+
+\begin{teorema}[Principio de inducción fuerte]
+Sea \(P(n)\) una proposición dependiente de \(n\in\mathbb{N}\). Supongamos que se cumplen las dos condiciones siguientes:
+\begin{enumerate}
+  \item \textbf{Caso base:} \(P(0)\) es verdadera.
+  \item \textbf{Paso inductivo fuerte:} para todo \(n\in\mathbb{N}\), si \(P(0),P(1),\ldots,P(n)\) son verdaderas, entonces \(P(n+1)\) es verdadera.
+\end{enumerate}
+Entonces \(P(n)\) es verdadera para todo \(n\in\mathbb{N}\).
+\end{teorema}
+
+En el paso inductivo fuerte se supone que la propiedad es cierta para todos los números naturales desde \(0\) hasta \(n\), y con esa información se prueba el caso siguiente.
+
+\begin{ejemplo}[Descomposición en sumas de unos y doses]
+Sea \(P(n)\) la proposición: ``el número \(n\) puede escribirse como suma de números iguales a \(1\) o iguales a \(2\)''. Esta afirmación es verdadera para todo \(n\in\mathbb{N}\).
+
+En efecto, \(0\) se escribe como suma vacía. El número \(1\) se escribe como \(1\). Supongamos ahora que la afirmación es verdadera para todos los números naturales menores o iguales que \(n\), con \(n\geq 1\). Entonces \(n+1=(n-1)+2\). Por hipótesis inductiva fuerte, \(n-1\) puede escribirse como suma de unos y doses. Añadiendo un \(2\), obtenemos una escritura de \(n+1\) como suma de unos y doses.
+\end{ejemplo}
+
+\begin{advertencia}
+La inducción fuerte no es un método ``más verdadero'' que la inducción ordinaria. Ambos principios son equivalentes en \(\mathbb{N}\). La inducción fuerte es, en muchos problemas, una forma más cómoda de organizar la información disponible.
+\end{advertencia}
+
+\section{Principio del buen orden}
+
+El conjunto \(\mathbb{N}\) tiene una propiedad fundamental: todo subconjunto no vacío de \(\mathbb{N}\) posee un primer elemento.
+
+\begin{teorema}[Principio del buen orden]
+Sea \(A\subseteq\mathbb{N}\). Si \(A\neq\varnothing\), entonces existe un elemento \(m\in A\) tal que
+\[
+  m\leq a
+\]
+para todo \(a\in A\).
+\end{teorema}
+
+El elemento \(m\) se llama \emph{mínimo} de \(A\), y se denota por
+\[
+  m=\min A.
+\]
+
+\begin{ejemplo}
+Sea
+\[
+  A=\{n\in\mathbb{N}: n\geq 5\}.
+\]
+Entonces \(A\neq\varnothing\), y su mínimo es \(5\). En efecto, \(5\in A\), y para todo \(a\in A\) se cumple \(5\leq a\).
+\end{ejemplo}
+
+El principio del buen orden está estrechamente relacionado con el principio de inducción. Ambos expresan, de formas distintas, que en \(\mathbb{N}\) no es posible descender indefinidamente.
+
+\begin{ejemplo}[Demostración por mínimo contraejemplo]
+Supongamos que queremos demostrar que una propiedad \(P(n)\) es verdadera para todo \(n\in\mathbb{N}\). Una estrategia consiste en razonar por contradicción. Se define el conjunto
+\[
+  A=\{n\in\mathbb{N}: P(n) \text{ es falsa}\}.
+\]
+Si \(A\) fuera no vacío, tendría un mínimo \(m\). Entonces \(m\) sería el primer contraejemplo. Muchas demostraciones consisten en mostrar que tal primer contraejemplo no puede existir.
+\end{ejemplo}
+
+\section{Definiciones recursivas}
+
+Una definición recursiva describe un objeto mediante un caso inicial y una regla que permite construir los casos siguientes.
+
+\begin{definicion}[Definición recursiva]
+Una definición recursiva de una sucesión consiste en especificar:
+\begin{enumerate}
+  \item uno o varios términos iniciales;
+  \item una regla que permite calcular un término a partir de términos anteriores.
+\end{enumerate}
+\end{definicion}
+
+\begin{ejemplo}[Sucesión definida por recurrencia]
+Definimos una sucesión \((a_n)_{n\in\mathbb{N}}\) de la siguiente forma:
+\[
+  a_0=1,
+\]
+y, para todo \(n\in\mathbb{N}\),
+\[
+  a_{n+1}=2a_n+1.
+\]
+Entonces:
+\[
+  a_0=1,
+  \qquad
+  a_1=2a_0+1=3,
+  \qquad
+  a_2=2a_1+1=7,
+  \qquad
+  a_3=2a_2+1=15.
+\]
+\end{ejemplo}
+
+En una definición recursiva deben quedar claros todos los símbolos utilizados. En el ejemplo anterior, \((a_n)_{n\in\mathbb{N}}\) denota una sucesión, \(a_0\) es el término inicial, y la fórmula \(a_{n+1}=2a_n+1\) indica cómo obtener el término siguiente a partir del anterior.
+
+\begin{advertencia}
+Una regla recursiva no es una fórmula cerrada. La regla \(a_{n+1}=2a_n+1\) permite calcular términos sucesivos, pero no da directamente \(a_n\) en función de \(n\). Encontrar una fórmula cerrada puede requerir una demostración adicional, a menudo por inducción.
+\end{advertencia}
+
+\section{Sucesiones y sumas finitas}
+
+Una sucesión es una lista ordenada de objetos indexada por números naturales. En este capítulo consideraremos principalmente sucesiones de números.
+
+\begin{definicion}[Sucesión]
+Una sucesión de números reales es una aplicación
+\[
+  a:\mathbb{N}\longrightarrow\mathbb{R}.
+\]
+El valor de la sucesión en \(n\in\mathbb{N}\) se denota habitualmente por \(a_n\) en lugar de \(a(n)\). La sucesión completa se escribe como \((a_n)_{n\in\mathbb{N}}\).
+\end{definicion}
+
+Aunque el conjunto \(\mathbb{R}\) de los números reales se estudiará con más detalle posteriormente, aquí basta entender que los términos de la sucesión son números.
+
+\begin{definicion}[Suma finita]
+Sea \((a_k)_{k\in\mathbb{N}}\) una sucesión y sea \(n\in\mathbb{N}\). La expresión
+\[
+  \sum_{k=0}^{n} a_k
+\]
+denota la suma finita
+\[
+  a_0+a_1+\cdots+a_n.
+\]
+El símbolo \(k\) se llama índice de suma.
+\end{definicion}
+
+\begin{ejemplo}
+Si \(a_k=k\) para todo \(k\in\mathbb{N}\), entonces
+\[
+  \sum_{k=0}^{4} a_k=0+1+2+3+4=10.
+\]
+También podemos escribir directamente
+\[
+  \sum_{k=0}^{4} k=0+1+2+3+4=10.
+\]
+\end{ejemplo}
+
+\begin{proposicion}[Suma de los primeros cuadrados]
+Para todo \(n\in\mathbb{N}\), se cumple
+\[
+  \sum_{k=0}^{n} k^2=\frac{n(n+1)(2n+1)}{6}.
+\]
+\end{proposicion}
+
+\begin{proof}
+La demostración se realiza por inducción sobre \(n\).
+
+Para \(n=0\), tenemos
+\[
+  \sum_{k=0}^{0} k^2=0^2=0,
+\]
+y
+\[
+  \frac{0(0+1)(2\cdot 0+1)}{6}=0.
+\]
+Por tanto, el caso base es verdadero.
+
+Supongamos que la fórmula es verdadera para un cierto \(n\in\mathbb{N}\), es decir,
+\[
+  \sum_{k=0}^{n} k^2=\frac{n(n+1)(2n+1)}{6}.
+\]
+Entonces
+\[
+\begin{aligned}
+  \sum_{k=0}^{n+1} k^2
+  &= \sum_{k=0}^{n} k^2+(n+1)^2 \\
+  &= \frac{n(n+1)(2n+1)}{6}+(n+1)^2 \\
+  &= \frac{(n+1)\bigl(n(2n+1)+6(n+1)\bigr)}{6} \\
+  &= \frac{(n+1)(2n^2+7n+6)}{6} \\
+  &= \frac{(n+1)(n+2)(2n+3)}{6} \\
+  &= \frac{(n+1)((n+1)+1)(2(n+1)+1)}{6}.
+\end{aligned}
+\]
+Esto demuestra el paso inductivo. Por el principio de inducción, la fórmula es verdadera para todo \(n\in\mathbb{N}\).
+\end{proof}
+
+\begin{erroresfrecuentes}
+  \item Comprobar varios casos particulares y concluir que una fórmula está demostrada.
+  \item Escribir el paso inductivo sin declarar explícitamente la hipótesis inductiva.
+  \item Confundir \(P(n)\) con \(P(n+1)\).
+  \item Usar inducción fuerte sin indicar con precisión qué casos anteriores se están suponiendo verdaderos.
+  \item Introducir una sucesión \((a_n)\) sin especificar el conjunto de índices ni los términos iniciales.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Demostraciones por inducción básica.
+  \item Demostraciones por inducción fuerte.
+  \item Fórmulas de sumas finitas.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Demuestra por inducción que, para todo \(n\in\mathbb{N}\),
+  \[
+    \sum_{k=0}^{n} k=\frac{n(n+1)}{2}.
+  \]
+
+  \item Demuestra por inducción que, para todo \(n\in\mathbb{N}\),
+  \[
+    \sum_{k=0}^{n} (2k+1)=(n+1)^2.
+  \]
+
+  \item Define recursivamente una sucesión \((a_n)_{n\in\mathbb{N}}\) mediante
+  \[
+    a_0=2,
+    \qquad
+    a_{n+1}=3a_n-1.
+  \]
+  Calcula \(a_1\), \(a_2\), \(a_3\) y \(a_4\).
+
+  \item Sea \((b_n)_{n\in\mathbb{N}}\) la sucesión definida por
+  \[
+    b_0=0,
+    \qquad
+    b_1=1,
+    \qquad
+    b_{n+2}=b_{n+1}+b_n
+  \]
+  para todo \(n\in\mathbb{N}\). Calcula sus seis primeros términos.
+
+  \item Demuestra por inducción fuerte que todo número natural \(n\geq 2\) puede escribirse como producto de números primos. Puedes usar la idea de que, si \(n\) no es primo, entonces se descompone como \(n=ab\), con \(1<a<n\) y \(1<b<n\).
+
+  \item Usa el principio del buen orden para justificar que todo subconjunto no vacío de \(\mathbb{N}\) que esté formado por números mayores o iguales que \(10\) tiene un elemento mínimo.
+\end{ejerciciospropuestos}
+
+\resumen{El capítulo introduce los números naturales como sistema ordenado y muestra que el principio de inducción, la inducción fuerte y el principio del buen orden son herramientas fundamentales para demostrar propiedades dependientes de un número natural. También se presentan las definiciones recursivas, las sucesiones y las sumas finitas como contextos naturales donde la inducción aparece de forma sistemática.}

@@ -1,0 +1,201 @@
+% !TEX root = manual_fundamentos_matematicas.tex
+% ------------------------------------------------------------
+% Apéndice: Fronteras con otras asignaturas
+% ------------------------------------------------------------
+% Este fichero está pensado para ser incluido mediante:
+% \input{apendice_fronteras_asignaturas.tex}
+%
+% Requiere que el documento principal tenga definidos los entornos
+% convencion, advertencia, seminario y ejerciciospropuestos.
+
+\chapter{Fronteras con otras asignaturas}
+\label{ap:fronteras-asignaturas}
+
+\section{Finalidad del apéndice}
+
+Este apéndice tiene como finalidad delimitar el papel de \emph{Fundamentos de Matemáticas I} y \emph{Fundamentos de Matemáticas II} dentro del primer curso del Grado en Ingeniería Matemática. La asignatura no debe entenderse como una repetición simplificada de Análisis Matemático, Álgebra Lineal, Matemática Discreta, Algoritmia o Métodos Numéricos, sino como una asignatura de soporte transversal.
+
+El objetivo principal de \emph{Fundamentos de Matemáticas} es proporcionar al estudiante el lenguaje, la notación, los métodos elementales de demostración y las estructuras numéricas básicas que necesitará en el resto del grado.
+
+\begin{convencion}[Principio de delimitación]
+En \emph{Fundamentos de Matemáticas} se introducen el lenguaje, la notación, las definiciones básicas y los métodos elementales de razonamiento. Las asignaturas específicas desarrollan después las teorías particulares, sus técnicas propias y sus aplicaciones.
+\end{convencion}
+
+Esta delimitación permite gestionar los solapamientos de forma positiva: un mismo concepto puede aparecer en varias asignaturas, pero con funciones distintas. En \emph{Fundamentos de Matemáticas} aparece como lenguaje o herramienta básica; en la asignatura específica aparece como objeto de estudio técnico.
+
+\section{Frontera con Análisis Matemático}
+
+\begin{convencion}[Frontera con Análisis Matemático]
+En \emph{Fundamentos de Matemáticas} se introducen los números reales, los intervalos, el valor absoluto, la distancia, el supremo y el ínfimo como lenguaje básico. El estudio sistemático de sucesiones, límites, continuidad, derivación, integración y técnicas de demostración propias del análisis pertenece a las asignaturas de Análisis Matemático.
+\end{convencion}
+
+En particular, en \emph{Fundamentos de Matemáticas} se debe trabajar la comprensión de expresiones como
+\[
+  |x-a|<\varepsilon,
+\]
+donde previamente se han definido los símbolos que aparecen: \(x\) y \(a\) son números reales, \(\varepsilon\) es un número real positivo, \(|x-a|\) denota el valor absoluto de la diferencia \(x-a\), y el símbolo \(<\) representa la relación de orden usual en \(\mathbb{R}\).
+
+Sin embargo, no corresponde a \emph{Fundamentos de Matemáticas} desarrollar con profundidad las definiciones \(\varepsilon\)-\(\delta\) de límite o continuidad. Esas definiciones pertenecen a Análisis Matemático, aunque requieran el lenguaje preparado en este curso.
+
+\begin{advertencia}
+El hecho de que un concepto aparezca en \emph{Fundamentos de Matemáticas} no significa que se agote en esta asignatura. Por ejemplo, los números reales se introducen aquí como sistema numérico y como lenguaje de orden, distancia y aproximación; su estudio analítico se desarrolla posteriormente en Análisis Matemático.
+\end{advertencia}
+
+\section{Frontera con Álgebra Lineal}
+
+\begin{convencion}[Frontera con Álgebra Lineal]
+En \emph{Fundamentos de Matemáticas} se introducen conjuntos, aplicaciones, operaciones internas y las primeras estructuras algebraicas. La teoría de espacios vectoriales, matrices, sistemas lineales, bases, dimensión, transformaciones lineales, determinantes, autovalores y diagonalización corresponde a Álgebra Lineal.
+\end{convencion}
+
+La asignatura \emph{Fundamentos de Matemáticas} debe preparar al estudiante para entender expresiones del tipo
+\[
+  f:A\longrightarrow B,
+\]
+donde \(A\) y \(B\) son conjuntos y \(f\) es una aplicación de \(A\) en \(B\). También debe introducir conceptos como composición, aplicación identidad, aplicación inversa, inyectividad, sobreyectividad y biyectividad.
+
+Álgebra Lineal utilizará después ese lenguaje para estudiar aplicaciones lineales entre espacios vectoriales. Por tanto, \emph{Fundamentos de Matemáticas} debe evitar desarrollar la teoría específica de espacios vectoriales más allá de mencionarlos como ejemplo de estructura algebraica.
+
+\begin{advertencia}
+En \emph{Fundamentos de Matemáticas} puede citarse que un espacio vectorial es una estructura algebraica, pero no deben estudiarse en detalle bases, dimensión, rango, determinantes o diagonalización, porque esos contenidos pertenecen a Álgebra Lineal.
+\end{advertencia}
+
+\section{Frontera con Matemática Discreta}
+
+\begin{convencion}[Frontera con Matemática Discreta]
+En \emph{Fundamentos de Matemáticas} se estudian los números naturales, la inducción, las definiciones recursivas, conjuntos y relaciones como lenguaje general. Las aplicaciones a combinatoria, probabilidad discreta y grafos pertenecen a Matemática Discreta.
+\end{convencion}
+
+La inducción matemática debe aparecer en \emph{Fundamentos de Matemáticas} como método de demostración. Por ejemplo, se puede demostrar que, para todo número natural \(n\geq 1\),
+\[
+  1+2+\cdots+n=\frac{n(n+1)}{2}.
+\]
+
+En cambio, el uso de la inducción para justificar fórmulas combinatorias, propiedades de grafos o algoritmos discretos puede desarrollarse en Matemática Discreta.
+
+\begin{advertencia}
+La asignatura \emph{Fundamentos de Matemáticas} no debe absorber contenidos propios de Matemática Discreta. En particular, no debe convertirse en un curso de combinatoria, grafos o probabilidad discreta.
+\end{advertencia}
+
+\section{Frontera con Algoritmia}
+
+\begin{convencion}[Frontera con Algoritmia]
+En \emph{Fundamentos de Matemáticas II} se estudian procedimientos aritméticos como el algoritmo de Euclides desde el punto de vista matemático: definición, justificación y demostración de corrección. La implementación mediante variables, funciones, estructuras de control, iteración, recursividad y programación corresponde a Algoritmia.
+\end{convencion}
+
+Por ejemplo, en \emph{Fundamentos de Matemáticas II} se puede estudiar que, dados dos enteros \(a\) y \(b\), no ambos nulos, el algoritmo de Euclides permite calcular su máximo común divisor. También se puede demostrar que existen enteros \(u\) y \(v\) tales que
+\[
+  \operatorname{mcd}(a,b)=ua+vb.
+\]
+
+Algoritmia podrá después traducir este procedimiento a pseudocódigo o a un lenguaje de programación concreto.
+
+\begin{advertencia}
+En \emph{Fundamentos de Matemáticas} se demuestra por qué un procedimiento funciona. En Algoritmia se estudia cómo implementarlo de forma correcta y eficiente.
+\end{advertencia}
+
+\section{Frontera con Métodos Numéricos}
+
+\begin{convencion}[Frontera con Métodos Numéricos]
+En \emph{Fundamentos de Matemáticas II} se introducen el valor absoluto, la distancia, los intervalos, las desigualdades y la noción elemental de aproximación. El estudio de errores, ceros de funciones, interpolación, diferenciación e integración numérica, así como la resolución numérica de sistemas, pertenece a Métodos Numéricos.
+\end{convencion}
+
+El estudiante debe llegar a Métodos Numéricos con soltura en expresiones como
+\[
+  |x-y|, \qquad [a,b], \qquad x\in (a,b), \qquad |x-a|<\varepsilon.
+\]
+
+En \emph{Fundamentos de Matemáticas} estas expresiones se interpretan desde el punto de vista del lenguaje matemático. En Métodos Numéricos se convierten en herramientas para estimar errores, controlar aproximaciones y analizar algoritmos.
+
+\begin{advertencia}
+No corresponde a \emph{Fundamentos de Matemáticas} desarrollar métodos de bisección, Newton, interpolación, cuadratura o análisis de error. Sí corresponde preparar el lenguaje de desigualdades, distancia y aproximación que estos métodos necesitan.
+\end{advertencia}
+
+\section{Frontera con Estructuras Algebraicas}
+
+\begin{convencion}[Frontera con Estructuras Algebraicas]
+En \emph{Fundamentos de Matemáticas} los conceptos de semigrupo, monoide, grupo, anillo y cuerpo se presentan de forma introductoria, como ejemplos de estructuras algebraicas definidas mediante operaciones y axiomas. La teoría sistemática de grupos, subgrupos, homomorfismos, cocientes, acciones, anillos y cuerpos pertenece a la asignatura Estructuras Algebraicas.
+\end{convencion}
+
+En \emph{Fundamentos de Matemáticas} basta con que el estudiante comprenda que una estructura algebraica consiste en un conjunto dotado de una o varias operaciones que satisfacen ciertas propiedades. Por ejemplo, puede estudiarse que \((\mathbb{Z},+)\) es un grupo abeliano, donde \(\mathbb{Z}\) es el conjunto de los números enteros y \(+\) es la suma usual.
+
+No es necesario desarrollar de forma extensa subgrupos, morfismos, grupos cociente, acciones de grupo o clasificación de estructuras. Estos temas requieren un tratamiento propio y corresponden a una asignatura posterior.
+
+\begin{advertencia}
+La función del capítulo de estructuras algebraicas en \emph{Fundamentos de Matemáticas} es preparar el lenguaje axiomático, no adelantar la asignatura completa de Estructuras Algebraicas.
+\end{advertencia}
+
+\section{Frontera con Criptografía}
+
+\begin{convencion}[Frontera con Criptografía]
+En \emph{Fundamentos de Matemáticas II} se introducen divisibilidad, números primos, máximo común divisor, identidad de Bézout, congruencias, inversos modulares y ecuaciones lineales módulo un entero. El uso de estas herramientas en sistemas criptográficos, protocolos de clave pública, factorización computacional, logaritmo discreto o funciones hash pertenece a Criptografía.
+\end{convencion}
+
+La aritmética modular debe estudiarse en \emph{Fundamentos de Matemáticas II} como parte del lenguaje aritmético básico. Por ejemplo, si \(n\) es un entero positivo y \(a,b\in\mathbb{Z}\), se define
+\[
+  a\equiv b \pmod n
+\]
+cuando \(n\) divide a \(a-b\).
+
+Criptografía utilizará después esta base para estudiar algoritmos y protocolos concretos. Por tanto, en \emph{Fundamentos de Matemáticas} no es necesario presentar RSA, Diffie--Hellman, ElGamal o criptografía postcuántica, salvo como motivación cultural breve.
+
+\section{Frontera con Análisis Complejo y de Fourier}
+
+\begin{convencion}[Frontera con Análisis Complejo y de Fourier]
+En \emph{Fundamentos de Matemáticas II} se estudian los números complejos como sistema numérico: forma binómica, operaciones, conjugado, módulo, inverso, plano complejo, forma polar y raíces. El estudio de funciones complejas, series de potencias, teoría de Cauchy, residuos y series de Fourier pertenece a Análisis Complejo y de Fourier.
+\end{convencion}
+
+En \emph{Fundamentos de Matemáticas II} el objetivo es que el estudiante comprenda expresiones como
+\[
+  z=a+bi,
+\]
+donde \(a,b\in\mathbb{R}\), \(i\) es la unidad imaginaria y satisface \(i^2=-1\). También debe saber calcular conjugados, módulos, inversos y raíces sencillas.
+
+El estudio de funciones \(f:\mathbb{C}\to\mathbb{C}\), derivabilidad compleja, integrales complejas o residuos queda fuera del alcance de esta asignatura.
+
+\begin{advertencia}
+\emph{Fundamentos de Matemáticas II} estudia números complejos. \emph{Análisis Complejo y de Fourier} estudia funciones de variable compleja y herramientas analíticas avanzadas.
+\end{advertencia}
+
+\section{Criterios prácticos de coordinación}
+
+Para que estas fronteras sean efectivas, se recomienda aplicar los siguientes criterios de coordinación docente.
+
+\subsection*{Criterio 1: prioridad del lenguaje}
+
+Si un contenido aparece en \emph{Fundamentos de Matemáticas}, debe tratarse en primer lugar desde el punto de vista del lenguaje: símbolos, definiciones, ejemplos, contraejemplos y demostraciones elementales.
+
+\subsection*{Criterio 2: profundidad controlada}
+
+Un concepto que pertenezca de manera natural a una asignatura posterior puede introducirse en \emph{Fundamentos de Matemáticas}, pero solo hasta el nivel necesario para que el estudiante reconozca su significado y pueda utilizarlo en ejemplos básicos.
+
+\subsection*{Criterio 3: evaluación transversal}
+
+La evaluación de \emph{Fundamentos de Matemáticas} debe centrarse en la lectura y escritura de textos matemáticos, la precisión simbólica, la construcción de ejemplos y contraejemplos, y las demostraciones elementales. No debe evaluar contenidos técnicos propios de otras asignaturas.
+
+\subsection*{Criterio 4: coordinación horizontal}
+
+En primer curso, los contenidos de \emph{Fundamentos de Matemáticas} deben ordenarse de manera que sirvan de apoyo inmediato a Análisis Matemático, Álgebra Lineal, Matemática Discreta, Algoritmia y Métodos Numéricos.
+
+\subsection*{Criterio 5: coordinación vertical}
+
+Los capítulos de estructuras algebraicas, aritmética modular, números reales y números complejos deben presentarse como preparación para asignaturas posteriores: Estructuras Algebraicas, Criptografía, Análisis Matemático, Métodos Numéricos, Topología, Análisis Funcional y Análisis Complejo.
+
+\section{Resumen operativo}
+
+\begin{center}
+\begin{tabular}{p{0.28\textwidth}p{0.32\textwidth}p{0.32\textwidth}}
+\toprule
+\textbf{Tema} & \textbf{En Fundamentos de Matemáticas} & \textbf{En la asignatura específica} \\
+\midrule
+Inducción & Método de demostración & Aplicaciones en combinatoria, grafos y algoritmos \\
+Conjuntos y relaciones & Lenguaje básico y ejemplos finitos & Uso sistemático en estructuras discretas y topológicas \\
+Aplicaciones & Dominio, codominio, imagen, composición & Aplicaciones lineales, funciones continuas, funciones computables \\
+Estructuras algebraicas & Axiomas básicos y ejemplos & Grupos, anillos, cuerpos, cocientes y homomorfismos \\
+Números reales & Orden, intervalos, valor absoluto, distancia & Límites, continuidad, derivación e integración \\
+Aritmética modular & Congruencias e inversos modulares & Criptografía y algoritmos aritméticos \\
+Complejos & Sistema numérico y raíces & Funciones complejas, Cauchy, residuos y Fourier \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\resumen{Este apéndice establece las fronteras entre \emph{Fundamentos de Matemáticas} y otras asignaturas del grado. La regla general es que Fundamentos introduce lenguaje, notación, razonamiento y estructuras básicas, mientras que las asignaturas específicas desarrollan las teorías técnicas y sus aplicaciones.}

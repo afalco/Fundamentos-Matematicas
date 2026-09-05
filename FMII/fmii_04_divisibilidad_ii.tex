@@ -1,0 +1,194 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 04: Divisibilidad II
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 04]{Divisibilidad II}
+\subtitle{Máximo común divisor y mínimo común múltiplo}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir \(\mcd(a,b)\).
+  \item Definir \(\mcm(a,b)\).
+  \item Relacionar ambos conceptos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Máximo común divisor}
+
+\begin{frame}{Máximo común divisor}
+\begin{block}{Divisor común}
+\begin{itemize}
+  \item Un divisor común de \(a\) y \(b\) divide simultáneamente a ambos.
+  \item El \(\mcd(a,b)\) es el mayor divisor común positivo.
+  \item Se exige que \(a\) y \(b\) no sean ambos nulos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Máximo común divisor}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item Divisores positivos de \(18\): \(1,2,3,6,9,18\).
+  \item Divisores positivos de \(30\): \(1,2,3,5,6,10,15,30\).
+  \item Por tanto, \(\mcd(18,30)=6\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Máximo común divisor}
+\begin{block}{Coprimos}
+\begin{itemize}
+  \item Dos enteros son coprimos si \(\mcd(a,b)=1\).
+  \item Ejemplo: \(8\) y \(15\).
+  \item La coprimalidad indica ausencia de factores comunes no triviales.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Mínimo común múltiplo}
+
+\begin{frame}{Mínimo común múltiplo}
+\begin{block}{Definición}
+\begin{itemize}
+  \item Un múltiplo común de \(a\) y \(b\) es divisible por ambos.
+  \item \(\mcm(a,b)\) es el menor múltiplo común positivo.
+  \item Se suele trabajar con \(a,b\neq 0\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Mínimo común múltiplo}
+\begin{block}{Relación}
+\begin{itemize}
+  \item Para \(a,b\neq 0\), se cumple \(\mcd(a,b)\mcm(a,b)=|ab|\).
+  \item Esta fórmula permite calcular uno conociendo el otro.
+  \item Debe respetarse el valor absoluto.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Interpretación}
+\begin{itemize}
+  \item El \(\mcd\) mide la parte común.
+  \item El \(\mcm\) mide el primer punto común en los múltiplos positivos.
+  \item Ambos resumen información de divisibilidad.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplo rápido}
+\begin{itemize}
+  \item \(\mcd(12,18)=6\).
+  \item Como \(|12\cdot 18|=216\), entonces \(\mcm(12,18)=216/6=36\).
+  \item Comprobación: \(36\) es múltiplo de \(12\) y de \(18\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Error frecuente}
+\begin{itemize}
+  \item Usar el menor divisor común en lugar del mayor.
+  \item Olvidar que el \(\mcm\) se define positivo.
+  \item Aplicar la fórmula con \(a=0\) o \(b=0\) sin revisar hipótesis.
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{División euclídea}
+\begin{itemize}
+  \item Si \(a\in\mathbb{Z}\) y \(b\in\mathbb{N}\), \(b>0\), existen únicos \(q,r\in\mathbb{Z}\) tales que \(a=bq+r\).
+  \item El resto satisface \(0\leq r<b\).
+  \item La unicidad del resto es la base de muchos argumentos posteriores.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Escribir la división euclídea de \(137\) entre \(11\).
+  \item Escribir la división euclídea de \(-37\) entre \(5\) respetando \(0\leq r<5\).
+  \item Comparar el resto euclídeo con el resto que da una calculadora elemental.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item El \(\mcd\) habla de divisores comunes.
+  \item El \(\mcm\) habla de múltiplos comunes.
+  \item La relación \(\mcd\cdot\mcm=|ab|\) conecta ambos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

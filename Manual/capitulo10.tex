@@ -1,0 +1,574 @@
+\chapter{Aritmética modular}
+
+\begin{objetivos}
+  \item Introducir la congruencia módulo un entero positivo.
+  \item Definir las clases de congruencia.
+  \item Construir operaciones en el conjunto cociente.
+  \item Resolver ecuaciones lineales módulo un entero.
+\end{objetivos}
+
+\section{Congruencias}
+
+En este capítulo se estudia una forma de aritmética en la que los números enteros se comparan no por su valor exacto, sino por el resto que dejan al dividirlos por un entero positivo fijo.
+
+\begin{definicion}[Módulo]
+Sea \(n\) un número entero positivo. Diremos que \(n\) es el \emph{módulo} de la aritmética considerada.
+\end{definicion}
+
+La idea fundamental es identificar enteros que tienen el mismo resto al dividirse por \(n\). Para expresar esta idea se introduce la relación de congruencia.
+
+\begin{definicion}[Congruencia módulo un entero]
+Sea \(n\in\mathbb{N}\) con \(n\geq 1\), y sean \(a,b\in\mathbb{Z}\). Diremos que \(a\) es \emph{congruente} con \(b\) módulo \(n\), y escribiremos
+\[
+  a \equiv b \pmod n,
+\]
+si \(n\) divide a \(a-b\), es decir, si existe \(k\in\mathbb{Z}\) tal que
+\[
+  a-b = kn.
+\]
+\end{definicion}
+
+En esta definición todos los símbolos tienen un papel concreto: \(n\) es el módulo, \(a\) y \(b\) son enteros, y el símbolo \(\equiv\) expresa una relación entre enteros dependiente de \(n\).
+
+\begin{ejemplo}
+Se tiene
+\[
+  17 \equiv 5 \pmod 6,
+\]
+porque
+\[
+  17-5=12=2\cdot 6.
+\]
+También se tiene
+\[
+  -1 \equiv 4 \pmod 5,
+\]
+porque
+\[
+  -1-4=-5=(-1)\cdot 5.
+\]
+\end{ejemplo}
+
+\begin{proposicion}[Caracterización por restos]
+Sean \(n\in\mathbb{N}\), con \(n\geq 1\), y sean \(a,b\in\mathbb{Z}\). Entonces
+\[
+  a \equiv b \pmod n
+\]
+si y solo si \(a\) y \(b\) tienen el mismo resto al dividirse por \(n\).
+\end{proposicion}
+
+\begin{proof}
+Por la división euclídea, existen enteros \(q,r,q',r'\) tales que
+\[
+  a=qn+r, \qquad b=q'n+r',
+\]
+con
+\[
+  0\leq r<n, \qquad 0\leq r'<n.
+\]
+Entonces
+\[
+  a-b=(q-q')n+(r-r').
+\]
+Si \(a\equiv b\pmod n\), entonces \(n\mid(a-b)\). Como \((q-q')n\) es múltiplo de \(n\), también debe serlo \(r-r'\). Pero \(r-r'\) está comprendido entre \(-(n-1)\) y \(n-1\). El único múltiplo de \(n\) en ese intervalo es \(0\). Por tanto, \(r-r'=0\), es decir, \(r=r'\).
+
+Recíprocamente, si \(r=r'\), entonces
+\[
+  a-b=(q-q')n,
+\]
+por lo que \(n\mid(a-b)\). Así, \(a\equiv b\pmod n\).
+\end{proof}
+
+\begin{advertencia}
+La congruencia módulo \(n\) no significa igualdad ordinaria. Por ejemplo, \(17\equiv 5\pmod 6\), pero \(17\neq 5\). La congruencia expresa igualdad de restos, no igualdad de enteros.
+\end{advertencia}
+
+\section{Clases de congruencia}
+
+La congruencia módulo \(n\) es una relación de equivalencia sobre \(\mathbb{Z}\). Por tanto, permite agrupar los enteros en clases.
+
+\begin{proposicion}
+Sea \(n\in\mathbb{N}\), con \(n\geq 1\). La relación sobre \(\mathbb{Z}\) definida por
+\[
+  a\sim b \quad \Longleftrightarrow \quad a\equiv b\pmod n
+\]
+es una relación de equivalencia.
+\end{proposicion}
+
+\begin{proof}
+Veamos las tres propiedades.
+
+En primer lugar, para todo \(a\in\mathbb{Z}\), se tiene
+\[
+  a-a=0=0\cdot n,
+\]
+por lo que \(a\equiv a\pmod n\). La relación es reflexiva.
+
+En segundo lugar, si \(a\equiv b\pmod n\), entonces existe \(k\in\mathbb{Z}\) tal que
+\[
+  a-b=kn.
+\]
+Entonces
+\[
+  b-a=(-k)n,
+\]
+por lo que \(b\equiv a\pmod n\). La relación es simétrica.
+
+Por último, si \(a\equiv b\pmod n\) y \(b\equiv c\pmod n\), existen \(k,l\in\mathbb{Z}\) tales que
+\[
+  a-b=kn, \qquad b-c=ln.
+\]
+Sumando ambas igualdades,
+\[
+  a-c=(k+l)n.
+\]
+Así, \(a\equiv c\pmod n\). La relación es transitiva.
+\end{proof}
+
+\begin{definicion}[Clase de congruencia]
+Sea \(n\in\mathbb{N}\), con \(n\geq 1\), y sea \(a\in\mathbb{Z}\). La \emph{clase de congruencia} de \(a\) módulo \(n\) es el conjunto
+\[
+  [a]_n = \{x\in\mathbb{Z}: x\equiv a\pmod n\}.
+\]
+Cuando el módulo \(n\) se sobreentiende, se puede escribir simplemente \([a]\).
+\end{definicion}
+
+\begin{ejemplo}
+Módulo \(5\), la clase de \(2\) es
+\[
+  {[2]}_5=\{\ldots,-8,-3,2,7,12,17,\ldots\}.
+\]
+Todos estos enteros dejan resto \(2\) al dividirse por \(5\), si se toma el resto entre \(0\) y \(4\).
+\end{ejemplo}
+
+\begin{proposicion}
+Sea \(n\in\mathbb{N}\), con \(n\geq 1\). Todo entero es congruente módulo \(n\) con exactamente uno de los enteros
+\[
+  0,1,2,\ldots,n-1.
+\]
+\end{proposicion}
+
+\begin{proof}
+Sea \(a\in\mathbb{Z}\). Por la división euclídea, existen \(q,r\in\mathbb{Z}\) tales que
+\[
+  a=qn+r, \qquad 0\leq r<n.
+\]
+Entonces
+\[
+  a-r=qn,
+\]
+por lo que \(a\equiv r\pmod n\). Esto prueba la existencia.
+
+Para la unicidad, si \(a\equiv r\pmod n\) y \(a\equiv s\pmod n\), con
+\[
+  0\leq r<n, \qquad 0\leq s<n,
+\]
+entonces \(r\equiv s\pmod n\). Por tanto, \(n\mid(r-s)\). Como \(r-s\) está entre \(-(n-1)\) y \(n-1\), debe ser \(r-s=0\). Luego \(r=s\).
+\end{proof}
+
+\section{El conjunto cociente módulo un entero}
+
+El conjunto formado por todas las clases de congruencia módulo \(n\) se denomina conjunto cociente de \(\mathbb{Z}\) módulo \(n\).
+
+\begin{definicion}[Conjunto cociente módulo \(n\)]
+Sea \(n\in\mathbb{N}\), con \(n\geq 1\). El conjunto cociente de \(\mathbb{Z}\) módulo \(n\) se denota por
+\[
+  \mathbb{Z}/n\mathbb{Z}
+\]
+y se define como
+\[
+  \mathbb{Z}/n\mathbb{Z}=\{{[0]}_n,{[1]}_n,\ldots,[n-1]_n\}.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Para \(n=4\), se tiene
+\[
+  \mathbb{Z}/4\mathbb{Z}=\{{[0]}_4,{[1]}_4,{[2]}_4,[3]_4\}.
+\]
+La clase \({[0]}_4\) contiene los múltiplos de \(4\), la clase \({[1]}_4\) contiene los enteros de la forma \(4q+1\), la clase \({[2]}_4\) contiene los enteros de la forma \(4q+2\), y la clase \([3]_4\) contiene los enteros de la forma \(4q+3\), donde \(q\in\mathbb{Z}\).
+\end{ejemplo}
+
+\begin{advertencia}
+El símbolo \([a]_n\) representa una clase, es decir, un conjunto de enteros. No representa únicamente al entero \(a\). Por ejemplo, \({[2]}_5=[7]_5=[-3]_5\), aunque \(2\), \(7\) y \(-3\) sean enteros distintos.
+\end{advertencia}
+
+\section{Operaciones módulo un entero}
+
+Las operaciones de suma y producto de enteros inducen operaciones entre clases de congruencia.
+
+\begin{definicion}[Suma y producto módulo \(n\)]
+Sea \(n\in\mathbb{N}\), con \(n\geq 1\). Si \([a]_n,[b]_n\in\mathbb{Z}/n\mathbb{Z}\), definimos
+\[
+  [a]_n+[b]_n=[a+b]_n
+\]
+y
+\[
+  [a]_n\cdot[b]_n=[ab]_n.
+\]
+\end{definicion}
+
+Para que estas definiciones sean correctas, hay que comprobar que no dependen del representante elegido. Es decir, si \([a]_n=[a']_n\) y \([b]_n=[b']_n\), entonces debe cumplirse
+\[
+  [a+b]_n=[a'+b']_n
+\]
+y
+\[
+  [ab]_n=[a'b']_n.
+\]
+
+\begin{proposicion}[Buena definición de las operaciones]
+Las operaciones de suma y producto en \(\mathbb{Z}/n\mathbb{Z}\) están bien definidas.
+\end{proposicion}
+
+\begin{proof}
+Supongamos que \(a\equiv a'\pmod n\) y \(b\equiv b'\pmod n\). Entonces existen \(k,l\in\mathbb{Z}\) tales que
+\[
+  a-a'=kn, \qquad b-b'=ln.
+\]
+Sumando,
+\[
+  (a+b)-(a'+b')=(a-a')+(b-b')=(k+l)n,
+\]
+por lo que
+\[
+  a+b\equiv a'+b'\pmod n.
+\]
+Así, la suma está bien definida.
+
+Para el producto, observamos que
+\[
+  ab-a'b'=ab-a'b+a'b-a'b'=b(a-a')+a'(b-b').
+\]
+Sustituyendo las igualdades anteriores,
+\[
+  ab-a'b'=bkn+a'ln=(bk+a'l)n.
+\]
+Por tanto,
+\[
+  ab\equiv a'b'\pmod n.
+\]
+Así, el producto también está bien definido.
+\end{proof}
+
+\begin{ejemplo}
+En \(\mathbb{Z}/5\mathbb{Z}\), se tiene
+\[
+  [3]_5+[4]_5=[7]_5={[2]}_5,
+\]
+y
+\[
+  [3]_5\cdot[4]_5=[12]_5={[2]}_5.
+\]
+\end{ejemplo}
+
+\begin{ejemplo}[Tabla de suma módulo \(3\)]
+En \(\mathbb{Z}/3\mathbb{Z}\), la suma queda descrita por la tabla
+\[
+\begin{array}{c|ccc}
++ & {[0]} & {[1]} & {[2]} \\
+\hline
+{[0]} & {[0]} & {[1]} & {[2]} \\
+{[1]} & {[1]} & {[2]} & {[0]} \\
+{[2]} & {[2]} & {[0]} & {[1]}
+\end{array}
+\]
+En la tabla se ha omitido el subíndice \(3\) para aligerar la notación.
+\end{ejemplo}
+
+\begin{ejemplo}[Tabla de producto módulo \(3\)]
+En \(\mathbb{Z}/3\mathbb{Z}\), el producto queda descrito por la tabla
+\[
+\begin{array}{c|ccc}
+\cdot & {[0]} & {[1]} & {[2]} \\
+\hline
+{[0]} & {[0]} & {[0]} & {[0]} \\
+{[1]} & {[0]} & {[1]} & {[2]} \\
+{[2]} & {[0]} & {[2]} & {[1]}
+\end{array}
+\]
+\end{ejemplo}
+
+\section{Inversos modulares}
+
+En aritmética ordinaria, un número entero distinto de \(1\) y \(-1\) no suele tener inverso multiplicativo dentro de \(\mathbb{Z}\). Sin embargo, módulo \(n\), algunas clases sí pueden tener inverso multiplicativo.
+
+\begin{definicion}[Inverso modular]
+Sea \(n\in\mathbb{N}\), con \(n\geq 2\), y sea \(a\in\mathbb{Z}\). Diremos que la clase \([a]_n\) tiene \emph{inverso multiplicativo} en \(\mathbb{Z}/n\mathbb{Z}\) si existe \([b]_n\in\mathbb{Z}/n\mathbb{Z}\) tal que
+\[
+  [a]_n[b]_n={[1]}_n.
+\]
+En ese caso, \([b]_n\) se llama un \emph{inverso modular} de \([a]_n\).
+\end{definicion}
+
+Equivalente, \([b]_n\) es inverso de \([a]_n\) si
+\[
+  ab\equiv 1\pmod n.
+\]
+
+\begin{teorema}[Criterio de invertibilidad modular]
+Sea \(n\in\mathbb{N}\), con \(n\geq 2\), y sea \(a\in\mathbb{Z}\). La clase \([a]_n\) tiene inverso multiplicativo en \(\mathbb{Z}/n\mathbb{Z}\) si y solo si
+\[
+  \mcd(a,n)=1.
+\]
+\end{teorema}
+
+\begin{proof}
+Supongamos primero que \([a]_n\) tiene inverso. Entonces existe \(b\in\mathbb{Z}\) tal que
+\[
+  ab\equiv 1\pmod n.
+\]
+Esto significa que existe \(k\in\mathbb{Z}\) tal que
+\[
+  ab-1=kn.
+\]
+Por tanto,
+\[
+  ab-kn=1.
+\]
+Si un entero \(d\) divide a \(a\) y a \(n\), entonces divide a \(ab\) y a \(kn\), y por tanto divide a \(ab-kn=1\). Así, \(d=1\) o \(d=-1\). En consecuencia, el máximo común divisor positivo de \(a\) y \(n\) es \(1\).
+
+Recíprocamente, si \(\mcd(a,n)=1\), por la identidad de Bézout existen \(u,v\in\mathbb{Z}\) tales que
+\[
+  au+nv=1.
+\]
+Entonces
+\[
+  au-1=-nv,
+\]
+por lo que
+\[
+  au\equiv 1\pmod n.
+\]
+Así, \([u]_n\) es inverso multiplicativo de \([a]_n\).
+\end{proof}
+
+\begin{ejemplo}
+En \(\mathbb{Z}/7\mathbb{Z}\), la clase \([3]_7\) tiene inverso porque \(\mcd(3,7)=1\). De hecho,
+\[
+  3\cdot 5=15\equiv 1\pmod 7.
+\]
+Por tanto, \([5]_7\) es el inverso de \([3]_7\).
+\end{ejemplo}
+
+\begin{contraejemplo}
+En \(\mathbb{Z}/8\mathbb{Z}\), la clase \({[2]}_8\) no tiene inverso multiplicativo, porque
+\[
+  \mcd(2,8)=2\neq 1.
+\]
+En efecto, los productos \(2b\) son siempre pares, y por tanto no pueden ser congruentes con \(1\) módulo \(8\).
+\end{contraejemplo}
+
+\section{Ecuaciones lineales módulo un entero}
+
+Una ecuación lineal módulo \(n\) tiene la forma
+\[
+  ax\equiv b\pmod n,
+\]
+donde \(a,b\in\mathbb{Z}\), \(n\in\mathbb{N}\) con \(n\geq 2\), y la incógnita es \(x\in\mathbb{Z}\).
+
+\begin{teorema}[Criterio de resolución]
+Sean \(a,b\in\mathbb{Z}\) y sea \(n\in\mathbb{N}\), con \(n\geq 2\). La congruencia lineal
+\[
+  ax\equiv b\pmod n
+\]
+tiene solución si y solo si
+\[
+  \mcd(a,n)\mid b.
+\]
+\end{teorema}
+
+\begin{proof}
+La congruencia
+\[
+  ax\equiv b\pmod n
+\]
+es equivalente a decir que existe \(y\in\mathbb{Z}\) tal que
+\[
+  ax-b=ny.
+\]
+Reordenando,
+\[
+  ax-ny=b.
+\]
+Esta es una ecuación diofántica lineal. Por el criterio estudiado en el capítulo de divisibilidad, la ecuación
+\[
+  ax+nc=b
+\]
+tiene solución entera si y solo si \(\mcd(a,n)\mid b\). Como cambiar \(c\) por \(-y\) no altera el criterio, se obtiene el resultado.
+\end{proof}
+
+\begin{ejemplo}
+Resolvamos
+\[
+  3x\equiv 4\pmod 7.
+\]
+Como \(\mcd(3,7)=1\), la clase \([3]_7\) tiene inverso. Sabemos que
+\[
+  3\cdot 5=15\equiv 1\pmod 7.
+\]
+Multiplicando ambos lados de la congruencia por \(5\), obtenemos
+\[
+  x\equiv 5\cdot 4=20\equiv 6\pmod 7.
+\]
+Por tanto, las soluciones son los enteros congruentes con \(6\) módulo \(7\):
+\[
+  x=6+7k, \qquad k\in\mathbb{Z}.
+\]
+\end{ejemplo}
+
+\begin{ejemplo}
+La congruencia
+\[
+  6x\equiv 9\pmod{15}
+\]
+tiene solución porque
+\[
+  \mcd(6,15)=3
+\]
+y \(3\mid 9\). Dividiendo toda la congruencia por \(3\), se obtiene
+\[
+  2x\equiv 3\pmod 5.
+\]
+Como \(2^{-1}\equiv 3\pmod 5\), multiplicamos por \(3\) y resulta
+\[
+  x\equiv 9\equiv 4\pmod 5.
+\]
+Por tanto, las soluciones módulo \(15\) son
+\[
+  x\equiv 4,9,14\pmod{15}.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+No siempre se puede dividir directamente una congruencia por un entero. La división solo es automática cuando el factor por el que se quiere dividir es invertible módulo \(n\). En caso contrario, hay que usar el criterio basado en el máximo común divisor.
+\end{advertencia}
+
+\section{Teorema Chino del Resto}
+
+El Teorema Chino del Resto permite resolver sistemas de congruencias con módulos coprimos dos a dos.
+
+\begin{definicion}[Módulos coprimos dos a dos]
+Sean \(n_1,n_2,\ldots,n_r\in\mathbb{N}\), con \(n_i\geq 2\) para todo \(i\). Diremos que estos módulos son \emph{coprimos dos a dos} si
+\[
+  \mcd(n_i,n_j)=1
+\]
+siempre que \(i\neq j\).
+\end{definicion}
+
+\begin{teorema}[Teorema Chino del Resto]
+Sean \(n_1,n_2,\ldots,n_r\in\mathbb{N}\), con \(n_i\geq 2\), coprimos dos a dos. Sean \(a_1,a_2,\ldots,a_r\in\mathbb{Z}\). Entonces el sistema
+\[
+\begin{cases}
+  x\equiv a_1 \pmod{n_1},\\
+  x\equiv a_2 \pmod{n_2},\\
+  \quad\vdots\\
+  x\equiv a_r \pmod{n_r}
+\end{cases}
+\]
+tiene solución. Además, la solución es única módulo
+\[
+  N=n_1n_2\cdots n_r.
+\]
+\end{teorema}
+
+\begin{proof}
+Daremos la construcción de una solución. Definimos
+\[
+  N=n_1n_2\cdots n_r
+\]
+y, para cada \(i\in\{1,2,\ldots,r\}\), definimos
+\[
+  N_i=\frac{N}{n_i}.
+\]
+Como los módulos son coprimos dos a dos, se tiene
+\[
+  \mcd(N_i,n_i)=1.
+\]
+Por tanto, \(N_i\) tiene inverso módulo \(n_i\). Sea \(u_i\in\mathbb{Z}\) tal que
+\[
+  N_i u_i\equiv 1\pmod{n_i}.
+\]
+Consideramos
+\[
+  x=a_1N_1u_1+a_2N_2u_2+\cdots+a_rN_ru_r.
+\]
+Si reducimos módulo \(n_i\), todos los términos con índice \(j\neq i\) son congruentes con \(0\), porque \(n_i\mid N_j\). El término con índice \(i\) satisface
+\[
+  a_iN_iu_i\equiv a_i\pmod{n_i}.
+\]
+Luego
+\[
+  x\equiv a_i\pmod{n_i}
+\]
+para todo \(i\). Esto prueba la existencia.
+
+Para la unicidad módulo \(N\), si \(x\) e \(y\) son dos soluciones, entonces
+\[
+  x\equiv y\pmod{n_i}
+\]
+para todo \(i\). Por tanto, cada \(n_i\) divide a \(x-y\). Como los \(n_i\) son coprimos dos a dos, su producto \(N\) divide a \(x-y\). Así,
+\[
+  x\equiv y\pmod N.
+\]
+\end{proof}
+
+\begin{ejemplo}
+Resolvamos el sistema
+\[
+\begin{cases}
+  x\equiv 2 \pmod 3,\\
+  x\equiv 3 \pmod 5.
+\end{cases}
+\]
+Los módulos \(3\) y \(5\) son coprimos. Buscamos enteros congruentes con \(2\) módulo \(3\):
+\[
+  2,5,8,11,14,17,\ldots
+\]
+Entre ellos, \(8\) es congruente con \(3\) módulo \(5\). Por tanto,
+\[
+  x\equiv 8\pmod{15}.
+\]
+\end{ejemplo}
+
+\begin{erroresfrecuentes}
+  \item Confundir la congruencia \(a\equiv b\pmod n\) con la igualdad ordinaria \(a=b\).
+  \item Olvidar que \([a]_n\) es una clase de enteros, no solo el entero \(a\).
+  \item Dividir una congruencia por un número que no tiene inverso módulo \(n\).
+  \item Suponer que toda clase no nula tiene inverso en \(\mathbb{Z}/n\mathbb{Z}\). Esto solo ocurre cuando \(n\) es primo.
+  \item Aplicar el Teorema Chino del Resto sin comprobar que los módulos son coprimos dos a dos.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Cálculo con congruencias.
+  \item Tablas de suma y producto módulo un entero.
+  \item Resolución de congruencias lineales.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Decide si las siguientes congruencias son verdaderas:
+  \[
+    25\equiv 4\pmod 7,\qquad -3\equiv 9\pmod 4,\qquad 18\equiv 0\pmod 6.
+  \]
+  \item Calcula las clases de congruencia módulo \(6\) y escribe tres representantes distintos de cada una.
+  \item Construye las tablas de suma y producto de \(\mathbb{Z}/4\mathbb{Z}\).
+  \item Determina cuáles de las clases \({[0]}_8,{[1]}_8,\ldots,[7]_8\) tienen inverso multiplicativo módulo \(8\).
+  \item Resuelve la congruencia
+  \[
+    5x\equiv 3\pmod{11}.
+  \]
+  \item Decide si la congruencia
+  \[
+    6x\equiv 10\pmod{14}
+  \]
+  tiene solución. En caso afirmativo, encuéntrala.
+  \item Resuelve el sistema
+  \[
+  \begin{cases}
+    x\equiv 1\pmod 4,\\
+    x\equiv 2\pmod 5.
+  \end{cases}
+  \]
+\end{ejerciciospropuestos}
+
+\resumen{La aritmética modular estudia los enteros agrupados según sus restos al dividir por un módulo fijo. La congruencia módulo \(n\) es una relación de equivalencia sobre \(\mathbb{Z}\), cuyas clases forman el conjunto cociente \(\mathbb{Z}/n\mathbb{Z}\). En este conjunto se pueden definir suma y producto de clases, siempre cuidando que las operaciones estén bien definidas. Los inversos modulares existen exactamente para las clases representadas por enteros coprimos con el módulo. Las ecuaciones lineales módulo \(n\) se resuelven mediante el máximo común divisor, y el Teorema Chino del Resto permite resolver sistemas de congruencias con módulos coprimos dos a dos.}

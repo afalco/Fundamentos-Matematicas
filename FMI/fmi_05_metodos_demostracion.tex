@@ -1,0 +1,182 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 05: Métodos de demostración
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 05]{Métodos de demostración}
+\subtitle{Directa, contraposición, contradicción y casos}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Elegir un método de demostración según la forma del enunciado.
+  \item Redactar pruebas directas y por contraposición.
+  \item Reconocer cuándo usar contradicción o división en casos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Demostración directa}
+
+\begin{frame}{Demostración directa}
+\begin{block}{Idea}
+\begin{itemize}
+  \item Se parte de las hipótesis y se llega a la conclusión mediante pasos justificados.
+  \item Es el método natural para muchas implicaciones.
+  \item Cada paso debe apoyarse en definiciones o resultados previos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Demostración directa}
+\begin{block}{Modelo}
+\begin{itemize}
+  \item Para demostrar \(P\Rightarrow Q\): supongamos \(P\).
+  \item Usando definiciones, transformamos la información de \(P\).
+  \item Concluimos \(Q\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Métodos indirectos}
+
+\begin{frame}{Métodos indirectos}
+\begin{block}{Contraposición}
+\begin{itemize}
+  \item Para probar \(P\Rightarrow Q\), se prueba \(\neg Q\Rightarrow\neg P\).
+  \item Es útil cuando la negación de la conclusión aporta información concreta.
+  \item Ejemplo típico: si \(n^2\) es par, entonces \(n\) es par.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Métodos indirectos}
+\begin{block}{Contradicción}
+\begin{itemize}
+  \item Se supone lo contrario de lo que se quiere demostrar.
+  \item A partir de esa suposición se obtiene una contradicción explícita.
+  \item No basta decir ``supongamos lo contrario'': hay que llegar a una imposibilidad.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Métodos indirectos}
+\begin{block}{Demostración por casos}
+\begin{itemize}
+  \item Se divide el problema en situaciones exhaustivas y excluyentes o manejables.
+  \item Cada caso debe cubrirse.
+  \item Al final se concluye que el resultado vale en todos los casos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Equivalencias}
+
+\begin{frame}{Equivalencias}
+\begin{block}{Si y solo si}
+\begin{itemize}
+  \item Para demostrar \(P\Leftrightarrow Q\), se prueban dos implicaciones.
+  \item Primero \(P\Rightarrow Q\).
+  \item Después \(Q\Rightarrow P\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Elegir método}
+\begin{itemize}
+  \item Si el enunciado es universal, se empieza con un elemento arbitrario.
+  \item Si el enunciado es existencial, se construye un objeto concreto.
+  \item Si la conclusión negada es más manejable, puede convenir la contraposición.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Modelo por contraposición}
+\begin{itemize}
+  \item Objetivo: si \(n^2\) es par, entonces \(n\) es par.
+  \item Contrapositiva: si \(n\) no es par, entonces \(n^2\) no es par.
+  \item La prueba usa la forma \(n=2k+1\) para enteros impares.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Errores de redacción}
+\begin{itemize}
+  \item Usar ejemplos como si fueran una prueba general.
+  \item No indicar dónde se usa una hipótesis.
+  \item Terminar con una igualdad correcta pero sin conectar con la conclusión.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item La forma del enunciado sugiere el método.
+  \item Una prueba bien redactada declara hipótesis y objetivo.
+  \item Los ejemplos orientan, pero la demostración cierra.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

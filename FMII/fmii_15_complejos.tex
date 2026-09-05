@@ -1,0 +1,237 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 15: Números complejos
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 15]{Números complejos}
+\subtitle{Forma binómica, forma polar y ecuaciones algebraicas}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Motivar la unidad imaginaria.
+  \item Operar con números complejos.
+  \item Usar forma polar para potencias y raíces.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Forma binómica}
+
+\begin{frame}{Forma binómica}
+\begin{block}{Unidad imaginaria}
+\begin{itemize}
+  \item Se introduce \(i\) con \(i^2=-1\).
+  \item Esto no afirma que exista un real con cuadrado negativo.
+  \item Amplía el sistema para resolver \(x^2+1=0\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Forma binómica}
+\begin{block}{Complejos}
+\begin{itemize}
+  \item Un complejo se escribe \(z=a+bi\), con \(a,b\in\mathbb{R}\).
+  \item \(a\) es la parte real y \(b\) la parte imaginaria.
+  \item \(\mathbb{C}=\{a+bi:a,b\in\mathbb{R}\}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Forma binómica}
+\begin{block}{Operaciones}
+\begin{itemize}
+  \item \((a+bi)+(c+di)=(a+c)+(b+d)i\).
+  \item \((a+bi)(c+di)=(ac-bd)+(ad+bc)i\).
+  \item La fórmula del producto usa \(i^2=-1\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Módulo y forma polar}
+
+\begin{frame}{Módulo y forma polar}
+\begin{block}{Conjugado y módulo}
+\begin{itemize}
+  \item \(\overline{a+bi}=a-bi\).
+  \item \(|a+bi|=\sqrt{a^2+b^2}\).
+  \item Se cumple \(z\overline z=|z|^2\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Módulo y forma polar}
+\begin{block}{Inverso}
+\begin{itemize}
+  \item Si \(z\neq 0\), entonces \(z^{-1}=\overline z/|z|^2\).
+  \item Esta fórmula permite dividir complejos.
+  \item El denominador \(|z|^2\) es real positivo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Módulo y forma polar}
+\begin{block}{Forma polar}
+\begin{itemize}
+  \item Si \(z\neq 0\), puede escribirse \(z=r(\cos\theta+i\sin\theta)\).
+  \item \(r=|z|\).
+  \item \(\theta\) es un argumento y no es único.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Potencias, raíces y ecuaciones}
+
+\begin{frame}{Potencias, raíces y ecuaciones}
+\begin{block}{De Moivre}
+\begin{itemize}
+  \item \((\cos\theta+i\sin\theta)^n=\cos(n\theta)+i\sin(n\theta)\).
+  \item La forma polar simplifica potencias.
+  \item También permite calcular raíces.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Potencias, raíces y ecuaciones}
+\begin{block}{Raíces}
+\begin{itemize}
+  \item Las raíces \(n\)-ésimas de \(w\neq 0\) se distribuyen angularmente.
+  \item Aparecen \(n\) soluciones distintas.
+  \item El caso \(w=-1\), \(n=2\), produce \(i\) y \(-i\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Potencias, raíces y ecuaciones}
+\begin{block}{Teorema Fundamental del Álgebra}
+\begin{itemize}
+  \item Todo polinomio no constante con coeficientes complejos tiene al menos una raíz compleja.
+  \item Por tanto, en \(\mathbb{C}\) los polinomios se descomponen completamente en factores lineales.
+  \item Este resultado explica el papel central de \(\mathbb{C}\) en ecuaciones algebraicas.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Error frecuente}
+\begin{itemize}
+  \item La parte imaginaria de \(a+bi\) es \(b\), no \(bi\).
+  \item El argumento no es único.
+  \item No se debe aplicar la fórmula cuadrática ignorando raíces complejas.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item Resolver \(z^2+4=0\).
+  \item Equivale a \(z^2=-4\).
+  \item Las soluciones son \(z=2i\) y \(z=-2i\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Cierre de FdM II}
+\begin{itemize}
+  \item Enteros: opuestos y división euclídea.
+  \item Divisibilidad: \(\mcd\), Bézout y factorización.
+  \item Modular: clases, inversos y TCR.
+  \item Racionales, reales y complejos completan la cadena de sistemas numéricos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Raíces y argumento}
+\begin{itemize}
+  \item Si \(z=re^{i\theta}\), sus raíces \(n\)-ésimas tienen módulo \(\sqrt[n]{r}\).
+  \item Los argumentos se reparten como \(\frac{\theta+2k\pi}{n}\), con \(k=0,\ldots,n-1\).
+  \item Las raíces aparecen uniformemente distribuidas sobre una circunferencia.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Calcular las raíces cuadradas de \(-1\).
+  \item Calcular las raíces cúbicas de \(1\).
+  \item Interpretar geométricamente la conjugación \(z\mapsto \overline{z}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Los complejos resuelven ecuaciones sin solución real.
+  \item El conjugado y el módulo permiten dividir.
+  \item La forma polar organiza potencias y raíces.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

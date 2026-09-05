@@ -1,0 +1,171 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 13: Semigrupos, monoides y grupos
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 13]{Semigrupos, monoides y grupos}
+\subtitle{Primeras estructuras algebraicas}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir semigrupos, monoides y grupos.
+  \item Reconocer ejemplos básicos.
+  \item Entender la noción de grupo abeliano.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Estructuras con una operación}
+
+\begin{frame}{Estructuras con una operación}
+\begin{block}{Semigrupo}
+\begin{itemize}
+  \item Un semigrupo es un par \((A,*)\) con operación interna asociativa.
+  \item Ejemplo: \((\mathbb{N},+)\).
+  \item No se exige neutro ni inversos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Estructuras con una operación}
+\begin{block}{Monoide}
+\begin{itemize}
+  \item Un monoide es un semigrupo con elemento neutro.
+  \item Ejemplo: \((\mathbb{N},+,0)\).
+  \item La notación debe indicar conjunto, operación y neutro.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Estructuras con una operación}
+\begin{block}{Grupo}
+\begin{itemize}
+  \item Un grupo tiene operación interna asociativa, neutro e inversos para todos sus elementos.
+  \item Ejemplo: \((\mathbb{Z},+,0)\).
+  \item No toda estructura con neutro es un grupo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Lectura estructural}
+
+\begin{frame}{Lectura estructural}
+\begin{block}{Grupo abeliano}
+\begin{itemize}
+  \item Un grupo es abeliano si además la operación es conmutativa.
+  \item \((\mathbb{Z},+,0)\) es abeliano.
+  \item Las simetrías de una figura forman un grupo; no siempre es abeliano.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Lectura estructural}
+\begin{block}{Errores frecuentes}
+\begin{itemize}
+  \item Olvidar comprobar que la operación es interna.
+  \item Confundir neutro con inverso.
+  \item Suponer que toda operación conocida conserva sus propiedades en cualquier conjunto.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Jerarquía}
+\begin{itemize}
+  \item Todo grupo es un monoide.
+  \item Todo monoide es un semigrupo.
+  \item Las implicaciones inversas no son ciertas en general.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplos comparados}
+\begin{itemize}
+  \item \((\mathbb{N},+)\) es monoide si \(0\in\mathbb{N}\).
+  \item \((\mathbb{Z},+)\) es grupo abeliano.
+  \item \((\mathbb{N},+)\) no es grupo porque \(1\) no tiene inverso aditivo en \(\mathbb{N}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Cómo probar que algo no es grupo}
+\begin{itemize}
+  \item Mostrar que la operación no es interna.
+  \item Mostrar que no es asociativa.
+  \item Mostrar que no existe neutro.
+  \item Mostrar que algún elemento no tiene inverso.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Semigrupo: asociatividad.
+  \item Monoide: asociatividad y neutro.
+  \item Grupo: asociatividad, neutro e inversos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

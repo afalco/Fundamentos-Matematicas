@@ -1,0 +1,195 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 08: Factorización en primos II
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 08]{Factorización en primos II}
+\subtitle{Unicidad y aplicaciones}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Enunciar la unicidad de la factorización.
+  \item Aplicar factorización a \(\mcd\) y \(\mcm\).
+  \item Probar irracionalidad de raíces sencillas.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Unicidad}
+
+\begin{frame}{Unicidad}
+\begin{block}{Teorema Fundamental}
+\begin{itemize}
+  \item Todo entero \(n>1\) admite factorización en primos.
+  \item Esa factorización es única salvo el orden de los factores.
+  \item Se escribe de forma canónica agrupando potencias de primos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Unicidad}
+\begin{block}{Lema clave}
+\begin{itemize}
+  \item Si \(p\) es primo y \(p\mid ab\), entonces \(p\mid a\) o \(p\mid b\).
+  \item Este resultado conecta primalidad y divisibilidad.
+  \item Es esencial para comparar dos factorizaciones.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Unicidad}
+\begin{block}{Comparar factorizaciones}
+\begin{itemize}
+  \item Si un primo divide un producto de primos, debe coincidir con alguno de ellos.
+  \item Se cancelan factores uno a uno.
+  \item Quedan los mismos primos con las mismas multiplicidades.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Aplicaciones}
+
+\begin{frame}{Aplicaciones}
+\begin{block}{\(\mcd\) y \(\mcm\)}
+\begin{itemize}
+  \item El \(\mcd\) toma exponentes mínimos de los primos comunes.
+  \item El \(\mcm\) toma exponentes máximos de todos los primos presentes.
+  \item Este método evita listar divisores.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Aplicaciones}
+\begin{block}{Irracionalidad}
+\begin{itemize}
+  \item Para probar que \(\sqrt{2}\) es irracional, se supone \(\sqrt{2}=a/b\) en forma irreducible.
+  \item De \(a^2=2b^2\) se deduce que \(a\) es par.
+  \item Entonces también \(b\) es par, contradiciendo la irreducibilidad.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item \(72=2^3\cdot 3^2\).
+  \item \(180=2^2\cdot 3^2\cdot 5\).
+  \item \(\mcd(72,180)=2^2\cdot 3^2=36\).
+  \item \(\mcm(72,180)=2^3\cdot 3^2\cdot 5=360\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Error frecuente}
+\begin{itemize}
+  \item Tomar exponentes máximos para el \(\mcd\).
+  \item Usar solo primos comunes para el \(\mcm\).
+  \item Olvidar multiplicidades en la factorización.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Pregunta}
+\begin{itemize}
+  \item ¿Qué propiedad se pierde si \(1\) fuese primo?
+  \item ¿Por qué la unicidad es más fuerte que la existencia?
+  \item ¿Cómo detectar si una fracción está en forma irreducible?
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Unicidad de la factorización}
+\begin{itemize}
+  \item La factorización prima existe y es única salvo el orden de los factores.
+  \item La unicidad permite comparar enteros mediante exponentes de primos.
+  \item De ahí se obtienen fórmulas para \(\mcd\) y \(\mcm\) usando mínimos y máximos de exponentes.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Factorizar \(360\) y \(840\).
+  \item Calcular \(\mcd(360,840)\) y \(\mcm(360,840)\) desde los exponentes.
+  \item Comprobar que \(\mcd(a,b)\mcm(a,b)=|ab|\) en este caso.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item La factorización en primos existe y es única.
+  \item \(\mcd\) y \(\mcm\) se leen en los exponentes.
+  \item La unicidad permite probar irracionalidad.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

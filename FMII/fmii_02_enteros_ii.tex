@@ -1,0 +1,204 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 02: Números enteros II
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 02]{Números enteros II}
+\subtitle{Valor absoluto y división euclídea}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir valor absoluto en \(\mathbb{Z}\).
+  \item Interpretar el valor absoluto como distancia al cero.
+  \item Introducir la división euclídea.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Valor absoluto}
+
+\begin{frame}{Valor absoluto}
+\begin{block}{Definición}
+\begin{itemize}
+  \item Si \(a\geq 0\), entonces \(|a|=a\).
+  \item Si \(a<0\), entonces \(|a|=-a\).
+  \item El valor absoluto siempre es un entero no negativo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Valor absoluto}
+\begin{block}{Interpretación}
+\begin{itemize}
+  \item \(|a|\) mide la distancia de \(a\) al cero.
+  \item Por eso \(|a|=|-a|\).
+  \item También permite expresar distancia entre enteros como \(|a-b|\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Valor absoluto}
+\begin{block}{Propiedades}
+\begin{itemize}
+  \item \(|a|=0\) si y solo si \(a=0\).
+  \item \(|ab|=|a||b|\).
+  \item \(|a+b|\leq |a|+|b|\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{División euclídea}
+
+\begin{frame}{División euclídea}
+\begin{block}{Enunciado}
+\begin{itemize}
+  \item Si \(a,b\in\mathbb{Z}\) y \(b>0\), existen enteros únicos \(q,r\) tales que \(a=bq+r\).
+  \item El resto satisface \(0\leq r<b\).
+  \item \(q\) es el cociente y \(r\) el resto.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{División euclídea}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item Para \(a=37\) y \(b=5\): \(37=5\cdot 7+2\).
+  \item El cociente es \(7\).
+  \item El resto es \(2\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{División euclídea}
+\begin{block}{Cuidado}
+\begin{itemize}
+  \item El resto no puede ser negativo.
+  \item El resto debe ser menor que el divisor.
+  \item La unicidad depende de imponer \(0\leq r<b\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Dividendo negativo}
+\begin{itemize}
+  \item Para \(-17\) entre \(5\), buscamos \(-17=5q+r\) con \(0\leq r<5\).
+  \item Tomando \(q=-4\), queda \(-17=5(-4)+3\).
+  \item El resto es \(3\), no \(-2\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Uso posterior}
+\begin{itemize}
+  \item La división euclídea fundamenta el algoritmo de Euclides.
+  \item Permite definir congruencias mediante restos.
+  \item Es central en divisibilidad y aritmética modular.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Comprobación rápida}
+\begin{itemize}
+  \item ¿Cumple el resto \(0\leq r<b\)?
+  \item ¿Se recupera el dividendo al calcular \(bq+r\)?
+  \item ¿El divisor se ha tomado positivo?
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Valor absoluto y distancia}
+\begin{itemize}
+  \item El valor absoluto mide distancia al cero: \(|a|\geq 0\).
+  \item La distancia entre dos enteros se escribe \(|a-b|\).
+  \item La desigualdad triangular resume una propiedad geométrica: \(|a+b|\leq |a|+|b|\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Calcular \(|-8|\), \(|3-11|\) y \(|-4+9|\).
+  \item Encontrar todos los \(x\in\mathbb{Z}\) tales que \(|x|\leq 3\).
+  \item Explicar por qué \(|a|=0\) implica \(a=0\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item El valor absoluto expresa distancia y tamaño sin signo.
+  \item La división euclídea produce cociente y resto únicos.
+  \item El resto siempre se elige entre \(0\) y \(b-1\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

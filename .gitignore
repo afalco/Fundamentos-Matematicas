@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lot
+*.lof
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.synctex.gz
+*~ *.swp
+
+# Editor
+.idea/
+.vscode/
+
+# Subrepositorio
+Fundamentos-Matematicas/

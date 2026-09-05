@@ -1,0 +1,448 @@
+\chapter{Los números complejos y las ecuaciones algebraicas}
+
+\begin{objetivos}
+  \item Motivar la introducción de los números complejos.
+  \item Definir la unidad imaginaria y la forma binómica.
+  \item Estudiar conjugado, módulo, inverso y representación geométrica.
+  \item Resolver ecuaciones algebraicas sencillas en el conjunto de los números complejos.
+\end{objetivos}
+
+\section{Motivación: ecuaciones sin solución real}
+
+En los capítulos anteriores se han introducido sucesivamente los conjuntos numéricos
+\(\mathbb{N}\), \(\mathbb{Z}\), \(\mathbb{Q}\) y \(\mathbb{R}\). Cada ampliación ha respondido a una necesidad matemática concreta. Los números enteros permiten resolver ecuaciones de la forma
+\[
+  a+x=b,
+\]
+cuando \(a\) y \(b\) son números naturales. Los números racionales permiten resolver ecuaciones de la forma
+\[
+  ax=b,
+\]
+cuando \(a\) y \(b\) son enteros y \(a\neq 0\). Los números reales permiten incorporar magnitudes que no pueden representarse mediante fracciones, como ocurre con \(\sqrt{2}\).
+
+Sin embargo, incluso en \(\mathbb{R}\) existen ecuaciones algebraicas sencillas que no tienen solución. Por ejemplo,
+\[
+  x^2+1=0
+\]
+no tiene solución real, porque el cuadrado de todo número real es mayor o igual que cero. Es decir, si \(x\in\mathbb{R}\), entonces \(x^2\geq 0\), por lo que \(x^2+1>0\).
+
+La introducción de los números complejos responde a la necesidad de ampliar el sistema numérico para que ecuaciones como la anterior tengan solución.
+
+\begin{advertencia}
+La introducción de un nuevo conjunto numérico no debe entenderse como un artificio formal arbitrario. En matemáticas, una ampliación numérica se justifica porque permite resolver problemas que no podían tratarse adecuadamente en el sistema anterior.
+\end{advertencia}
+
+\section{La unidad imaginaria}
+
+\begin{definicion}[Unidad imaginaria]
+Se llama \emph{unidad imaginaria} a un símbolo, denotado por \(i\), que satisface la relación
+\[
+  i^2=-1.
+\]
+\end{definicion}
+
+La igualdad \(i^2=-1\) no afirma que exista un número real cuyo cuadrado sea negativo. Afirma que se introduce un nuevo objeto matemático, llamado \(i\), que permite extender el cálculo algebraico ordinario.
+
+A partir de \(i\), la ecuación
+\[
+  x^2+1=0
+\]
+tiene las soluciones
+\[
+  x=i \qquad \text{y} \qquad x=-i,
+\]
+porque
+\[
+  i^2+1=-1+1=0,
+\]
+y también
+\[
+  (-i)^2+1=i^2+1=-1+1=0.
+\]
+
+\begin{convencion}
+A lo largo de este capítulo, el símbolo \(i\) denotará siempre la unidad imaginaria, es decir, el objeto que satisface \(i^2=-1\).
+\end{convencion}
+
+\section{Forma binómica}
+
+\begin{definicion}[Número complejo]
+Un \emph{número complejo} es una expresión de la forma
+\[
+  z=a+bi,
+\]
+donde \(a\) y \(b\) son números reales, e \(i\) es la unidad imaginaria.
+
+El número real \(a\) se llama \emph{parte real} de \(z\), y el número real \(b\) se llama \emph{parte imaginaria} de \(z\). Se escribe
+\[
+  \operatorname{Re}(z)=a,
+  \qquad
+  \operatorname{Im}(z)=b.
+\]
+\end{definicion}
+
+El conjunto de todos los números complejos se denota por
+\[
+  \mathbb{C}=\{a+bi: a,b\in\mathbb{R}\}.
+\]
+Formalmente, puede construirse \(\mathbb{C}\) a partir de pares de números reales. En este curso utilizaremos la escritura binómica \(a+bi\), que permite trabajar de manera directa con la unidad imaginaria.
+
+La expresión \(a+bi\) se llama \emph{forma binómica} del número complejo.
+
+\begin{ejemplo}
+El número
+\[
+  z=3-2i
+\]
+es un número complejo. Su parte real es \(3\) y su parte imaginaria es \(-2\). Por tanto,
+\[
+  \operatorname{Re}(z)=3,
+  \qquad
+  \operatorname{Im}(z)=-2.
+\]
+\end{ejemplo}
+
+Todo número real puede considerarse como un número complejo cuya parte imaginaria es cero. En efecto, si \(a\in\mathbb{R}\), entonces
+\[
+  a=a+0i.
+\]
+Por esta razón se identifica \(\mathbb{R}\) con un subconjunto de \(\mathbb{C}\).
+
+\begin{advertencia}
+La parte imaginaria de \(a+bi\) es \(b\), no \(bi\). Por ejemplo, si \(z=5+7i\), entonces \(\operatorname{Im}(z)=7\), no \(7i\).
+\end{advertencia}
+
+\section{Suma y producto de complejos}
+
+Sean \(z,w\in\mathbb{C}\). Supongamos que
+\[
+  z=a+bi,
+  \qquad
+  w=c+di,
+\]
+donde \(a,b,c,d\in\mathbb{R}\).
+
+\begin{definicion}[Suma de números complejos]
+La \emph{suma} de \(z=a+bi\) y \(w=c+di\) se define por
+\[
+  z+w=(a+c)+(b+d)i.
+\]
+\end{definicion}
+
+Es decir, se suman por separado las partes reales y las partes imaginarias.
+
+\begin{ejemplo}
+Si \(z=2+3i\) y \(w=5-i\), entonces
+\[
+  z+w=(2+5)+(3-1)i=7+2i.
+\]
+\end{ejemplo}
+
+\begin{definicion}[Producto de números complejos]
+El \emph{producto} de \(z=a+bi\) y \(w=c+di\) se define por
+\[
+  zw=(ac-bd)+(ad+bc)i.
+\]
+\end{definicion}
+
+Esta fórmula se obtiene multiplicando formalmente y usando la relación \(i^2=-1\):
+\[
+(a+bi)(c+di)=ac+adi+bci+bdi^2=(ac-bd)+(ad+bc)i.
+\]
+
+\begin{ejemplo}
+Si \(z=1+2i\) y \(w=3-i\), entonces
+\[
+  zw=(1+2i)(3-i)=3-i+6i-2i^2=5+5i.
+\]
+\end{ejemplo}
+
+\section{Conjugado, módulo e inverso}
+
+\begin{definicion}[Conjugado]
+Sea \(z=a+bi\in\mathbb{C}\), con \(a,b\in\mathbb{R}\). El \emph{conjugado} de \(z\), denotado por \(\overline{z}\), se define por
+\[
+  \overline{z}=a-bi.
+\]
+\end{definicion}
+
+El conjugado conserva la parte real y cambia el signo de la parte imaginaria.
+
+\begin{ejemplo}
+Si \(z=4-3i\), entonces
+\[
+  \overline{z}=4+3i.
+\]
+\end{ejemplo}
+
+\begin{definicion}[Módulo]
+Sea \(z=a+bi\in\mathbb{C}\), con \(a,b\in\mathbb{R}\). El \emph{módulo} de \(z\), denotado por \(|z|\), se define por
+\[
+  |z|=\sqrt{a^2+b^2}.
+\]
+\end{definicion}
+
+El módulo de un número complejo es siempre un número real no negativo.
+
+\begin{proposicion}
+Para todo número complejo \(z\in\mathbb{C}\), se cumple
+\[
+  z\overline{z}=|z|^2.
+\]
+\end{proposicion}
+
+\begin{proof}
+Sea \(z=a+bi\), con \(a,b\in\mathbb{R}\). Entonces \(\overline{z}=a-bi\). Por tanto,
+\[
+  z\overline{z}=(a+bi)(a-bi)=a^2+b^2.
+\]
+Por definición de módulo,
+\[
+  |z|=\sqrt{a^2+b^2},
+\]
+luego
+\[
+  |z|^2=a^2+b^2.
+\]
+Por consiguiente,
+\[
+  z\overline{z}=|z|^2.
+\]
+\end{proof}
+
+\begin{definicion}[Inverso]
+Sea \(z\in\mathbb{C}\) un número complejo no nulo. El \emph{inverso} de \(z\) es el número complejo \(z^{-1}\) que satisface
+\[
+  zz^{-1}=1.
+\]
+Si \(z=a+bi\neq 0\), entonces
+\[
+  z^{-1}=\frac{\overline{z}}{|z|^2}
+  =\frac{a-bi}{a^2+b^2}.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Sea \(z=1+2i\). Entonces
+\[
+  \overline{z}=1-2i,
+  \qquad
+  |z|^2=1^2+2^2=5.
+\]
+Por tanto,
+\[
+  z^{-1}=\frac{1-2i}{5}=\frac{1}{5}-\frac{2}{5}i.
+\]
+\end{ejemplo}
+
+\section{El plano complejo}
+
+Todo número complejo \(z=a+bi\) puede representarse mediante el punto \((a,b)\) del plano real \(\mathbb{R}^2\). En esta representación, el eje horizontal corresponde a la parte real y el eje vertical corresponde a la parte imaginaria.
+
+\begin{definicion}[Plano complejo]
+Se llama \emph{plano complejo} a la representación geométrica de \(\mathbb{C}\) en la que a cada número complejo \(z=a+bi\) se le asocia el punto \((a,b)\in\mathbb{R}^2\).
+\end{definicion}
+
+En el plano complejo, el módulo \(|z|\) representa la distancia desde el origen hasta el punto asociado a \(z\).
+
+\begin{ejemplo}
+El número complejo \(z=3+4i\) se representa mediante el punto \((3,4)\). Su módulo es
+\[
+  |z|=\sqrt{3^2+4^2}=5.
+\]
+\end{ejemplo}
+
+\section{Forma polar}
+
+La forma binómica describe un número complejo mediante sus coordenadas cartesianas. La forma polar lo describe mediante su distancia al origen y el ángulo que forma con el eje real positivo.
+
+\begin{definicion}[Argumento]
+Sea \(z=a+bi\in\mathbb{C}\) un número complejo no nulo. Un \emph{argumento} de \(z\) es un número real \(\theta\) tal que
+\[
+  a=|z|\cos\theta,
+  \qquad
+  b=|z|\sin\theta.
+\]
+\end{definicion}
+
+Si \(r=|z|\), entonces la forma polar de \(z\) es
+\[
+  z=r(\cos\theta+i\sin\theta).
+\]
+
+\begin{ejemplo}
+El número \(z=1+i\) tiene módulo
+\[
+  |z|=\sqrt{1^2+1^2}=\sqrt{2}.
+\]
+Un argumento de \(z\) es \(\theta=\pi/4\). Por tanto,
+\[
+  1+i=\sqrt{2}\left(\cos\frac{\pi}{4}+i\sin\frac{\pi}{4}\right).
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+El argumento de un número complejo no nulo no es único. Si \(\theta\) es un argumento de \(z\), entonces también lo es \(\theta+2k\pi\), para todo \(k\in\mathbb{Z}\).
+\end{advertencia}
+
+\section{Fórmula de De Moivre}
+
+La forma polar permite describir de manera sencilla las potencias de un número complejo.
+
+\begin{teorema}[Fórmula de De Moivre]
+Sea \(\theta\in\mathbb{R}\) y sea \(n\in\mathbb{N}\). Entonces
+\[
+  (\cos\theta+i\sin\theta)^n=\cos(n\theta)+i\sin(n\theta).
+\]
+\end{teorema}
+
+\begin{ejemplo}
+Para \(n=2\), la fórmula afirma que
+\[
+  (\cos\theta+i\sin\theta)^2=\cos(2\theta)+i\sin(2\theta).
+\]
+Al desarrollar el cuadrado se obtiene
+\[
+  \cos^2\theta-\sin^2\theta+2i\sin\theta\cos\theta,
+\]
+lo que coincide con las identidades trigonométricas
+\[
+  \cos(2\theta)=\cos^2\theta-\sin^2\theta,
+  \qquad
+  \sin(2\theta)=2\sin\theta\cos\theta.
+\]
+\end{ejemplo}
+
+\section{Raíces de números complejos}
+
+\begin{definicion}[Raíz compleja]
+Sea \(w\in\mathbb{C}\) y sea \(n\in\mathbb{N}\), con \(n\geq 1\). Un número complejo \(z\in\mathbb{C}\) se llama \emph{raíz n-ésima} de \(w\) si
+\[
+  z^n=w.
+\]
+\end{definicion}
+
+Si \(w\neq 0\) se escribe en forma polar como
+\[
+  w=r(\cos\theta+i\sin\theta),
+\]
+con \(r>0\), entonces sus raíces n-ésimas están dadas por
+\[
+  z_k=\sqrt[n]{r}\left(\cos\frac{\theta+2k\pi}{n}
+  +i\sin\frac{\theta+2k\pi}{n}\right),
+  \qquad k=0,1,\dots,n-1.
+\]
+
+\begin{ejemplo}[Raíces cuadradas de \(-1\)]
+El número \(-1\) puede escribirse como
+\[
+  -1=\cos\pi+i\sin\pi.
+\]
+Sus raíces cuadradas son
+\[
+  z_0=\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}=i,
+\]
+y
+\[
+  z_1=\cos\frac{3\pi}{2}+i\sin\frac{3\pi}{2}=-i.
+\]
+Por tanto, las soluciones de \(z^2=-1\) son \(i\) y \(-i\).
+\end{ejemplo}
+
+\section{Ecuaciones algebraicas}
+
+Una ecuación algebraica es una ecuación construida a partir de polinomios. En este capítulo consideraremos principalmente ecuaciones de la forma
+\[
+  p(z)=0,
+\]
+donde \(p(z)\) es un polinomio con coeficientes reales o complejos.
+
+\begin{ejemplo}
+La ecuación
+\[
+  z^2+1=0
+\]
+tiene en \(\mathbb{C}\) las soluciones
+\[
+  z=i
+  \qquad \text{y} \qquad
+  z=-i.
+\]
+\end{ejemplo}
+
+\begin{ejemplo}
+Consideremos la ecuación
+\[
+  z^2-2z+2=0.
+\]
+Aplicando la fórmula general para ecuaciones cuadráticas se obtiene
+\[
+  z=\frac{2\pm\sqrt{(-2)^2-4\cdot 1\cdot 2}}{2}
+  =\frac{2\pm\sqrt{-4}}{2}.
+\]
+Como \(\sqrt{-4}=2i\), resulta
+\[
+  z=\frac{2\pm 2i}{2}=1\pm i.
+\]
+Por tanto, las soluciones son
+\[
+  z=1+i
+  \qquad \text{y} \qquad
+  z=1-i.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+La fórmula cuadrática se puede utilizar en \(\mathbb{C}\), pero hay que interpretar correctamente las raíces cuadradas de números negativos mediante la unidad imaginaria.
+\end{advertencia}
+
+\section{Teorema Fundamental del Álgebra}
+
+El resultado central que justifica la importancia de los números complejos en álgebra es el Teorema Fundamental del Álgebra.
+
+\begin{teorema}[Teorema Fundamental del Álgebra]
+Todo polinomio no constante con coeficientes complejos tiene al menos una raíz compleja.
+\end{teorema}
+
+Una consecuencia importante es que todo polinomio de grado \(n\geq 1\) con coeficientes complejos puede factorizarse como producto de \(n\) factores lineales, contando las raíces con su multiplicidad.
+
+\begin{ejemplo}
+El polinomio
+\[
+  p(z)=z^2+1
+\]
+se factoriza en \(\mathbb{C}\) como
+\[
+  z^2+1=(z-i)(z+i).
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+El Teorema Fundamental del Álgebra no afirma que las raíces puedan calcularse siempre mediante una fórmula sencilla. Afirma la existencia de raíces complejas para todo polinomio no constante con coeficientes complejos.
+\end{advertencia}
+
+\begin{erroresfrecuentes}
+  \item Pensar que la parte imaginaria de \(a+bi\) es \(bi\), cuando en realidad es \(b\).
+  \item Olvidar que \(i^2=-1\) al multiplicar números complejos.
+  \item Confundir el conjugado \(\overline{z}\) con el opuesto \(-z\).
+  \item Pensar que el argumento de un número complejo no nulo es único.
+  \item Calcular raíces complejas usando solo una rama del argumento y perder soluciones.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Operaciones en forma binómica.
+  \item Representación de complejos en el plano.
+  \item Cálculo de raíces complejas.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Calcula la suma, el producto, el conjugado y el módulo de los números complejos \(z=2-3i\) y \(w=-1+4i\).
+  \item Determina el inverso de \(z=3+i\).
+  \item Representa en el plano complejo los números \(1+i\), \(-2+3i\), \(-1-i\) y \(4\).
+  \item Escribe en forma polar el número complejo \(z=1-i\).
+  \item Calcula todas las raíces cúbicas de \(1\).
+  \item Resuelve en \(\mathbb{C}\) la ecuación \(z^2+4=0\).
+  \item Resuelve en \(\mathbb{C}\) la ecuación \(z^2-4z+5=0\).
+\end{ejerciciospropuestos}
+
+\resumen{Los números complejos amplían los números reales introduciendo la unidad imaginaria \(i\), definida por \(i^2=-1\). Todo complejo se escribe en forma binómica \(a+bi\), puede representarse en el plano y admite operaciones algebraicas compatibles con la relación fundamental de la unidad imaginaria. El conjugado, el módulo y la forma polar permiten estudiar productos, potencias y raíces. El Teorema Fundamental del Álgebra muestra que \(\mathbb{C}\) es el marco natural para resolver ecuaciones polinómicas.}

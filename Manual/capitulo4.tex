@@ -1,0 +1,456 @@
+\chapter{Correspondencias, aplicaciones y relaciones binarias}
+
+\begin{objetivos}
+  \item Distinguir entre correspondencia, aplicación y relación binaria.
+  \item Definir dominio, codominio, imagen e imagen recíproca.
+  \item Estudiar inyectividad, sobreyectividad y biyectividad.
+  \item Introducir relaciones de equivalencia y relaciones de orden.
+\end{objetivos}
+
+\section{Correspondencias}
+
+En los capítulos anteriores se ha introducido el lenguaje de los conjuntos. Ahora vamos a estudiar distintas formas de relacionar los elementos de un conjunto con los elementos de otro. Esta idea aparece constantemente en matemáticas: asociar a cada número su cuadrado, asociar a cada estudiante su calificación, asociar a cada punto del plano una coordenada, o comparar dos objetos mediante una relación.
+
+Antes de introducir símbolos, fijamos la situación general. Sean \(A\) y \(B\) dos conjuntos. Una forma de relacionar elementos de \(A\) con elementos de \(B\) consiste en indicar qué pares \((a,b)\), con \(a\in A\) y \(b\in B\), están relacionados.
+
+\begin{definicion}[Correspondencia]
+Sean \(A\) y \(B\) dos conjuntos. Una \emph{correspondencia} de \(A\) en \(B\) es una regla que asocia a algunos elementos de \(A\) uno o varios elementos de \(B\).
+\end{definicion}
+
+Una correspondencia puede verse como una manera flexible de asignar elementos. No exige que todos los elementos de \(A\) tengan asociado algún elemento de \(B\), ni exige que un elemento de \(A\) tenga asociado un único elemento de \(B\).
+
+\begin{ejemplo}
+Sea \(A=\{1,2,3\}\) y sea \(B=\{a,b,c\}\). Podemos definir una correspondencia indicando que
+\[
+1 \longleftrightarrow a,\qquad
+1 \longleftrightarrow b,\qquad
+2 \longleftrightarrow c.
+\]
+En esta correspondencia, el elemento \(1\) está relacionado con dos elementos de \(B\), mientras que el elemento \(3\) no está relacionado con ningún elemento de \(B\).
+\end{ejemplo}
+
+\begin{advertencia}
+Una correspondencia no es necesariamente una aplicación. En una aplicación, cada elemento del conjunto de partida debe tener una única imagen. En una correspondencia general, un elemento puede no tener imagen o puede tener varias.
+\end{advertencia}
+
+Una forma rigurosa de describir una correspondencia es mediante un subconjunto del producto cartesiano \(A\times B\). Recordemos que \(A\times B\) denota el conjunto formado por todos los pares ordenados \((a,b)\), donde \(a\in A\) y \(b\in B\).
+
+\begin{definicion}[Grafo de una correspondencia]
+Sean \(A\) y \(B\) dos conjuntos. El \emph{grafo} de una correspondencia de \(A\) en \(B\) es un subconjunto \(\Gamma\subset A\times B\). Si \((a,b)\in\Gamma\), diremos que \(a\) está relacionado con \(b\) mediante la correspondencia.
+\end{definicion}
+
+\section{Aplicaciones}
+
+Las aplicaciones, también llamadas funciones, son un caso particular especialmente importante de correspondencias. En matemáticas, una aplicación expresa una asignación bien determinada: a cada elemento del conjunto de partida se le asigna exactamente un elemento del conjunto de llegada.
+
+\begin{definicion}[Aplicación]
+Sean \(A\) y \(B\) dos conjuntos. Una \emph{aplicación} de \(A\) en \(B\) es una regla \(f\) que asigna a cada elemento \(a\in A\) un único elemento de \(B\), que se denota por \(f(a)\).
+
+Se escribe
+\[
+f:A\longrightarrow B.
+\]
+El conjunto \(A\) se llama \emph{dominio} o conjunto de partida de \(f\), y el conjunto \(B\) se llama \emph{codominio} o conjunto de llegada de \(f\).
+\end{definicion}
+
+La notación
+\[
+f:A\longrightarrow B
+\]
+solo debe utilizarse después de haber definido qué son \(A\), \(B\) y \(f\). Si \(a\in A\), el símbolo \(f(a)\) designa el elemento de \(B\) asignado a \(a\) por la aplicación \(f\).
+
+\begin{ejemplo}
+Sea \(A=\{1,2,3\}\) y sea \(B=\{a,b,c\}\). La regla definida por
+\[
+f(1)=a,\qquad f(2)=a,\qquad f(3)=c
+\]
+es una aplicación de \(A\) en \(B\). Cada elemento de \(A\) tiene asignado exactamente un elemento de \(B\).
+\end{ejemplo}
+
+\begin{contraejemplo}
+Sea \(A=\{1,2,3\}\) y sea \(B=\{a,b,c\}\). La regla
+\[
+1\mapsto a,\qquad 1\mapsto b,\qquad 2\mapsto c
+\]
+no define una aplicación de \(A\) en \(B\), porque el elemento \(1\) tendría dos imágenes y el elemento \(3\) no tendría ninguna.
+\end{contraejemplo}
+
+\begin{convencion}[Notación de imágenes]
+Si \(f:A\to B\) es una aplicación y \(a\in A\), escribiremos \(f(a)\) para denotar la imagen de \(a\) por \(f\). La expresión \(f(a)\) solo tiene sentido si previamente se han definido \(f\), \(A\), \(B\) y se sabe que \(a\in A\).
+\end{convencion}
+
+\section{Dominio, codominio e imagen}
+
+En una aplicación intervienen varios conjuntos que deben distinguirse cuidadosamente. Esta distinción evita muchos errores conceptuales.
+
+\begin{definicion}[Dominio y codominio]
+Sea \(f:A\to B\) una aplicación. El conjunto \(A\) se llama \emph{dominio} de \(f\). El conjunto \(B\) se llama \emph{codominio} de \(f\).
+\end{definicion}
+
+El dominio es el conjunto de elementos a los que se puede aplicar \(f\). El codominio es el conjunto en el que están obligadas a vivir las imágenes de los elementos del dominio.
+
+\begin{definicion}[Imagen de un elemento]
+Sea \(f:A\to B\) una aplicación y sea \(a\in A\). El elemento \(f(a)\in B\) se llama \emph{imagen de \(a\) por \(f\)}.
+\end{definicion}
+
+\begin{definicion}[Imagen de una aplicación]
+Sea \(f:A\to B\) una aplicación. La \emph{imagen} de \(f\) es el subconjunto de \(B\) formado por todos los valores que toma la aplicación. Se denota por \(\operatorname{Im}(f)\) y se define por
+\[
+\operatorname{Im}(f)=\{b\in B:\text{ existe }a\in A\text{ tal que }f(a)=b\}.
+\]
+\end{definicion}
+
+Equivalentemente, usando cuantificadores,
+\[
+b\in \operatorname{Im}(f) \quad \Longleftrightarrow \quad \exists a\in A \text{ tal que } f(a)=b.
+\]
+
+\begin{ejemplo}
+Sea \(f:\{1,2,3\}\to \{a,b,c,d\}\) definida por
+\[
+f(1)=a,\qquad f(2)=a,\qquad f(3)=c.
+\]
+Entonces
+\[
+\operatorname{Im}(f)=\{a,c\}.
+\]
+Obsérvese que el codominio es \(\{a,b,c,d\}\), pero la imagen es solo \(\{a,c\}\).
+\end{ejemplo}
+
+\begin{advertencia}
+No debe confundirse el codominio de una aplicación con su imagen. La imagen siempre es un subconjunto del codominio, pero no tiene por qué coincidir con él.
+\end{advertencia}
+
+\section{Imagen recíproca}
+
+La imagen recíproca permite transportar subconjuntos del codominio al dominio. Es una construcción fundamental porque se define para cualquier aplicación, sin necesidad de que exista una aplicación inversa.
+
+\begin{definicion}[Imagen recíproca]
+Sea \(f:A\to B\) una aplicación y sea \(C\subset B\). La \emph{imagen recíproca} de \(C\) por \(f\) es el subconjunto de \(A\) definido por
+\[
+f^{-1}(C)=\{a\in A:f(a)
+\in C\}.
+\]
+\end{definicion}
+
+En esta definición, el símbolo \(f^{-1}(C)\) no significa necesariamente que exista una aplicación inversa \(f^{-1}:B\to A\). Es una notación para designar el conjunto de elementos de \(A\) cuya imagen pertenece a \(C\).
+
+\begin{ejemplo}
+Sea \(f:\{1,2,3,4\}\to \{a,b,c\}\) definida por
+\[
+f(1)=a,\qquad f(2)=b,\qquad f(3)=b,\qquad f(4)=c.
+\]
+Si \(C=\{b,c\}\), entonces
+\[
+f^{-1}(C)=\{2,3,4\}.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+La imagen recíproca de un conjunto está siempre contenida en el dominio. Si \(f:A\to B\) y \(C\subset B\), entonces \(f^{-1}(C)\subset A\).
+\end{advertencia}
+
+\section{Inyectividad, sobreyectividad y biyectividad}
+
+Las aplicaciones se clasifican según cómo distribuyen los elementos del dominio dentro del codominio.
+
+\begin{definicion}[Aplicación inyectiva]
+Sea \(f:A\to B\) una aplicación. Diremos que \(f\) es \emph{inyectiva} si elementos distintos de \(A\) tienen imágenes distintas en \(B\). Es decir,
+\[
+\forall a_1,a_2\in A,\quad f(a_1)=f(a_2)\Rightarrow a_1=a_2.
+\]
+\end{definicion}
+
+La definición anterior se puede leer así: si dos elementos tienen la misma imagen, entonces en realidad eran el mismo elemento.
+
+\begin{ejemplo}
+La aplicación \(f:\{1,2,3\}\to \{a,b,c,d\}\) dada por
+\[
+f(1)=a,\qquad f(2)=b,\qquad f(3)=c
+\]
+es inyectiva.
+\end{ejemplo}
+
+\begin{contraejemplo}
+La aplicación \(g:\{1,2,3\}\to \{a,b,c\}\) dada por
+\[
+g(1)=a,\qquad g(2)=a,\qquad g(3)=c
+\]
+no es inyectiva, porque \(g(1)=g(2)\) y, sin embargo, \(1\ne 2\).
+\end{contraejemplo}
+
+\begin{definicion}[Aplicación sobreyectiva]
+Sea \(f:A\to B\) una aplicación. Diremos que \(f\) es \emph{sobreyectiva} si todo elemento del codominio es imagen de algún elemento del dominio. Es decir,
+\[
+\forall b\in B,\quad \exists a\in A\text{ tal que }f(a)=b.
+\]
+Equivalentemente, \(f\) es sobreyectiva si \(\operatorname{Im}(f)=B\).
+\end{definicion}
+
+\begin{ejemplo}
+La aplicación \(f:\{1,2,3\}\to \{a,b\}\) definida por
+\[
+f(1)=a,\qquad f(2)=b,\qquad f(3)=b
+\]
+es sobreyectiva, porque tanto \(a\) como \(b\) son imágenes de algún elemento del dominio.
+\end{ejemplo}
+
+\begin{definicion}[Aplicación biyectiva]
+Sea \(f:A\to B\) una aplicación. Diremos que \(f\) es \emph{biyectiva} si es inyectiva y sobreyectiva.
+\end{definicion}
+
+Una aplicación biyectiva establece una correspondencia perfecta entre los elementos de \(A\) y los elementos de \(B\): cada elemento de \(A\) tiene una única imagen en \(B\), y cada elemento de \(B\) procede de un único elemento de \(A\).
+
+\begin{ejemplo}
+La aplicación \(f:\{1,2,3\}\to \{a,b,c\}\) definida por
+\[
+f(1)=a,\qquad f(2)=b,\qquad f(3)=c
+\]
+es biyectiva.
+\end{ejemplo}
+
+\section{Composición de aplicaciones}
+
+La composición permite aplicar sucesivamente dos aplicaciones. Para definirla correctamente hay que comprobar que el codominio de la primera aplicación encaja con el dominio de la segunda.
+
+\begin{definicion}[Composición]
+Sean \(A\), \(B\) y \(C\) tres conjuntos. Sean \(f:A\to B\) y \(g:B\to C\) dos aplicaciones. La \emph{composición} de \(g\) con \(f\) es la aplicación
+\[
+g\circ f:A\to C
+\]
+definida por
+\[
+(g\circ f)(a)=g(f(a)),\qquad a\in A.
+\]
+\end{definicion}
+
+El símbolo \(g\circ f\) se lee ``\(g\) compuesta con \(f\)''. El orden es importante: primero se aplica \(f\) y después se aplica \(g\).
+
+\begin{ejemplo}
+Sean \(f:\mathbb{R}\to\mathbb{R}\) y \(g:\mathbb{R}\to\mathbb{R}\) definidas por
+\[
+f(x)=x+1,\qquad g(x)=x^2.
+\]
+Entonces
+\[
+(g\circ f)(x)=g(f(x))=g(x+1)=(x+1)^2,
+\]
+mientras que
+\[
+(f\circ g)(x)=f(g(x))=f(x^2)=x^2+1.
+\]
+Por tanto, en general, \(g\circ f\ne f\circ g\).
+\end{ejemplo}
+
+\begin{advertencia}
+La composición de aplicaciones no es conmutativa en general. Además, \(g\circ f\) solo está definida si las imágenes de \(f\) pertenecen al dominio de \(g\).
+\end{advertencia}
+
+\section{Aplicación identidad y aplicación inversa}
+
+La aplicación identidad es la aplicación que no modifica ningún elemento.
+
+\begin{definicion}[Aplicación identidad]
+Sea \(A\) un conjunto. La \emph{aplicación identidad} de \(A\) es la aplicación
+\[
+\operatorname{id}_A:A\to A
+\]
+definida por
+\[
+\operatorname{id}_A(a)=a,\qquad a\in A.
+\]
+\end{definicion}
+
+La identidad actúa como elemento neutro para la composición. Si \(f:A\to B\) es una aplicación, entonces
+\[
+f\circ \operatorname{id}_A=f,
+\qquad
+\operatorname{id}_B\circ f=f.
+\]
+
+\begin{definicion}[Aplicación inversa]
+Sea \(f:A\to B\) una aplicación biyectiva. La \emph{aplicación inversa} de \(f\) es la aplicación
+\[
+f^{-1}:B\to A
+\]
+que asigna a cada \(b\in B\) el único elemento \(a\in A\) tal que \(f(a)=b\).
+\end{definicion}
+
+La inversa de una aplicación solo existe como aplicación cuando la aplicación original es biyectiva.
+
+\begin{proposicion}
+Sea \(f:A\to B\) una aplicación biyectiva. Entonces existe una aplicación \(f^{-1}:B\to A\) tal que
+\[
+f^{-1}\circ f=\operatorname{id}_A,
+\qquad
+f\circ f^{-1}=\operatorname{id}_B.
+\]
+\end{proposicion}
+
+\begin{proof}
+Como \(f\) es sobreyectiva, para todo \(b\in B\) existe al menos un \(a\in A\) tal que \(f(a)=b\). Como \(f\) es inyectiva, dicho elemento \(a\) es único. Por tanto, podemos definir \(f^{-1}(b)=a\). Esta regla define una aplicación de \(B\) en \(A\). Las igualdades con las identidades se deducen directamente de la definición.
+\end{proof}
+
+\begin{advertencia}
+La notación \(f^{-1}(C)\), para la imagen recíproca de un subconjunto \(C\subset B\), puede utilizarse aunque \(f\) no sea biyectiva. En cambio, la notación \(f^{-1}:B\to A\), como aplicación inversa, solo tiene sentido cuando \(f\) es biyectiva.
+\end{advertencia}
+
+\section{Relaciones binarias}
+
+Una relación binaria es una forma de comparar o relacionar pares de elementos de un mismo conjunto o de dos conjuntos. En este curso nos centraremos sobre todo en relaciones binarias sobre un conjunto.
+
+\begin{definicion}[Relación binaria]
+Sea \(A\) un conjunto. Una \emph{relación binaria} sobre \(A\) es un subconjunto \(R\subset A\times A\).
+Si \((a,b)\in R\), diremos que \(a\) está relacionado con \(b\) y escribiremos
+\[
+a\,R\,b.
+\]
+\end{definicion}
+
+El símbolo \(aRb\) solo es una abreviatura de \((a,b)\in R\). Por tanto, antes de escribir \(aRb\), deben estar definidos el conjunto \(A\), los elementos \(a,b\in A\) y la relación \(R\subset A\times A\).
+
+\begin{ejemplo}
+En el conjunto \(\mathbb{Z}\) de los números enteros, la relación \(\leq\) definida por el orden usual es una relación binaria. Si \(m,n\in\mathbb{Z}\), la expresión \(m\leq n\) significa que el entero \(m\) es menor o igual que el entero \(n\).
+\end{ejemplo}
+
+\begin{definicion}[Propiedades de una relación binaria]
+Sea \(R\) una relación binaria sobre un conjunto \(A\).
+\begin{enumerate}
+  \item \(R\) es \emph{reflexiva} si para todo \(a\in A\), se cumple \(aRa\).
+  \item \(R\) es \emph{simétrica} si para todo \(a,b\in A\), de \(aRb\) se deduce \(bRa\).
+  \item \(R\) es \emph{antisimétrica} si para todo \(a,b\in A\), de \(aRb\) y \(bRa\) se deduce \(a=b\).
+  \item \(R\) es \emph{transitiva} si para todo \(a,b,c\in A\), de \(aRb\) y \(bRc\) se deduce \(aRc\).
+\end{enumerate}
+\end{definicion}
+
+\begin{ejemplo}
+En \(\mathbb{Z}\), la relación \(\leq\) es reflexiva, antisimétrica y transitiva. No es simétrica, porque por ejemplo \(2\leq 3\), pero no se cumple \(3\leq 2\).
+\end{ejemplo}
+
+\section{Relaciones de equivalencia}
+
+Las relaciones de equivalencia permiten agrupar elementos que se consideran iguales respecto de cierto criterio.
+
+\begin{definicion}[Relación de equivalencia]
+Sea \(A\) un conjunto. Una relación binaria \(\sim\) sobre \(A\) se llama \emph{relación de equivalencia} si es reflexiva, simétrica y transitiva.
+\end{definicion}
+
+Cuando \(a\sim b\), decimos que \(a\) y \(b\) son equivalentes respecto de la relación \(\sim\).
+
+\begin{ejemplo}
+Sea \(A\) el conjunto de todos los estudiantes de una clase. Definimos una relación \(\sim\) sobre \(A\) diciendo que, para \(x,y\in A\),
+\[
+x\sim y \quad \Longleftrightarrow \quad x\text{ e }y\text{ tienen el mismo grupo de seminario}.
+\]
+Esta relación es de equivalencia: cada estudiante está en el mismo grupo que sí mismo, si \(x\) está en el mismo grupo que \(y\), entonces \(y\) está en el mismo grupo que \(x\), y si \(x\) está en el mismo grupo que \(y\) y \(y\) está en el mismo grupo que \(z\), entonces \(x\) está en el mismo grupo que \(z\).
+\end{ejemplo}
+
+\begin{ejemplo}
+En \(\mathbb{Z}\), fijado un entero \(n\geq 2\), se define la relación de congruencia módulo \(n\) por
+\[
+a\equiv b\pmod n
+\quad \Longleftrightarrow \quad
+n \text{ divide a } a-b.
+\]
+Esta relación es una relación de equivalencia sobre \(\mathbb{Z}\).
+\end{ejemplo}
+
+\section{Clases de equivalencia}
+
+Una relación de equivalencia divide un conjunto en subconjuntos disjuntos llamados clases de equivalencia.
+
+\begin{definicion}[Clase de equivalencia]
+Sea \(\sim\) una relación de equivalencia sobre un conjunto \(A\). Si \(a\in A\), la \emph{clase de equivalencia} de \(a\) es el conjunto
+\[
+[a]=\{x\in A:x\sim a\}.
+\]
+\end{definicion}
+
+El símbolo \([a]\) depende de la relación de equivalencia que se esté considerando. Por tanto, no debe utilizarse sin haber definido previamente la relación \(\sim\).
+
+\begin{ejemplo}
+Consideremos en \(\mathbb{Z}\) la congruencia módulo \(3\). La clase de equivalencia de \(0\) es
+\[
+[0]=\{z\in\mathbb{Z}:z\equiv 0\pmod 3\},
+\]
+es decir, el conjunto de los múltiplos de \(3\). Análogamente, existen tres clases:
+\[
+[0],\qquad [1],\qquad [2].
+\]
+Todo entero pertenece a una y solo una de estas clases.
+\end{ejemplo}
+
+\begin{proposicion}
+Sea \(\sim\) una relación de equivalencia sobre un conjunto \(A\). Si \(a,b\in A\), entonces se cumple una y solo una de las dos alternativas siguientes:
+\begin{enumerate}
+  \item \([a]=[b]\),
+  \item \([a]\cap[b]=\varnothing\).
+\end{enumerate}
+\end{proposicion}
+
+\begin{proof}
+Supongamos que \([a]\cap[b]\ne\varnothing\). Entonces existe \(x\in A\) tal que \(x\in[a]\) y \(x\in[b]\). Por definición de clase de equivalencia, \(x\sim a\) y \(x\sim b\). Como \(\sim\) es simétrica, de \(x\sim a\) se deduce \(a\sim x\). Como \(a\sim x\) y \(x\sim b\), por transitividad se obtiene \(a\sim b\).
+
+Veamos que \([a]=[b]\). Sea \(y\in[a]\). Entonces \(y\sim a\). Como \(a\sim b\), por transitividad se tiene \(y\sim b\). Por tanto, \(y\in[b]\). Hemos probado \([a]\subset[b]\). De forma análoga se prueba \([b]\subset[a]\). Luego \([a]=[b]\).
+
+Por tanto, si dos clases no son disjuntas, son iguales. En consecuencia, dos clases cualesquiera son iguales o disjuntas.
+\end{proof}
+
+\section{Relaciones de orden}
+
+Las relaciones de orden permiten comparar elementos. La comparación puede ser total, cuando cualquier par de elementos es comparable, o parcial, cuando algunos elementos no pueden compararse.
+
+\begin{definicion}[Relación de orden]
+Sea \(A\) un conjunto. Una relación binaria \(\preceq\) sobre \(A\) se llama \emph{relación de orden parcial} si es reflexiva, antisimétrica y transitiva.
+\end{definicion}
+
+\begin{definicion}[Orden total]
+Sea \(\preceq\) una relación de orden parcial sobre un conjunto \(A\). Diremos que \(\preceq\) es un \emph{orden total} si para todo \(a,b\in A\), se cumple al menos una de las dos relaciones
+\[
+a\preceq b
+\qquad\text{o}\qquad
+b\preceq a.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+El orden usual \(\leq\) sobre \(\mathbb{Z}\) es un orden total. Dados dos enteros \(m,n\in\mathbb{Z}\), siempre se cumple \(m\leq n\) o \(n\leq m\).
+\end{ejemplo}
+
+\begin{ejemplo}
+Sea \(X\) un conjunto. En el conjunto de las partes \(\mathcal{P}(X)\), la inclusión \(\subset\) define un orden parcial. En general no es un orden total, porque pueden existir subconjuntos \(A,B\subset X\) tales que ni \(A\subset B\) ni \(B\subset A\).
+\end{ejemplo}
+
+\begin{advertencia}
+No debe confundirse una relación de equivalencia con una relación de orden. Una relación de equivalencia agrupa elementos; una relación de orden compara elementos. Por eso una relación de equivalencia exige simetría, mientras que una relación de orden parcial exige antisimetría.
+\end{advertencia}
+
+\begin{erroresfrecuentes}
+  \item Confundir una correspondencia con una aplicación.
+  \item Usar la notación \(f(a)\) sin haber definido previamente la aplicación \(f\) y su dominio.
+  \item Confundir codominio e imagen de una aplicación.
+  \item Pensar que toda aplicación tiene inversa.
+  \item Confundir la imagen recíproca de un subconjunto con la aplicación inversa.
+  \item Confundir simetría con antisimetría en una relación binaria.
+  \item Usar la notación \([a]\) sin especificar la relación de equivalencia correspondiente.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Clasificación de aplicaciones entre conjuntos finitos.
+  \item Verificación de las propiedades de una relación binaria.
+  \item Cálculo de clases de equivalencia.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Sea \(A=\{1,2,3\}\) y \(B=\{a,b\}\). Escribe todas las aplicaciones posibles de \(A\) en \(B\). Decide cuáles son sobreyectivas.
+  \item Sea \(A=\{1,2,3\}\). Considera la relación \(R\subset A\times A\) dada por
+  \[
+  R=\{(1,1),(2,2),(3,3),(1,2),(2,1)\}.
+  \]
+  Decide si \(R\) es reflexiva, simétrica, antisimétrica o transitiva.
+  \item Construye una relación de equivalencia no trivial sobre el conjunto \(A=\{1,2,3,4\}\) y calcula sus clases de equivalencia.
+  \item En \(\mathbb{Z}\), considera la relación \(a\equiv b\pmod 4\). Calcula las clases \([0]\), \([1]\), \([2]\) y \([3]\).
+  \item Sea \(X=\{a,b,c\}\). En \(\mathcal{P}(X)\), decide si los subconjuntos \(\{a\}\) y \(\{b,c\}\) son comparables para la relación de inclusión.
+\end{ejerciciospropuestos}
+
+\resumen{El capítulo introduce las nociones de correspondencia, aplicación y relación binaria. Las aplicaciones son correspondencias con una asignación única para cada elemento del dominio. Las relaciones binarias permiten formalizar comparaciones y agrupaciones; entre ellas destacan las relaciones de equivalencia, que producen clases de equivalencia, y las relaciones de orden, que permiten comparar elementos de un conjunto.}

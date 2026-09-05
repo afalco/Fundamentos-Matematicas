@@ -1,0 +1,336 @@
+% !TeX root = manual_fundamentos_matematicas.tex
+% ------------------------------------------------------------
+% Capítulo 7
+% ------------------------------------------------------------
+
+\chapter{Los números enteros}
+
+\begin{objetivos}
+  \item Introducir el conjunto de los números enteros.
+  \item Estudiar sus operaciones y su orden.
+  \item Presentar el valor absoluto.
+  \item Introducir la división euclídea.
+\end{objetivos}
+
+\section{Motivación: la necesidad de ampliar los naturales}
+
+En el capítulo anterior se introdujo el conjunto de los números naturales, que denotamos por
+\[
+  \mathbb{N}=\{0,1,2,3,\ldots\}
+\]
+o bien por
+\[
+  \mathbb{N}^{*}=\{1,2,3,\ldots\},
+\]
+según se quiera incluir o no el número cero. En este manual adoptaremos la convención
+\[
+  \mathbb{N}=\{0,1,2,3,\ldots\}.
+\]
+
+Los números naturales permiten contar objetos y ordenar cantidades discretas. Sin embargo, presentan una limitación esencial: no siempre es posible resolver ecuaciones de la forma
+\[
+  a+x=b,
+\]
+donde \(a\) y \(b\) son números naturales y \(x\) es la incógnita.
+
+Por ejemplo, si queremos resolver
+\[
+  5+x=3,
+\]
+no existe ningún número natural \(x\in\mathbb{N}\) que satisfaga la igualdad. Para poder resolver este tipo de ecuaciones es necesario ampliar el sistema numérico e introducir números que representen diferencias negativas.
+
+\begin{ejemplo}
+La ecuación
+\[
+  7+x=10
+\]
+tiene solución en \(\mathbb{N}\), concretamente \(x=3\). En cambio, la ecuación
+\[
+  10+x=7
+\]
+no tiene solución en \(\mathbb{N}\). Para resolverla se introduce el número \(-3\), de manera que
+\[
+  10+(-3)=7.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+El símbolo \(-3\) no debe entenderse simplemente como una resta pendiente de realizar. En el conjunto de los números enteros, \(-3\) es un número con entidad propia: el opuesto de \(3\).
+\end{advertencia}
+
+\section{El conjunto de los números enteros}
+
+\begin{definicion}[Números enteros]
+El conjunto de los números enteros, denotado por \(\mathbb{Z}\), está formado por los números naturales, sus opuestos y el cero:
+\[
+  \mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.
+\]
+\end{definicion}
+
+La letra \(\mathbb{Z}\) procede del término alemán \emph{Zahlen}, que significa ``números''. Los elementos de \(\mathbb{Z}\) se llaman números enteros.
+
+Cada número natural positivo \(n\) tiene asociado un número entero negativo, denotado por \(-n\), que se llama su \emph{opuesto}. El número \(0\) es su propio opuesto, es decir,
+\[
+  -0=0.
+\]
+
+\begin{ejemplo}
+Los números
+\[
+  -5,\quad -1,\quad 0,\quad 2,\quad 17
+\]
+son enteros. Los números
+\[
+  \frac{1}{2},\quad \sqrt{2},\quad \pi
+\]
+no son enteros.
+\end{ejemplo}
+
+\begin{convencion}[Inclusión de los naturales en los enteros]
+Consideraremos siempre que
+\[
+  \mathbb{N}\subset \mathbb{Z}.
+\]
+Por tanto, todo número natural es también un número entero. Sin embargo, no todo número entero es natural: por ejemplo, \(-4\in\mathbb{Z}\), pero \(-4\notin\mathbb{N}\).
+\end{convencion}
+
+\section{Suma, producto y orden}
+
+El conjunto \(\mathbb{Z}\) está dotado de dos operaciones fundamentales: la suma y el producto.
+
+La suma de enteros se denota mediante el símbolo \(+\). Si \(a,b\in\mathbb{Z}\), entonces \(a+b\in\mathbb{Z}\). El producto de enteros se denota mediante yuxtaposición o mediante el símbolo \(\cdot\). Si \(a,b\in\mathbb{Z}\), entonces \(ab\in\mathbb{Z}\).
+
+\begin{proposicion}[Propiedades básicas de la suma y del producto]
+Para cualesquiera enteros \(a,b,c\in\mathbb{Z}\), se verifican las siguientes propiedades:
+\begin{enumerate}
+  \item \textbf{Asociatividad de la suma:}
+  \[
+    (a+b)+c=a+(b+c).
+  \]
+  \item \textbf{Conmutatividad de la suma:}
+  \[
+    a+b=b+a.
+  \]
+  \item \textbf{Elemento neutro de la suma:}
+  \[
+    a+0=a.
+  \]
+  \item \textbf{Elemento opuesto:}
+  \[
+    a+(-a)=0.
+  \]
+  \item \textbf{Asociatividad del producto:}
+  \[
+    (ab)c=a(bc).
+  \]
+  \item \textbf{Conmutatividad del producto:}
+  \[
+    ab=ba.
+  \]
+  \item \textbf{Elemento neutro del producto:}
+  \[
+    a\cdot 1=a.
+  \]
+  \item \textbf{Distributividad del producto respecto de la suma:}
+  \[
+    a(b+c)=ab+ac.
+  \]
+\end{enumerate}
+\end{proposicion}
+
+Estas propiedades indican que \(\mathbb{Z}\), con la suma y el producto, posee una estructura algebraica muy importante: es un anillo conmutativo con unidad. Esta terminología se estudiará con más detalle en cursos posteriores de álgebra.
+
+\begin{advertencia}
+Aunque todo entero tiene opuesto respecto de la suma, no todo entero distinto de cero tiene inverso respecto del producto dentro de \(\mathbb{Z}\). Por ejemplo, no existe ningún entero \(x\in\mathbb{Z}\) tal que
+\[
+  2x=1.
+\]
+Por tanto, \(2\) no tiene inverso multiplicativo en \(\mathbb{Z}\).
+\end{advertencia}
+
+El conjunto \(\mathbb{Z}\) también está ordenado. La relación de orden se denota por \(\leq\). Si \(a,b\in\mathbb{Z}\), escribimos
+\[
+  a\leq b
+\]
+para indicar que \(a\) es menor o igual que \(b\).
+
+\begin{ejemplo}
+Se tienen las desigualdades
+\[
+  -5<-2<0<3<8.
+\]
+En particular,
+\[
+  -5\leq -2,
+  \qquad
+  0\leq 3,
+  \qquad
+  -2\leq 8.
+\]
+\end{ejemplo}
+
+El orden en los enteros es compatible con la suma: si \(a,b,c\in\mathbb{Z}\) y \(a\leq b\), entonces
+\[
+  a+c\leq b+c.
+\]
+
+También es compatible con el producto por enteros positivos: si \(a,b\in\mathbb{Z}\), \(c\in\mathbb{Z}\) y \(c>0\), entonces
+\[
+  a\leq b \quad \Longrightarrow \quad ac\leq bc.
+\]
+Si se multiplica por un entero negativo, el sentido de la desigualdad cambia.
+
+\begin{ejemplo}
+Como \(2<5\), al multiplicar por \(3>0\), obtenemos
+\[
+  6<15.
+\]
+En cambio, al multiplicar por \(-3<0\), obtenemos
+\[
+  -6>-15.
+\]
+\end{ejemplo}
+
+\section{Valor absoluto}
+
+El valor absoluto mide la distancia de un número entero al cero en la recta numérica.
+
+\begin{definicion}[Valor absoluto]
+Sea \(a\in\mathbb{Z}\). El valor absoluto de \(a\), denotado por \(|a|\), se define por
+\[
+  |a|=
+  \begin{cases}
+    a, & \text{si } a\geq 0,\\
+    -a, & \text{si } a<0.
+  \end{cases}
+\]
+\end{definicion}
+
+De esta definición se deduce que \(|a|\) es siempre un número natural.
+
+\begin{ejemplo}
+Se tiene
+\[
+  |5|=5,
+  \qquad
+  |-5|=5,
+  \qquad
+  |0|=0.
+\]
+\end{ejemplo}
+
+\begin{proposicion}[Propiedades elementales del valor absoluto]
+Para cualesquiera enteros \(a,b\in\mathbb{Z}\), se verifican las siguientes propiedades:
+\begin{enumerate}
+  \item \(|a|\geq 0\).
+  \item \(|a|=0\) si y solo si \(a=0\).
+  \item \(|-a|=|a|\).
+  \item \(|ab|=|a|\,|b|\).
+  \item \(|a+b|\leq |a|+|b|\).
+\end{enumerate}
+\end{proposicion}
+
+La última desigualdad se conoce como \emph{desigualdad triangular}. Su interpretación es que, si se avanza primero una distancia \(|a|\) y después una distancia \(|b|\), la distancia total al origen no puede ser mayor que la suma de ambas distancias.
+
+\begin{ejemplo}
+Si \(a=-3\) y \(b=5\), entonces
+\[
+  |a+b|=|-3+5|=|2|=2,
+\]
+mientras que
+\[
+  |a|+|b|=|-3|+|5|=3+5=8.
+\]
+Por tanto,
+\[
+  |a+b|\leq |a|+|b|.
+\]
+\end{ejemplo}
+
+\section{División euclídea}
+
+La división euclídea formaliza la división entera con resto. Es uno de los resultados fundamentales de la aritmética de los enteros y será esencial para estudiar la divisibilidad, el máximo común divisor y la aritmética modular.
+
+\begin{teorema}[División euclídea]
+Sean \(a,b\in\mathbb{Z}\), con \(b>0\). Entonces existen unos únicos enteros \(q,r\in\mathbb{Z}\) tales que
+\[
+  a=bq+r
+\]
+y
+\[
+  0\leq r<b.
+\]
+El número \(q\) se llama cociente y el número \(r\) se llama resto de la división de \(a\) entre \(b\).
+\end{teorema}
+
+En este enunciado, el entero \(a\) es el dividendo y el entero positivo \(b\) es el divisor.
+
+\begin{ejemplo}
+Si \(a=17\) y \(b=5\), entonces
+\[
+  17=5\cdot 3+2,
+\]
+con
+\[
+  0\leq 2<5.
+\]
+Por tanto, el cociente es \(q=3\) y el resto es \(r=2\).
+\end{ejemplo}
+
+\begin{ejemplo}
+Si \(a=-17\) y \(b=5\), debemos encontrar enteros \(q\) y \(r\) tales que
+\[
+  -17=5q+r,
+  \qquad
+  0\leq r<5.
+\]
+Tomando \(q=-4\) y \(r=3\), se obtiene
+\[
+  -17=5(-4)+3=-20+3.
+\]
+Por tanto, el cociente es \(q=-4\) y el resto es \(r=3\).
+\end{ejemplo}
+
+\begin{advertencia}
+Cuando el dividendo es negativo, el resto de la división euclídea sigue siendo no negativo. Por ejemplo, en la división de \(-17\) entre \(5\), el resto es \(3\), no \(-2\), porque el resto debe satisfacer
+\[
+  0\leq r<5.
+\]
+\end{advertencia}
+
+\section*{Errores frecuentes}
+
+\begin{erroresfrecuentes}
+  \item Pensar que los números enteros negativos son números naturales. Con la convención de este manual, \(-1\notin\mathbb{N}\), aunque \(-1\in\mathbb{Z}\).
+  \item Olvidar que al multiplicar una desigualdad por un número negativo se invierte el sentido de la desigualdad.
+  \item Confundir el opuesto de un número, \(-a\), con su valor absoluto, \(|a|\).
+  \item Creer que todos los enteros no nulos tienen inverso multiplicativo dentro de \(\mathbb{Z}\).
+  \item Calcular incorrectamente el resto en una división euclídea con dividendo negativo.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Ejercicios de orden y valor absoluto.
+  \item Aplicaciones de la división euclídea.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Calcula el valor absoluto de los enteros \(-12\), \(0\), \(7\), \(-1\) y \(25\).
+  \item Ordena de menor a mayor los enteros
+  \[
+    -3,
+    \quad 5,
+    \quad -8,
+    \quad 0,
+    \quad 2.
+  \]
+  \item Encuentra el cociente y el resto de la división euclídea de \(43\) entre \(6\).
+  \item Encuentra el cociente y el resto de la división euclídea de \(-43\) entre \(6\).
+  \item Demuestra que, para todo \(a\in\mathbb{Z}\), se tiene \(|-a|=|a|\).
+  \item Da un ejemplo de dos enteros \(a,b\in\mathbb{Z}\) tales que
+  \[
+    |a+b|<|a|+|b|.
+  \]
+  \item Explica por qué no existe ningún entero \(x\in\mathbb{Z}\) tal que \(3x=1\).
+\end{ejerciciospropuestos}
+
+\resumen{Los números enteros amplían los números naturales al incorporar opuestos aditivos. El conjunto \(\mathbb{Z}\) permite resolver ecuaciones de la forma \(a+x=b\), está dotado de suma, producto y orden, y posee una herramienta aritmética fundamental: la división euclídea, que expresa todo entero como múltiplo de un divisor positivo más un resto acotado.}

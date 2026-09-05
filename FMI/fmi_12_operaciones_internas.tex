@@ -1,0 +1,171 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 12: Operaciones internas
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 12]{Operaciones internas}
+\subtitle{Asociatividad, conmutatividad, neutro e inverso}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir operación interna.
+  \item Reconocer asociatividad y conmutatividad.
+  \item Estudiar elementos neutros e inversos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Operaciones}
+
+\begin{frame}{Operaciones}
+\begin{block}{Operación interna}
+\begin{itemize}
+  \item Una operación interna en \(A\) es una aplicación \(*:A\times A\to A\).
+  \item A cada par \((a,b)\) le asigna un elemento \(a*b\) de \(A\).
+  \item La clausura dentro de \(A\) es parte de la definición.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Operaciones}
+\begin{block}{Ejemplos y contraejemplos}
+\begin{itemize}
+  \item La suma usual es interna en \(\mathbb{N}\).
+  \item La resta usual no es interna en \(\mathbb{N}\), porque \(2-5\notin\mathbb{N}\).
+  \item Una misma regla puede ser interna en un conjunto y no en otro.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Propiedades}
+
+\begin{frame}{Propiedades}
+\begin{block}{Asociatividad y conmutatividad}
+\begin{itemize}
+  \item Asociativa: \((a*b)*c=a*(b*c)\).
+  \item Conmutativa: \(a*b=b*a\).
+  \item Son propiedades de una operación concreta en un conjunto concreto.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Propiedades}
+\begin{block}{Elemento neutro}
+\begin{itemize}
+  \item Un elemento \(e\in A\) es neutro si \(e*a=a*e=a\) para todo \(a\in A\).
+  \item Si existe, el elemento neutro es único.
+  \item La unicidad se demuestra comparando dos posibles neutros.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Propiedades}
+\begin{block}{Elemento inverso}
+\begin{itemize}
+  \item Si hay neutro \(e\), un inverso de \(a\) es un elemento \(b\) con \(a*b=b*a=e\).
+  \item La existencia de inversos depende del conjunto y de la operación.
+  \item Ejemplo: \(2\) no tiene inverso multiplicativo en \(\mathbb{Z}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Antes de estudiar propiedades}
+\begin{itemize}
+  \item Primero hay que comprobar que la operación está definida para todo par de elementos.
+  \item Después se verifica que el resultado pertenece al mismo conjunto.
+  \item Solo entonces tiene sentido preguntar por asociatividad, neutro o inversos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Unicidad del neutro}
+\begin{itemize}
+  \item Supongamos que \(e\) y \(e'\) son neutros.
+  \item Como \(e\) es neutro, \(e*e'=e'\).
+  \item Como \(e'\) es neutro, \(e*e'=e\).
+  \item Por tanto, \(e=e'\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Dependencia del conjunto}
+\begin{itemize}
+  \item La suma tiene neutro en \(\mathbb{N}\), \(\mathbb{Z}\), \(\mathbb{Q}\) y \(\mathbb{R}\).
+  \item Los inversos aditivos existen en \(\mathbb{Z}\), pero no todos existen en \(\mathbb{N}\).
+  \item La estructura depende de la operación y del conjunto simultáneamente.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Una operación interna es una función desde \(A\times A\) hasta \(A\).
+  \item Las propiedades algebraicas se comprueban con cuantificadores.
+  \item La próxima clase organiza estas propiedades en estructuras.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

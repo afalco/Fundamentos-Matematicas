@@ -1,0 +1,194 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas II
+% Clase 13: Números reales I
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+\newcommand{\im}{\operatorname{Im}}
+
+\title[FdM II -- Clase 13]{Números reales I}
+\subtitle{Irracionales, completitud e intervalos}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas II}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Explicar por qué \(\mathbb{Q}\) es insuficiente.
+  \item Introducir \(\mathbb{R}\) como sistema completo.
+  \item Trabajar con intervalos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{De \(\mathbb{Q}\) a \(\mathbb{R}\)}
+
+\begin{frame}{De \(\mathbb{Q}\) a \(\mathbb{R}\)}
+\begin{block}{Insuficiencia}
+\begin{itemize}
+  \item La diagonal del cuadrado unidad tiene longitud \(\sqrt{2}\).
+  \item \(\sqrt{2}\notin\mathbb{Q}\).
+  \item Los racionales son densos, pero tienen huecos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{De \(\mathbb{Q}\) a \(\mathbb{R}\)}
+\begin{block}{Irracionales}
+\begin{itemize}
+  \item Un número real \(x\) es irracional si \(x\notin\mathbb{Q}\).
+  \item Ejemplos: \(\sqrt{2}\), \(\sqrt{3}\), \(\pi\).
+  \item No se escriben como cociente de enteros.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{De \(\mathbb{Q}\) a \(\mathbb{R}\)}
+\begin{block}{Completitud}
+\begin{itemize}
+  \item Trabajaremos con \(\mathbb{R}\) como cuerpo ordenado completo.
+  \item La completitud expresa que los subconjuntos no vacíos y acotados superiormente tienen supremo.
+  \item Esta propiedad distingue \(\mathbb{R}\) de \(\mathbb{Q}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Intervalos}
+
+\begin{frame}{Intervalos}
+\begin{block}{Intervalos acotados}
+\begin{itemize}
+  \item \((a,b)=\{x\in\mathbb{R}:a<x<b\}\).
+  \item \([a,b]=\{x\in\mathbb{R}:a\leq x\leq b\}\).
+  \item Los extremos incluidos se indican con corchetes.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Intervalos}
+\begin{block}{Intervalos no acotados}
+\begin{itemize}
+  \item \((a,+\infty)\) representa los reales mayores que \(a\).
+  \item \((-infty,a]\) representa los reales menores o iguales que \(a\).
+  \item \(+\infty\) y \(-\infty\) no son números reales.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Densidad frente a completitud}
+\begin{itemize}
+  \item Densidad: entre dos racionales hay otro racional.
+  \item Completitud: no hay huecos respecto al supremo.
+  \item \(\mathbb{Q}\) es denso, pero no completo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Ejemplo}
+\begin{itemize}
+  \item El conjunto \(A=\{q\in\mathbb{Q}:q^2<2, q>0\}\) está acotado en \(\mathbb{Q}\).
+  \item Su supremo natural es \(\sqrt{2}\).
+  \item Pero \(\sqrt{2}\notin\mathbb{Q}\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Control}
+\begin{itemize}
+  \item ¿Es \((1,3]\) un subconjunto de \(\mathbb{R}\)?
+  \item ¿Contiene a \(1\)?
+  \item ¿Contiene a \(3\)?
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Detalle y práctica}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Huecos de \(\mathbb{Q}\)}
+\begin{itemize}
+  \item Los racionales son densos, pero no completan la recta.
+  \item La ecuación \(x^2=2\) no tiene solución en \(\mathbb{Q}\).
+  \item Los reales completan esos huecos mediante una noción rigurosa de límite o de corte.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Detalle y práctica}
+\begin{block}{Actividad breve}
+\begin{itemize}
+  \item Recordar la prueba de que \(\sqrt{2}\notin\mathbb{Q}\).
+  \item Dar dos racionales entre \(1.41\) y \(1.42\).
+  \item Explicar por qué densidad no es lo mismo que completitud.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Los reales completan los racionales.
+  \item Los irracionales no son fracciones de enteros.
+  \item Los intervalos formalizan regiones de la recta real.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

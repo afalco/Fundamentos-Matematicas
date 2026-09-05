@@ -1,0 +1,180 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 14: Anillos y cuerpos
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 14]{Anillos y cuerpos}
+\subtitle{Estructuras con dos operaciones}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Definir anillos y anillos con unidad.
+  \item Definir cuerpos.
+  \item Relacionar estas estructuras con sistemas numéricos conocidos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Anillos}
+
+\begin{frame}{Anillos}
+\begin{block}{Idea}
+\begin{itemize}
+  \item Un anillo tiene dos operaciones: suma y producto.
+  \item La suma forma un grupo abeliano.
+  \item El producto es asociativo y distributivo respecto de la suma.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Anillos}
+\begin{block}{Anillo con unidad}
+\begin{itemize}
+  \item Un anillo con unidad posee un neutro multiplicativo \(1\).
+  \item En estas notas se dirá explícitamente cuando se exija unidad.
+  \item \(\mathbb{Z}\) con suma y producto usuales es un anillo con unidad.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Anillos}
+\begin{block}{Distributividad}
+\begin{itemize}
+  \item La propiedad distributiva conecta las dos operaciones.
+  \item \(a(b+c)=ab+ac\) y \((a+b)c=ac+bc\).
+  \item Sin distributividad, no hay estructura de anillo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Cuerpos}
+
+\begin{frame}{Cuerpos}
+\begin{block}{Definición}
+\begin{itemize}
+  \item Un cuerpo permite sumar, restar, multiplicar y dividir por elementos no nulos.
+  \item \((K\setminus\{0\},\cdot,1)\) debe ser grupo abeliano.
+  \item Además, el producto distribuye respecto de la suma.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cuerpos}
+\begin{block}{Ejemplos}
+\begin{itemize}
+  \item \(\mathbb{Q}\), \(\mathbb{R}\) y \(\mathbb{C}\) son cuerpos.
+  \item \(\mathbb{Z}\) no es cuerpo: \(2\) no tiene inverso multiplicativo entero.
+  \item Las matrices cuadradas forman un anillo con unidad, pero no un cuerpo si el tamaño es al menos dos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cuerpos}
+\begin{block}{Mapa conceptual}
+\begin{itemize}
+  \item Cuerpo \(\Rightarrow\) anillo con unidad.
+  \item Anillo con unidad no implica cuerpo.
+  \item La diferencia clave está en los inversos multiplicativos de los no nulos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Dos operaciones, dos papeles}
+\begin{itemize}
+  \item La suma organiza la estructura aditiva.
+  \item El producto introduce multiplicación y distributividad.
+  \item La interacción entre ambas operaciones es lo que caracteriza a un anillo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Por qué \(\mathbb{Z}\) no es cuerpo}
+\begin{itemize}
+  \item En un cuerpo, todo elemento no nulo debe tener inverso multiplicativo.
+  \item En \(\mathbb{Z}\), no existe \(b\in\mathbb{Z}\) tal que \(2b=1\).
+  \item Por tanto, \(\mathbb{Z}\) es anillo con unidad, pero no cuerpo.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Lectura hacia adelante}
+\begin{itemize}
+  \item Los racionales se construirán para permitir división exacta entre enteros.
+  \item Los reales completarán a los racionales.
+  \item Los complejos permitirán resolver ecuaciones sin solución real.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item Los sistemas numéricos se entienden mejor como estructuras.
+  \item La suma y el producto cumplen papeles distintos.
+  \item La próxima clase inicia números naturales e inducción.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

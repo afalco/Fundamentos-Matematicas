@@ -1,0 +1,469 @@
+% !TEX root = manual_fundamentos_matematicas.tex
+% ------------------------------------------------------------
+% Capítulo 8. Divisibilidad
+% ------------------------------------------------------------
+
+\chapter{Divisibilidad}
+
+\begin{objetivos}
+  \item Definir la relación de divisibilidad en los enteros.
+  \item Estudiar divisores, múltiplos y números primos.
+  \item Introducir máximo común divisor y mínimo común múltiplo.
+  \item Presentar el algoritmo de Euclides y la identidad de Bézout.
+\end{objetivos}
+
+\section{Motivación}
+
+La divisibilidad estudia cuándo un número entero puede obtenerse multiplicando otro número entero por un tercer entero. Esta idea, aparentemente elemental, es una de las bases de la aritmética. Permite hablar de divisores, múltiplos, números primos, factorizaciones, congruencias y ecuaciones diofánticas.
+
+En este capítulo trabajaremos principalmente con el conjunto de los números enteros, que denotamos por \(\mathbb{Z}\). Recordemos que
+\[
+\mathbb{Z}=\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}.
+\]
+
+\begin{convencion}[Símbolos utilizados en este capítulo]
+A lo largo de este capítulo, salvo que se indique lo contrario, las letras \(a,b,c,d,m,n,q,r\) representarán números enteros. Cuando se utilicen números naturales positivos, se indicará explícitamente mediante la expresión \(n\in \mathbb{N}\) con \(n\geq 1\), o bien \(n\in \mathbb{N}^{\ast}\), donde \(\mathbb{N}^{\ast}\) denota el conjunto de los números naturales positivos.
+\end{convencion}
+
+\section{Divisores y múltiplos}
+
+La noción central de este capítulo es la relación de divisibilidad.
+
+\begin{definicion}[Divisibilidad]
+Sean \(a,b\in\mathbb{Z}\). Diremos que \(a\) divide a \(b\), y escribiremos
+\[
+a\mid b,
+\]
+si existe un entero \(q\in\mathbb{Z}\) tal que
+\[
+b=aq.
+\]
+En este caso, también decimos que \(a\) es un divisor de \(b\), o que \(b\) es un múltiplo de \(a\).
+\end{definicion}
+
+El símbolo \(a\mid b\) no representa una fracción. Es una afirmación lógica: significa que \(b\) puede escribirse como producto de \(a\) por un entero.
+
+\begin{ejemplo}
+Tenemos \(3\mid 12\), porque existe \(q=4\in\mathbb{Z}\) tal que
+\[
+12=3\cdot 4.
+\]
+También \((-3)\mid 12\), porque
+\[
+12=(-3)\cdot(-4).
+\]
+En cambio, \(5\nmid 12\), porque no existe ningún entero \(q\) tal que \(12=5q\).
+\end{ejemplo}
+
+\begin{advertencia}
+La afirmación \(a\mid b\) no significa que \(a/b\) sea un número entero escrito como cociente, sino que existe un entero \(q\) tal que \(b=aq\). La definición debe expresarse siempre mediante una existencia: \(\exists q\in\mathbb{Z}\) tal que \(b=aq\).
+\end{advertencia}
+
+\begin{proposicion}[Propiedades elementales de la divisibilidad]
+Sean \(a,b,c\in\mathbb{Z}\). Se verifican las siguientes propiedades:
+\begin{enumerate}
+  \item Si \(a\mid b\) y \(b\mid c\), entonces \(a\mid c\).
+  \item Si \(a\mid b\) y \(a\mid c\), entonces \(a\mid (b+c)\).
+  \item Si \(a\mid b\), entonces \(a\mid bc\).
+  \item Si \(a\mid b\) y \(a\mid c\), entonces \(a\mid (mb+nc)\) para cualesquiera \(m,n\in\mathbb{Z}\).
+\end{enumerate}
+\end{proposicion}
+
+\begin{proof}
+Demostramos la cuarta propiedad, que contiene a varias de las anteriores como casos particulares. Supongamos que \(a\mid b\) y \(a\mid c\). Por definición de divisibilidad, existen \(q_1,q_2\in\mathbb{Z}\) tales que
+\[
+b=aq_1,
+\qquad
+c=aq_2.
+\]
+Sean ahora \(m,n\in\mathbb{Z}\). Entonces
+\[
+mb+nc=m(aq_1)+n(aq_2)=a(mq_1+nq_2).
+\]
+Como \(mq_1+nq_2\in\mathbb{Z}\), se concluye que \(a\mid (mb+nc)\).
+\end{proof}
+
+\begin{definicion}[Divisores de un entero]
+Sea \(b\in\mathbb{Z}\). El conjunto de los divisores de \(b\) se denota por
+\[
+\operatorname{Div}(b)=\{a\in\mathbb{Z}:a\mid b\}.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Los divisores enteros de \(12\) son
+\[
+\operatorname{Div}(12)=\{-12,-6,-4,-3,-2,-1,1,2,3,4,6,12\}.
+\]
+Si solo queremos considerar divisores positivos, escribimos
+\[
+\operatorname{Div}^{+}(12)=\{1,2,3,4,6,12\}.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+El número \(0\) tiene una situación especial. Si \(a\in\mathbb{Z}\) y \(a\neq 0\), entonces \(a\mid 0\), porque \(0=a\cdot 0\). En cambio, \(0\mid b\) solo ocurre cuando \(b=0\), ya que \(b=0\cdot q=0\). Por esta razón, en muchos enunciados se exige explícitamente que el divisor sea no nulo.
+\end{advertencia}
+
+\section{Números primos}
+
+Los números primos son los enteros positivos que no admiten divisores positivos no triviales.
+
+\begin{definicion}[Número primo]
+Sea \(p\in\mathbb{N}\) con \(p\geq 2\). Diremos que \(p\) es un número primo si sus únicos divisores positivos son \(1\) y \(p\). Es decir,
+\[
+\operatorname{Div}^{+}(p)=\{1,p\}.
+\]
+\end{definicion}
+
+\begin{definicion}[Número compuesto]
+Sea \(n\in\mathbb{N}\) con \(n\geq 2\). Diremos que \(n\) es compuesto si no es primo. Equivalentemente, \(n\) es compuesto si existen \(a,b\in\mathbb{N}\) tales que
+\[
+1<a<n,
+\qquad
+1<b<n,
+\qquad
+n=ab.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Los números \(2,3,5,7,11,13\) son primos. El número \(12\) es compuesto porque
+\[
+12=3\cdot 4,
+\]
+con \(1<3<12\) y \(1<4<12\).
+\end{ejemplo}
+
+\begin{advertencia}
+El número \(1\) no se considera primo. Esta convención es esencial para que la factorización de un entero positivo en factores primos sea única, salvo el orden de los factores.
+\end{advertencia}
+
+\begin{proposicion}
+Sea \(n\in\mathbb{N}\) con \(n\geq 2\). Si \(n\) no es primo, entonces existe un primo \(p\) tal que \(p\mid n\) y \(p\leq n\).
+\end{proposicion}
+
+\begin{proof}
+Como \(n\) no es primo, posee un divisor positivo \(d\) tal que \(1<d<n\). Consideremos el conjunto de los divisores positivos de \(n\) mayores que \(1\):
+\[
+D=\{d\in\mathbb{N}: d\mid n \text{ y } d>1\}.
+\]
+El conjunto \(D\) no es vacío, porque \(n\in D\). Por el principio del buen orden, \(D\) tiene un menor elemento, que denotamos por \(p\). Veamos que \(p\) es primo. Si no lo fuera, existiría un divisor positivo \(e\) de \(p\) con \(1<e<p\). Como \(e\mid p\) y \(p\mid n\), se tendría \(e\mid n\), lo que contradice que \(p\) sea el menor elemento de \(D\). Por tanto, \(p\) es primo y divide a \(n\).
+\end{proof}
+
+\section{Máximo común divisor}
+
+El máximo común divisor mide la parte común de divisibilidad de dos enteros.
+
+\begin{definicion}[Divisor común]
+Sean \(a,b\in\mathbb{Z}\), no ambos nulos. Un entero \(d\in\mathbb{Z}\) es un divisor común de \(a\) y \(b\) si
+\[
+d\mid a
+\qquad\text{y}\qquad
+d\mid b.
+\]
+\end{definicion}
+
+\begin{definicion}[Máximo común divisor]
+Sean \(a,b\in\mathbb{Z}\), no ambos nulos. El máximo común divisor de \(a\) y \(b\) es el mayor entero positivo que divide simultáneamente a \(a\) y a \(b\). Se denota por
+\[
+\mcd(a,b)
+\]
+o, en notación española, por
+\[
+\operatorname{mcd}(a,b).
+\]
+En este manual utilizaremos preferentemente la notación \(\operatorname{mcd}(a,b)\).
+\end{definicion}
+
+\begin{ejemplo}
+Los divisores positivos de \(18\) son
+\[
+1,2,3,6,9,18,
+\]
+y los divisores positivos de \(30\) son
+\[
+1,2,3,5,6,10,15,30.
+\]
+Los divisores comunes positivos son
+\[
+1,2,3,6.
+\]
+Por tanto,
+\[
+\operatorname{mcd}(18,30)=6.
+\]
+\end{ejemplo}
+
+\begin{definicion}[Enteros coprimos]
+Sean \(a,b\in\mathbb{Z}\), no ambos nulos. Diremos que \(a\) y \(b\) son coprimos, o primos entre sí, si
+\[
+\operatorname{mcd}(a,b)=1.
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Los números \(8\) y \(15\) son coprimos, porque sus únicos divisores comunes positivos se reducen a \(1\). Es decir,
+\[
+\operatorname{mcd}(8,15)=1.
+\]
+\end{ejemplo}
+
+\section{Mínimo común múltiplo}
+
+El mínimo común múltiplo es la noción dual del máximo común divisor en el contexto de los múltiplos positivos.
+
+\begin{definicion}[Múltiplo común]
+Sean \(a,b\in\mathbb{Z}\), con \(a\neq 0\) y \(b\neq 0\). Un entero \(m\in\mathbb{Z}\) es un múltiplo común de \(a\) y \(b\) si
+\[
+a\mid m
+\qquad\text{y}\qquad
+b\mid m.
+\]
+\end{definicion}
+
+\begin{definicion}[Mínimo común múltiplo]
+Sean \(a,b\in\mathbb{Z}\), con \(a\neq 0\) y \(b\neq 0\). El mínimo común múltiplo de \(a\) y \(b\) es el menor entero positivo que es múltiplo común de \(a\) y de \(b\). Se denota por
+\[
+\operatorname{mcm}(a,b).
+\]
+\end{definicion}
+
+\begin{ejemplo}
+Los múltiplos positivos de \(6\) son
+\[
+6,12,18,24,30,36,\ldots,
+\]
+y los múltiplos positivos de \(8\) son
+\[
+8,16,24,32,40,\ldots.
+\]
+El menor múltiplo común positivo es \(24\). Por tanto,
+\[
+\operatorname{mcm}(6,8)=24.
+\]
+\end{ejemplo}
+
+\begin{proposicion}[Relación entre \(\operatorname{mcd}\) y \(\operatorname{mcm}\)]
+Sean \(a,b\in\mathbb{Z}\), con \(a\neq 0\) y \(b\neq 0\). Entonces
+\[
+\operatorname{mcd}(a,b)\operatorname{mcm}(a,b)=|ab|.
+\]
+\end{proposicion}
+
+\begin{advertencia}
+La fórmula anterior es válida para dos enteros no nulos. Antes de aplicarla, hay que asegurarse de que ambos números son distintos de cero y de que se está usando el valor absoluto de \(ab\).
+\end{advertencia}
+
+\section{Algoritmo de Euclides}
+
+El algoritmo de Euclides permite calcular el máximo común divisor de dos enteros de manera eficiente mediante divisiones euclídeas sucesivas.
+
+Recordemos la división euclídea: si \(a,b\in\mathbb{Z}\) y \(b>0\), existen enteros únicos \(q,r\in\mathbb{Z}\) tales que
+\[
+a=bq+r,
+\qquad
+0\leq r<b.
+\]
+El entero \(q\) se llama cociente y el entero \(r\) se llama resto.
+
+\begin{lema}[Invariancia del máximo común divisor]
+Sean \(a,b,q,r\in\mathbb{Z}\), con \(b\neq 0\), tales que
+\[
+a=bq+r.
+\]
+Entonces
+\[
+\operatorname{mcd}(a,b)=\operatorname{mcd}(b,r).
+\]
+\end{lema}
+
+\begin{proof}
+Sea \(d\in\mathbb{Z}\). Supongamos primero que \(d\mid a\) y \(d\mid b\). Como \(r=a-bq\), se deduce que \(d\mid r\). Por tanto, todo divisor común de \(a\) y \(b\) es divisor común de \(b\) y \(r\).
+
+Recíprocamente, si \(d\mid b\) y \(d\mid r\), entonces \(a=bq+r\) implica que \(d\mid a\). Por tanto, los divisores comunes de \(a\) y \(b\) coinciden con los divisores comunes de \(b\) y \(r\). En consecuencia, sus máximos comunes divisores son iguales.
+\end{proof}
+
+\begin{ejemplo}[Algoritmo de Euclides]
+Calculemos \(\operatorname{mcd}(252,105)\). Aplicamos divisiones euclídeas sucesivas:
+\[
+252=105\cdot 2+42,
+\]
+\[
+105=42\cdot 2+21,
+\]
+\[
+42=21\cdot 2+0.
+\]
+El último resto no nulo es \(21\). Por tanto,
+\[
+\operatorname{mcd}(252,105)=21.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+En el algoritmo de Euclides, el máximo común divisor es el último resto no nulo, no el primer resto que aparece ni el último cociente.
+\end{advertencia}
+
+\section{Identidad de Bézout}
+
+La identidad de Bézout expresa el máximo común divisor como una combinación lineal entera de los dos números iniciales.
+
+\begin{definicion}[Combinación lineal entera]
+Sean \(a,b\in\mathbb{Z}\). Una combinación lineal entera de \(a\) y \(b\) es un número de la forma
+\[
+ax+by,
+\]
+donde \(x,y\in\mathbb{Z}\).
+\end{definicion}
+
+\begin{teorema}[Identidad de Bézout]
+Sean \(a,b\in\mathbb{Z}\), no ambos nulos, y sea
+\[
+d=\operatorname{mcd}(a,b).
+\]
+Entonces existen enteros \(x,y\in\mathbb{Z}\) tales que
+\[
+d=ax+by.
+\]
+\end{teorema}
+
+\begin{ejemplo}[Cálculo de coeficientes de Bézout]
+Busquemos enteros \(x,y\) tales que
+\[
+\operatorname{mcd}(252,105)=252x+105y.
+\]
+Del ejemplo anterior sabemos que \(\operatorname{mcd}(252,105)=21\). A partir del algoritmo de Euclides:
+\[
+252=105\cdot 2+42,
+\]
+\[
+105=42\cdot 2+21.
+\]
+Despejamos hacia atrás:
+\[
+21=105-42\cdot 2.
+\]
+Como
+\[
+42=252-105\cdot 2,
+\]
+entonces
+\[
+21=105-2(252-105\cdot 2)=105\cdot 5-252\cdot 2.
+\]
+Por tanto,
+\[
+21=252(-2)+105(5).
+\]
+Así, una solución es \(x=-2\) e \(y=5\).
+\end{ejemplo}
+
+\begin{corolario}
+Sean \(a,b\in\mathbb{Z}\), no ambos nulos. Entonces \(a\) y \(b\) son coprimos si y solo si existen \(x,y\in\mathbb{Z}\) tales que
+\[
+ax+by=1.
+\]
+\end{corolario}
+
+\begin{proof}
+Si \(a\) y \(b\) son coprimos, entonces \(\operatorname{mcd}(a,b)=1\). Por la identidad de Bézout, existen \(x,y\in\mathbb{Z}\) tales que \(ax+by=1\).
+
+Recíprocamente, supongamos que existen \(x,y\in\mathbb{Z}\) tales que \(ax+by=1\). Si \(d\) es un divisor común positivo de \(a\) y \(b\), entonces \(d\mid ax+by\). Por tanto, \(d\mid 1\), luego \(d=1\). Así, el máximo común divisor de \(a\) y \(b\) es \(1\).
+\end{proof}
+
+\section{Ecuaciones diofánticas lineales}
+
+Una ecuación diofántica es una ecuación en la que se buscan soluciones enteras. En este curso estudiaremos el caso lineal con dos incógnitas.
+
+\begin{definicion}[Ecuación diofántica lineal]
+Sean \(a,b,c\in\mathbb{Z}\). Una ecuación diofántica lineal en dos incógnitas es una ecuación de la forma
+\[
+ax+by=c,
+\]
+donde se buscan soluciones \((x,y)\in\mathbb{Z}^2\).
+\end{definicion}
+
+\begin{teorema}[Criterio de resolubilidad]
+Sean \(a,b,c\in\mathbb{Z}\), con \(a\) y \(b\) no ambos nulos. La ecuación
+\[
+ax+by=c
+\]
+tiene solución entera si y solo si
+\[
+\operatorname{mcd}(a,b)\mid c.
+\]
+\end{teorema}
+
+\begin{proof}
+Sea \(d=\operatorname{mcd}(a,b)\). Supongamos primero que existe una solución entera \((x,y)\in\mathbb{Z}^2\) de la ecuación. Como \(d\mid a\) y \(d\mid b\), se tiene \(d\mid ax+by\). Pero \(ax+by=c\), luego \(d\mid c\).
+
+Recíprocamente, supongamos que \(d\mid c\). Entonces existe \(k\in\mathbb{Z}\) tal que \(c=dk\). Por la identidad de Bézout, existen \(u,v\in\mathbb{Z}\) tales que
+\[
+d=au+bv.
+\]
+Multiplicando por \(k\), obtenemos
+\[
+c=dk=a(uk)+b(vk).
+\]
+Por tanto, \((x,y)=(uk,vk)\) es una solución entera de \(ax+by=c\).
+\end{proof}
+
+\begin{ejemplo}
+Estudiemos la ecuación
+\[
+18x+30y=12.
+\]
+Calculamos
+\[
+\operatorname{mcd}(18,30)=6.
+\]
+Como \(6\mid 12\), la ecuación tiene soluciones enteras.
+
+Buscamos una identidad de Bézout para \(18\) y \(30\). Como
+\[
+30=18\cdot 1+12,
+\qquad
+18=12\cdot 1+6,
+\]
+tenemos
+\[
+6=18-12=18-(30-18)=2\cdot 18-30.
+\]
+Multiplicando por \(2\), obtenemos
+\[
+12=4\cdot 18-2\cdot 30.
+\]
+Por tanto, una solución es
+\[
+x=4,
+\qquad
+y=-2.
+\]
+\end{ejemplo}
+
+\begin{erroresfrecuentes}
+  \item Confundir la expresión \(a\mid b\) con el cociente \(a/b\).
+  \item Olvidar que, para escribir \(a\mid b\), debe existir un entero \(q\) tal que \(b=aq\).
+  \item Considerar erróneamente que \(1\) es un número primo.
+  \item Tomar el último cociente del algoritmo de Euclides en lugar del último resto no nulo.
+  \item Aplicar el criterio de ecuaciones diofánticas sin comprobar primero si \(\operatorname{mcd}(a,b)\mid c\).
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Cálculo del máximo común divisor.
+  \item Uso del algoritmo de Euclides extendido.
+  \item Resolución de ecuaciones diofánticas lineales.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Determina si se verifican las siguientes relaciones de divisibilidad: \(4\mid 28\), \(6\mid 35\), \((-5)\mid 20\), \(7\mid 0\).
+  \item Calcula \(\operatorname{mcd}(84,126)\) mediante el algoritmo de Euclides.
+  \item Calcula \(\operatorname{mcm}(12,18)\) y comprueba la relación entre \(\operatorname{mcd}\) y \(\operatorname{mcm}\).
+  \item Encuentra enteros \(x,y\) tales que \(\operatorname{mcd}(84,126)=84x+126y\).
+  \item Decide si la ecuación diofántica \(21x+35y=14\) tiene soluciones enteras. En caso afirmativo, encuentra una solución.
+  \item Decide si la ecuación diofántica \(12x+18y=5\) tiene soluciones enteras.
+\end{ejerciciospropuestos}
+
+\resumen{La divisibilidad permite estudiar la estructura aritmética de los enteros. La relación \(a\mid b\) significa que \(b\) es un múltiplo entero de \(a\). A partir de esta noción se definen divisores, múltiplos, números primos, máximo común divisor y mínimo común múltiplo. El algoritmo de Euclides permite calcular el máximo común divisor, y la identidad de Bézout lo expresa como combinación lineal entera. Estas herramientas permiten resolver ecuaciones diofánticas lineales de la forma \(ax+by=c\).}
+

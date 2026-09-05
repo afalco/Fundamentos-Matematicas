@@ -1,0 +1,170 @@
+% !TEX program = lualatex
+% Transparencias de Fundamentos de las Matemáticas I
+% Clase 07: Conjuntos II
+
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\setbeamercolor{structure}{fg=FdMBlue}
+\setbeamercolor{title}{fg=white,bg=FdMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=FdMBlue}
+\setbeamercolor{block title}{fg=white,bg=FdMBlue}
+\setbeamercolor{block body}{bg=blue!3}
+\setbeamercolor{alerted text}{fg=FdMRed}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Pow}{\mathcal{P}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\mcd}{\operatorname{mcd}}
+\newcommand{\mcm}{\operatorname{mcm}}
+
+\title[FdM I -- Clase 07]{Conjuntos II}
+\subtitle{Producto cartesiano, partes, familias e identidades}
+\author{Antonio Falcó Montesinos}
+\institute{Universidad CEU Cardenal Herrera}
+\date{Fundamentos de las Matemáticas I}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objetivos de la clase}
+\begin{itemize}
+  \item Usar producto cartesiano y pares ordenados.
+  \item Comprender el conjunto de las partes.
+  \item Demostrar identidades conjuntistas mediante doble inclusión.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mapa de la clase}
+\tableofcontents
+\end{frame}
+
+\section{Construcciones}
+
+\begin{frame}{Construcciones}
+\begin{block}{Producto cartesiano}
+\begin{itemize}
+  \item \(A\times B\) es el conjunto de pares ordenados \((a,b)\) con \(a\in A\) y \(b\in B\).
+  \item El orden importa: en general \(A\times B\neq B\times A\).
+  \item Es la base para relaciones y aplicaciones.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Construcciones}
+\begin{block}{Conjunto de las partes}
+\begin{itemize}
+  \item \(\mathcal{P}(A)\) es el conjunto de todos los subconjuntos de \(A\).
+  \item Si \(A=\{1,2\}\), entonces \(\mathcal{P}(A)=\{\varnothing,\{1\},\{2\},\{1,2\}\}\).
+  \item Sus elementos son conjuntos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Construcciones}
+\begin{block}{Familias de conjuntos}
+\begin{itemize}
+  \item Una familia de conjuntos es una colección indexada \((A_i)_{i\in I}\).
+  \item Permite hablar de uniones e intersecciones de muchos conjuntos.
+  \item El conjunto de índices debe estar especificado.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Demostrar identidades}
+
+\begin{frame}{Demostrar identidades}
+\begin{block}{Doble inclusión}
+\begin{itemize}
+  \item Para probar \(A=B\), se prueba \(A\subseteq B\) y \(B\subseteq A\).
+  \item Cada inclusión se demuestra tomando un elemento arbitrario.
+  \item La prueba debe traducir pertenencia en condiciones lógicas.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Demostrar identidades}
+\begin{block}{Ejemplo: De Morgan}
+\begin{itemize}
+  \item Para demostrar \((A\cup B)^c=A^c\cap B^c\), se toma \(x\) del lado izquierdo.
+  \item La condición \(x\notin A\cup B\) equivale a \(x\notin A\) y \(x\notin B\).
+  \item Eso equivale a \(x\in A^c\cap B^c\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Profundización}
+
+\begin{frame}{Profundización}
+\begin{block}{Producto cartesiano en contexto}
+\begin{itemize}
+  \item Si \(A\) es un conjunto de estudiantes y \(B\) un conjunto de grupos, \(A\times B\) contiene pares estudiante-grupo.
+  \item Un subconjunto de \(A\times B\) puede representar una relación de asignación.
+  \item Las aplicaciones se definirán como un caso especial de esta idea.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Partes de un conjunto}
+\begin{itemize}
+  \item Si \(A\) tiene pocos elementos, \(\mathcal{P}(A)\) puede listarse explícitamente.
+  \item El conjunto vacío y el conjunto total siempre pertenecen a \(\mathcal{P}(A)\).
+  \item Cada elemento de \(\mathcal{P}(A)\) es a su vez un conjunto.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Profundización}
+\begin{block}{Doble inclusión: esquema}
+\begin{itemize}
+  \item Primera dirección: tomar \(x\) en el lado izquierdo y demostrar que está en el derecho.
+  \item Segunda dirección: tomar \(x\) en el lado derecho y demostrar que está en el izquierdo.
+  \item Al cerrar ambas direcciones se obtiene la igualdad de conjuntos.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cierre}
+\begin{itemize}
+  \item El producto cartesiano prepara relaciones y funciones.
+  \item \(\mathcal{P}(A)\) contiene subconjuntos, no elementos sueltos.
+  \item La doble inclusión es el método estándar para igualdades de conjuntos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo recomendado}
+\begin{itemize}
+  \item Releer las secciones correspondientes del manual.
+  \item Identificar definiciones, símbolos nuevos y enunciados principales.
+  \item Preparar dudas y ejemplos para el seminario asociado.
+\end{itemize}
+\end{frame}
+
+\end{document}

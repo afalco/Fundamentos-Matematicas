@@ -1,0 +1,345 @@
+\chapter{Los números racionales}
+
+\begin{objetivos}
+  \item Construir los números racionales a partir de los enteros.
+  \item Interpretar las fracciones como clases de equivalencia.
+  \item Estudiar operaciones, orden y densidad de los racionales.
+\end{objetivos}
+
+\section{Motivación: división y fracciones}
+
+En el capítulo anterior se estudió el conjunto de los números enteros, que denotamos por \(\mathbb{Z}\). Este conjunto permite sumar, restar y multiplicar sin salir de él. Sin embargo, no siempre permite dividir.
+
+Por ejemplo, la ecuación
+\[
+  2x=1
+\]
+no tiene solución en \(\mathbb{Z}\), porque no existe ningún entero \(x\) cuyo doble sea igual a \(1\). Para resolver ecuaciones de este tipo es necesario ampliar el sistema numérico.
+
+La idea fundamental consiste en introducir objetos que representen cocientes de enteros. Estos objetos reciben el nombre de \emph{números racionales}.
+
+\begin{convencion}[Símbolos básicos]
+A lo largo de este capítulo, el símbolo \(\mathbb{Z}\) denota el conjunto de los números enteros. El símbolo \(\mathbb{Q}\), que se definirá más adelante, denotará el conjunto de los números racionales. Todo símbolo que aparezca en una definición será introducido antes de su uso.
+\end{convencion}
+
+La expresión \(\frac{a}{b}\), donde \(a\) y \(b\) son enteros y \(b\neq 0\), se interpreta inicialmente como una fracción. El entero \(a\) se llama \emph{numerador} y el entero \(b\) se llama \emph{denominador}.
+
+\begin{advertencia}
+La expresión \(\frac{a}{b}\) solo tiene sentido como fracción si el denominador \(b\) es distinto de cero. La división por cero no está definida.
+\end{advertencia}
+
+\section{Fracciones y clases de equivalencia}
+
+Una dificultad esencial es que una misma cantidad puede representarse mediante fracciones diferentes. Por ejemplo,
+\[
+  \frac{1}{2},\qquad \frac{2}{4},\qquad \frac{3}{6}
+\]
+representan el mismo número racional.
+
+Por tanto, no conviene definir un número racional como una fracción concreta, sino como una clase de fracciones equivalentes.
+
+\begin{definicion}[Conjunto de pares admisibles]
+Denotamos por
+\[
+  S=\{(a,b)\in \mathbb{Z}\times \mathbb{Z}: b\neq 0\}
+\]
+el conjunto de todos los pares ordenados de enteros cuyo segundo componente es no nulo.
+\end{definicion}
+
+Un par \((a,b)\in S\) representa informalmente la fracción \(\frac{a}{b}\).
+
+\begin{definicion}[Equivalencia de fracciones]
+Sean \((a,b),(c,d)\in S\). Decimos que \((a,b)\) es equivalente a \((c,d)\), y escribimos
+\[
+  (a,b)\sim(c,d),
+\]
+si
+\[
+  ad=bc.
+\]
+\end{definicion}
+
+La condición \(ad=bc\) expresa la igualdad usual de fracciones:
+\[
+  \frac{a}{b}=\frac{c}{d}
+  \quad \Longleftrightarrow \quad
+  ad=bc.
+\]
+
+\begin{proposicion}
+La relación \(\sim\) definida sobre \(S\) es una relación de equivalencia.
+\end{proposicion}
+
+\begin{proof}
+Debemos comprobar que \(\sim\) es reflexiva, simétrica y transitiva.
+
+Sea \((a,b)\in S\). Como \(ab=ba\), se tiene \((a,b)\sim(a,b)\). Por tanto, \(\sim\) es reflexiva.
+
+Supongamos ahora que \((a,b)\sim(c,d)\). Entonces \(ad=bc\). La misma igualdad puede escribirse como \(cb=da\), luego \((c,d)\sim(a,b)\). Por tanto, \(\sim\) es simétrica.
+
+Finalmente, supongamos que \((a,b)\sim(c,d)\) y \((c,d)\sim(e,f)\). Entonces
+\[
+  ad=bc,
+  \qquad
+  cf=de.
+\]
+Multiplicando la primera igualdad por \(f\) y la segunda por \(b\), obtenemos
+\[
+  adf=bcf,
+  \qquad
+  bcf=bde.
+\]
+Por tanto, \(adf=bde\). Como \(d\neq 0\), podemos cancelar \(d\) en \(\mathbb{Z}\) y obtenemos
+\[
+  af=be.
+\]
+Así, \((a,b)\sim(e,f)\). Por tanto, \(\sim\) es transitiva.
+\end{proof}
+
+\begin{definicion}[Clase de una fracción]
+Sea \((a,b)\in S\). La clase de equivalencia de \((a,b)\) es el conjunto
+\[
+  [(a,b)]=\{(c,d)\in S:(c,d)\sim(a,b)\}.
+\]
+Esta clase contiene todas las fracciones equivalentes a \(\frac{a}{b}\).
+\end{definicion}
+
+Por simplicidad de notación, la clase \([(a,b)]\) se suele escribir como
+\[
+  \frac{a}{b}.
+\]
+Esta notación debe entenderse como una clase de equivalencia, no como un único par ordenado.
+
+\begin{ejemplo}
+Las fracciones \(\frac{1}{2}\), \(\frac{2}{4}\) y \(\frac{-3}{-6}\) representan el mismo número racional, porque
+\[
+  1\cdot 4=2\cdot 2,
+  \qquad
+  1\cdot(-6)=2\cdot(-3).
+\]
+Por tanto,
+\[
+  \frac{1}{2}=\frac{2}{4}=\frac{-3}{-6}.
+\]
+\end{ejemplo}
+
+\section{El conjunto de los números racionales}
+
+Ya podemos definir el conjunto de los números racionales.
+
+\begin{definicion}[Números racionales]
+El conjunto de los números racionales, denotado por \(\mathbb{Q}\), es el conjunto de clases de equivalencia de pares \((a,b)\in S\) respecto de la relación \(\sim\). Es decir,
+\[
+  \mathbb{Q}=S/{\sim}.
+\]
+Sus elementos se escriben en la forma
+\[
+  \frac{a}{b},
+  \qquad a,b\in\mathbb{Z},\quad b\neq 0.
+\]
+\end{definicion}
+
+Todo número entero puede verse como un número racional. En efecto, si \(n\in\mathbb{Z}\), entonces
+\[
+  n=\frac{n}{1}.
+\]
+De este modo, podemos considerar \(\mathbb{Z}\) como subconjunto de \(\mathbb{Q}\).
+
+\begin{convencion}[Enteros dentro de los racionales]
+Cuando escribamos \(n\in\mathbb{Z}\) dentro de un contexto racional, identificaremos \(n\) con el racional \(\frac{n}{1}\).
+\end{convencion}
+
+\section{Operaciones con racionales}
+
+Para que \(\mathbb{Q}\) sea un sistema numérico útil, debemos definir suma y producto.
+
+\begin{definicion}[Suma de racionales]
+Sean \(\frac{a}{b},\frac{c}{d}\in\mathbb{Q}\), con \(b\neq 0\) y \(d\neq 0\). Definimos su suma por
+\[
+  \frac{a}{b}+\frac{c}{d}
+  =
+  \frac{ad+bc}{bd}.
+\]
+\end{definicion}
+
+\begin{definicion}[Producto de racionales]
+Sean \(\frac{a}{b},\frac{c}{d}\in\mathbb{Q}\), con \(b\neq 0\) y \(d\neq 0\). Definimos su producto por
+\[
+  \frac{a}{b}\cdot\frac{c}{d}
+  =
+  \frac{ac}{bd}.
+\]
+\end{definicion}
+
+Estas operaciones están bien definidas: si se cambia una fracción por otra equivalente, el resultado obtenido representa la misma clase racional.
+
+\begin{ejemplo}
+Calculamos
+\[
+  \frac{2}{3}+\frac{5}{4}
+  =
+  \frac{2\cdot 4+3\cdot 5}{3\cdot 4}
+  =
+  \frac{8+15}{12}
+  =
+  \frac{23}{12}.
+\]
+También,
+\[
+  \frac{2}{3}\cdot\frac{5}{4}
+  =
+  \frac{10}{12}
+  =
+  \frac{5}{6}.
+\]
+\end{ejemplo}
+
+\begin{proposicion}
+El conjunto \(\mathbb{Q}\), con la suma y el producto anteriores, es un cuerpo.
+\end{proposicion}
+
+\begin{proof}
+La verificación completa consiste en comprobar las propiedades asociativa y conmutativa de la suma y del producto, la existencia de neutro aditivo \(0=\frac{0}{1}\), la existencia de neutro multiplicativo \(1=\frac{1}{1}\), la existencia de opuesto para cada racional y la existencia de inverso multiplicativo para cada racional no nulo. También debe comprobarse la distributividad del producto respecto de la suma.
+
+Estas propiedades se deducen de las propiedades correspondientes de los enteros. En este curso se usará este resultado como una propiedad estructural básica de \(\mathbb{Q}\).
+\end{proof}
+
+\begin{advertencia}
+La igualdad \(\frac{a}{b}=\frac{c}{d}\) no significa necesariamente que \(a=c\) y \(b=d\). Significa que \(ad=bc\). Por ejemplo, \(\frac{1}{2}=\frac{2}{4}\), aunque \(1\neq 2\) y \(2\neq 4\).
+\end{advertencia}
+
+\section{Orden en los racionales}
+
+El orden de los enteros se extiende a los racionales.
+
+\begin{definicion}[Racional positivo]
+Sea \(\frac{a}{b}\in\mathbb{Q}\), con \(b\neq 0\). Decimos que \(\frac{a}{b}\) es positivo si \(a\) y \(b\) tienen el mismo signo, es decir, si \(ab>0\).
+\end{definicion}
+
+\begin{definicion}[Orden en \(\mathbb{Q}\)]
+Sean \(r,s\in\mathbb{Q}\). Decimos que \(r<s\) si \(s-r\) es positivo. Decimos que \(r\leq s\) si \(r<s\) o \(r=s\).
+\end{definicion}
+
+En términos de fracciones, si \(b>0\) y \(d>0\), entonces
+\[
+  \frac{a}{b}<\frac{c}{d}
+  \quad \Longleftrightarrow \quad
+  ad<bc.
+\]
+
+\begin{ejemplo}
+Comparamos \(\frac{2}{3}\) y \(\frac{3}{4}\). Como los denominadores son positivos, calculamos
+\[
+  2\cdot 4=8,
+  \qquad
+  3\cdot 3=9.
+\]
+Puesto que \(8<9\), se tiene
+\[
+  \frac{2}{3}<\frac{3}{4}.
+\]
+\end{ejemplo}
+
+\begin{advertencia}
+La regla de comparar productos cruzados debe aplicarse directamente solo cuando los denominadores son positivos. Si aparece un denominador negativo, conviene cambiar primero la fracción por otra equivalente con denominador positivo.
+\end{advertencia}
+
+\section{Densidad de los racionales}
+
+Una propiedad esencial de \(\mathbb{Q}\) es que entre dos racionales distintos siempre hay otro racional.
+
+\begin{teorema}[Densidad de \(\mathbb{Q}\)]
+Sean \(r,s\in\mathbb{Q}\) tales que \(r<s\). Entonces existe \(q\in\mathbb{Q}\) tal que
+\[
+  r<q<s.
+\]
+\end{teorema}
+
+\begin{proof}
+Definimos
+\[
+  q=\frac{r+s}{2}.
+\]
+Como \(r\) y \(s\) son racionales, también \(r+s\) es racional, y como \(2\in\mathbb{Z}\) con \(2\neq 0\), el número \(q\) es racional.
+
+Además, de \(r<s\) se deduce
+\[
+  2r<r+s<2s.
+\]
+Dividiendo entre \(2\), obtenemos
+\[
+  r<\frac{r+s}{2}<s.
+\]
+Por tanto, \(q\) es un racional situado estrictamente entre \(r\) y \(s\).
+\end{proof}
+
+\begin{corolario}
+Entre dos números racionales distintos existen infinitos números racionales.
+\end{corolario}
+
+\begin{proof}
+Sean \(r,s\in\mathbb{Q}\) con \(r<s\). Por el teorema anterior existe un racional \(q_1\) tal que \(r<q_1<s\). Aplicando de nuevo el teorema a \(r\) y \(q_1\), existe \(q_2\in\mathbb{Q}\) tal que \(r<q_2<q_1\). Repitiendo el proceso se obtienen indefinidamente racionales distintos entre \(r\) y \(s\).
+\end{proof}
+
+\section{Expansiones decimales}
+
+Los números racionales también pueden representarse mediante desarrollos decimales.
+
+\begin{definicion}[Expansión decimal]
+Una expansión decimal es una escritura de un número mediante potencias de \(10\). Por ejemplo,
+\[
+  3.25=3+\frac{2}{10}+\frac{5}{100}.
+\]
+\end{definicion}
+
+Al dividir dos enteros \(a\) y \(b\), con \(b\neq 0\), el algoritmo de la división produce restos. Como solo hay un número finito de posibles restos, o bien el proceso termina, o bien algún resto se repite.
+
+\begin{proposicion}
+Todo número racional tiene una expansión decimal finita o periódica.
+\end{proposicion}
+
+\begin{proof}
+Sea \(\frac{a}{b}\in\mathbb{Q}\), con \(b>0\). Al realizar la división decimal de \(a\) entre \(b\), los restos posibles son
+\[
+  0,1,2,\ldots,b-1.
+\]
+Si en algún momento aparece el resto \(0\), la expansión decimal termina. Si no aparece el resto \(0\), como solo hay \(b-1\) restos no nulos posibles, alguno de ellos debe repetirse. Desde ese momento, las cifras decimales se repiten periódicamente.
+\end{proof}
+
+\begin{ejemplo}
+El racional \(\frac{1}{4}\) tiene expansión decimal finita:
+\[
+  \frac{1}{4}=0.25.
+\]
+El racional \(\frac{1}{3}\) tiene expansión decimal periódica:
+\[
+  \frac{1}{3}=0.333\ldots
+\]
+\end{ejemplo}
+
+\begin{erroresfrecuentes}
+  \item Pensar que una fracción es el par \((a,b)\), en lugar de la clase de todas las fracciones equivalentes a ella.
+  \item Olvidar que el denominador de una fracción no puede ser cero.
+  \item Comparar fracciones con denominadores negativos sin transformarlas previamente.
+  \item Confundir densidad con continuidad: que entre dos racionales haya otro racional no significa que los racionales llenen todos los puntos de la recta real.
+  \item Creer que toda expansión decimal infinita representa necesariamente un número racional. Solo las expansiones decimales finitas o periódicas corresponden a racionales.
+\end{erroresfrecuentes}
+
+\begin{seminario}
+  \item Operaciones con fracciones como clases de equivalencia.
+  \item Problemas de orden y densidad.
+  \item Comparación de racionales mediante productos cruzados.
+  \item Construcción de racionales entre dos racionales dados.
+  \item Análisis de expansiones decimales finitas y periódicas.
+\end{seminario}
+
+\begin{ejerciciospropuestos}
+  \item Comprueba que \(\frac{6}{8}=\frac{3}{4}\) usando la definición de equivalencia de fracciones.
+  \item Calcula \(\frac{2}{5}+\frac{3}{7}\) y \(\frac{2}{5}\cdot\frac{3}{7}\).
+  \item Ordena de menor a mayor los racionales \(\frac{1}{2}\), \(\frac{3}{5}\), \(\frac{7}{10}\) y \(\frac{2}{3}\).
+  \item Encuentra tres números racionales estrictamente comprendidos entre \(\frac{1}{3}\) y \(\frac{1}{2}\).
+  \item Demuestra que si \(r,s\in\mathbb{Q}\) y \(r<s\), entonces \(\frac{2r+s}{3}\) es un racional situado entre \(r\) y \(s\).
+  \item Decide si las expansiones decimales siguientes corresponden a números racionales: \(0.125\), \(0.272727\ldots\), \(0.10100100010000\ldots\).
+\end{ejerciciospropuestos}
+
+\resumen{El capítulo construye los números racionales como clases de equivalencia de fracciones de enteros. Esta construcción permite definir rigurosamente suma, producto y orden en \(\mathbb{Q}\). Los racionales forman un cuerpo ordenado y tienen la propiedad de densidad: entre dos racionales distintos siempre existe otro racional. Además, sus expansiones decimales son exactamente las finitas o periódicas.}
