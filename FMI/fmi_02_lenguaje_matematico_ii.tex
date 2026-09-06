@@ -55,9 +55,10 @@
 
 \begin{frame}{Objetivos de la clase}
 \begin{itemize}
-  \item Identificar definiciones matemáticas correctas.
-  \item Distinguir enunciados, ejemplos, contraejemplos y demostraciones.
-  \item Separar cálculo, justificación y prueba.
+  \item Distinguir definición, enunciado, ejemplo, contraejemplo y demostración.
+  \item Evaluar si una definición fija un significado preciso.
+  \item Reconocer por qué muchos ejemplos no prueban un enunciado universal.
+  \item Escribir una demostración elemental con hipótesis, desarrollo y cierre.
 \end{itemize}
 \end{frame}
 
@@ -69,125 +70,258 @@
 
 \begin{frame}{Definir}
 \begin{block}{Qué hace una definición}
-\begin{itemize}
-  \item Una definición fija el significado de un término o símbolo.
-  \item No se demuestra: se acepta como acuerdo de significado.
-  \item Debe indicar contexto, objetos implicados y condiciones.
-\end{itemize}
+Una definición asigna significado preciso a un término, símbolo, objeto,
+propiedad o relación dentro de un contexto determinado.
 \end{block}
+
+\begin{itemize}
+  \item No se demuestra como un teorema.
+  \item Debe indicar el conjunto o contexto de trabajo.
+  \item Debe permitir usar el concepto sin ambigüedad.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Definir}
 \begin{block}{Ejemplo: número par}
-\begin{itemize}
-  \item Sea \(n\in\mathbb{Z}\).
-  \item Diremos que \(n\) es par si existe \(k\in\mathbb{Z}\) tal que \(n=2k\).
-  \item La definición introduce una propiedad mediante una existencia.
-\end{itemize}
+Sea \(n\) un número entero. Diremos que \(n\) es par si existe un número entero
+\(k\) tal que
+\[
+  n=2k.
+\]
 \end{block}
+
+\begin{itemize}
+  \item Contexto: \(n\in\Z\).
+  \item Símbolo auxiliar: \(k\in\Z\).
+  \item Condición: existencia de una representación \(n=2k\).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Definir}
+\begin{block}{Definición de subconjunto}
+Sean \(A\) y \(B\) dos conjuntos. Diremos que \(A\) es un subconjunto de \(B\),
+y escribiremos \(A\subseteq B\), si todo elemento de \(A\) es también elemento
+de \(B\).
+\end{block}
+
+\begin{alertblock}{Control}
+La notación \(A\subseteq B\) aparece después de declarar qué son \(A\) y \(B\).
+\end{alertblock}
 \end{frame}
 
 \begin{frame}{Definir}
 \begin{block}{Definiciones defectuosas}
 \begin{itemize}
-  \item Una definición circular usa el término que pretende definir.
-  \item Una definición incompleta no fija el conjunto de trabajo.
-  \item Una definición ambigua no permite decidir casos básicos.
+  \item Circular: usa el término que pretende definir.
+  \item Incompleta: no fija el conjunto de trabajo.
+  \item Ambigua: no permite decidir casos básicos.
 \end{itemize}
 \end{block}
+
+\begin{exampleblock}{Ejemplo defectuoso}
+``Un conjunto finito es un conjunto que tiene finitos elementos''.
+\end{exampleblock}
 \end{frame}
 
-\section{Afirmar y probar}
+\section{Afirmar}
 
-\begin{frame}{Afirmar y probar}
+\begin{frame}{Afirmar}
 \begin{block}{Enunciado matemático}
+Un enunciado matemático es una afirmación formulada con precisión que, dentro de
+un contexto dado, tiene valor de verdad.
+\end{block}
+
 \begin{itemize}
-  \item Un enunciado es una afirmación con valor de verdad dentro de un contexto.
   \item ``Calcula \(2+3\)'' no es un enunciado: es una orden.
-  \item ``Para todo \(n\in\mathbb{N}\), \(n+1>n\)'' sí es un enunciado.
+  \item ``\(x+1\)'' no es un enunciado: es una expresión.
+  \item ``Para todo \(n\in\N\), \(n+1>n\)'' sí es un enunciado.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Afirmar}
+\begin{block}{Formas frecuentes}
+\begin{itemize}
+  \item Universal: para todo objeto se cumple una propiedad.
+  \item Existencial: existe al menos un objeto con una propiedad.
+  \item Implicación: si se cumple la hipótesis, entonces se cumple la conclusión.
+  \item Equivalencia: una propiedad se cumple si y solo si se cumple otra.
 \end{itemize}
 \end{block}
 \end{frame}
 
-\begin{frame}{Afirmar y probar}
-\begin{block}{Ejemplos y contraejemplos}
+\begin{frame}{Afirmar}
+\begin{block}{Clasificación rápida}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Frase & Tipo & Comentario \\
+\midrule
+Sea \(A\) un conjunto & declaración & fija contexto \\
+\(2\) es par & enunciado & verdadero \\
+Calcula \(7+5\) & orden & no tiene valor de verdad \\
+\(x+1\) & expresión & no afirma nada \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{block}
+\end{frame}
+
+\section{Ejemplos}
+
+\begin{frame}{Ejemplos y contraejemplos}
+\begin{block}{Ejemplo}
+Un ejemplo es un objeto concreto que satisface una definición o propiedad.
+\end{block}
+
+\begin{block}{Contraejemplo}
+Un contraejemplo a un enunciado universal es un objeto que cumple las hipótesis
+pero no cumple la conclusión.
+\end{block}
+\end{frame}
+
+\begin{frame}{Ejemplos y contraejemplos}
+\begin{block}{Ejemplo de número par}
+El número \(8\) es par porque existe \(k\in\Z\), concretamente \(k=4\), tal que
+\[
+  8=2k.
+\]
+\end{block}
+
+\begin{block}{Contraejemplo}
+La afirmación ``todo entero positivo es par'' es falsa: \(3\) es entero positivo
+y no es par.
+\end{block}
+\end{frame}
+
+\begin{frame}{Ejemplos y contraejemplos}
+\begin{alertblock}{Regla esencial}
+Un solo contraejemplo basta para refutar un enunciado universal.
+\end{alertblock}
+
+\begin{block}{Pero}
+Muchos ejemplos no bastan para demostrar un enunciado universal.
+\end{block}
+
+\begin{exampleblock}{Pregunta}
+¿Por qué comprobar \(2+4\), \(4+6\) y \(10+12\) no demuestra que la suma de dos
+números pares cualesquiera sea par?
+\end{exampleblock}
+\end{frame}
+
+\section{Demostrar}
+
+\begin{frame}{Demostrar}
+\begin{block}{Calcular, justificar, argumentar, demostrar}
 \begin{itemize}
-  \item Un ejemplo muestra un objeto que satisface una definición o propiedad.
-  \item Un contraejemplo muestra que una afirmación universal es falsa.
-  \item Muchos ejemplos no sustituyen una demostración general.
+  \item Calcular: transformar expresiones para obtener un resultado.
+  \item Justificar: explicar por qué un paso es válido.
+  \item Argumentar: encadenar razones hacia una conclusión.
+  \item Demostrar: establecer una afirmación usando definiciones, resultados previos y reglas lógicas.
 \end{itemize}
 \end{block}
 \end{frame}
 
-\begin{frame}{Afirmar y probar}
-\begin{block}{Calcular no es demostrar}
+\begin{frame}{Demostrar}
+\begin{block}{Estructura mínima de una demostración}
+\begin{enumerate}
+  \item Declarar los objetos y el contexto.
+  \item Escribir las hipótesis.
+  \item Indicar qué se quiere probar.
+  \item Usar las definiciones pertinentes.
+  \item Encadenar pasos justificados.
+  \item Cerrar con la conclusión exacta.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Demostrar}
+\begin{block}{Demostración modelo}
+Demostremos que la suma de dos números pares es par.
+\end{block}
+
+Sean \(a,b\in\Z\) dos números pares. Por definición, existen \(r,s\in\Z\) tales que
+\[
+  a=2r
+  \quad\text{y}\quad
+  b=2s.
+\]
+Entonces
+\[
+  a+b=2r+2s=2(r+s).
+\]
+\end{frame}
+
+\begin{frame}{Demostrar}
+\begin{block}{Cierre de la demostración}
+Como \(r+s\in\Z\), existe un entero \(t=r+s\) tal que
+\[
+  a+b=2t.
+\]
+Por definición de número par, \(a+b\) es par.
+\end{block}
+
+\begin{alertblock}{Observación}
+El cálculo aparece dentro de la demostración, pero no sustituye al argumento.
+\end{alertblock}
+\end{frame}
+
+\section{Trabajo de aula}
+
+\begin{frame}{Trabajo de aula}
+\begin{block}{Actividad 1: mejorar una frase}
+Reescribe de forma rigurosa:
+\begin{center}
+  \Large ``Si un número acaba en cero, entonces es divisible''
+\end{center}
+\end{block}
+
 \begin{itemize}
-  \item Calcular produce un valor o transforma una expresión.
-  \item Demostrar justifica por qué una afirmación es verdadera en todos los casos indicados.
-  \item Una solución universitaria debe dejar claras hipótesis, conclusión y método.
+  \item ¿Qué tipo de número?
+  \item ¿Qué significa ``acaba en cero''?
+  \item ¿Divisible por qué número?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajo de aula}
+\begin{block}{Una posible formulación}
+Sea \(n\) un número entero escrito en base decimal. Si la última cifra decimal
+de \(n\) es \(0\), entonces \(n\) es divisible por \(10\).
+\end{block}
+
+\begin{block}{Control de calidad}
+\begin{itemize}
+  \item El contexto está fijado.
+  \item La hipótesis es reconocible.
+  \item La conclusión dice exactamente qué divisibilidad se afirma.
 \end{itemize}
 \end{block}
 \end{frame}
 
-\section{Plantilla de demostración}
-
-\begin{frame}{Plantilla de demostración}
-\begin{block}{Estructura mínima}
-\begin{itemize}
-  \item Hipótesis: qué se supone.
-  \item Objetivo: qué se quiere demostrar.
-  \item Argumento: pasos justificados.
-  \item Cierre: se indica que se ha probado la afirmación deseada.
-\end{itemize}
-\end{block}
-\end{frame}
-
-\section{Profundización}
-
-\begin{frame}{Profundización}
-\begin{block}{Cómo evaluar una definición}
-\begin{itemize}
-  \item Debe especificar el conjunto o contexto de trabajo.
-  \item Debe introducir todos los símbolos relevantes.
-  \item Debe permitir distinguir ejemplos de no ejemplos.
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}{Profundización}
-\begin{block}{Ejemplo y contraejemplo}
-\begin{itemize}
-  \item Definición: \(n\in\mathbb{Z}\) es par si existe \(k\in\mathbb{Z}\) tal que \(n=2k\).
-  \item Ejemplo: \(8\) es par porque \(8=2\cdot 4\).
-  \item Contraejemplo: \(7\) no es par, porque no existe entero \(k\) con \(7=2k\).
-\end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}{Profundización}
-\begin{block}{Checklist de demostración}
-\begin{itemize}
-  \item Declaro las hipótesis.
-  \item Declaro lo que quiero probar.
-  \item Uso definiciones ya introducidas.
-  \item Cierro indicando que la conclusión ha quedado probada.
-\end{itemize}
+\begin{frame}{Trabajo de aula}
+\begin{block}{Actividad 2: contraejemplos}
+Da un contraejemplo para cada afirmación falsa:
+\begin{enumerate}
+  \item Todo número entero es positivo.
+  \item Todo número impar es primo.
+  \item Si \(a^2=b^2\), entonces \(a=b\), con \(a,b\in\Z\).
+\end{enumerate}
 \end{block}
 \end{frame}
 
 \begin{frame}{Cierre}
 \begin{itemize}
-  \item Una definición introduce significado.
-  \item Un enunciado afirma algo verdadero o falso.
-  \item Una demostración no verifica casos: justifica el caso general.
+  \item Una definición introduce significado; un teorema requiere prueba.
+  \item Un enunciado debe tener valor de verdad en un contexto fijado.
+  \item Un contraejemplo refuta una afirmación universal.
+  \item Una demostración debe declarar hipótesis, usar definiciones y cerrar la conclusión.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Trabajo recomendado}
 \begin{itemize}
-  \item Releer las secciones correspondientes del manual.
-  \item Identificar definiciones, símbolos nuevos y enunciados principales.
-  \item Preparar dudas y ejemplos para el seminario asociado.
+  \item Leer las secciones 1.5 a 1.10 del manual.
+  \item Escribir una demostración de que la suma de dos impares es par.
+  \item Revisar si todos los símbolos usados aparecen definidos antes.
 \end{itemize}
 \end{frame}
 

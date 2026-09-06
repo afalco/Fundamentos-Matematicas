@@ -42,7 +42,7 @@
 \newcommand{\mcm}{\operatorname{mcm}}
 
 \title[FdM I -- Clase 01]{Lenguaje matemático I}
-\subtitle{Objetos, símbolos y significado}
+\subtitle{Contexto, símbolos y significado}
 \author{Antonio Falcó Montesinos}
 \institute{Universidad CEU Cardenal Herrera}
 \date{Fundamentos de las Matemáticas I}
@@ -55,9 +55,10 @@
 
 \begin{frame}{Objetivos de la clase}
 \begin{itemize}
-  \item Distinguir entre lenguaje natural y lenguaje matemático.
-  \item Reconocer objetos, símbolos, variables y constantes.
-  \item Aplicar el principio de definición previa.
+  \item Distinguir lenguaje natural y lenguaje matemático.
+  \item Reconocer objetos, símbolos, variables, constantes y contexto.
+  \item Aplicar el principio de definición previa antes de usar notación.
+  \item Leer una fórmula reconstruyendo el significado de cada símbolo.
 \end{itemize}
 \end{frame}
 
@@ -70,122 +71,221 @@
 \begin{frame}{Punto de partida}
 \begin{block}{Por qué empezar por el lenguaje}
 \begin{itemize}
-  \item En matemáticas no basta con tener una intuición correcta.
-  \item Una afirmación debe tener significado preciso en un contexto fijado.
-  \item El curso se apoya en una regla de calidad: todo símbolo relevante debe definirse antes de utilizarse.
+  \item La matemática no empieza al calcular, sino al fijar significado.
+  \item Una afirmación matemática necesita un contexto de interpretación.
+  \item La notación ayuda solo cuando sus símbolos ya tienen significado.
 \end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}{Punto de partida}
-\begin{block}{Lenguaje natural y lenguaje matemático}
+\begin{block}{Una frase ambigua}
+\begin{center}
+  \Large ``Un número grande tiene un cuadrado grande''
+\end{center}
+\vspace{0.2cm}
 \begin{itemize}
-  \item El lenguaje natural es flexible, contextual y a veces ambiguo.
-  \item El lenguaje matemático reduce ambigüedad mediante definiciones, símbolos y reglas.
-  \item Un buen texto matemático combina frases completas con notación bien declarada.
+  \item ¿Qué significa ``número''?
+  \item ¿Respecto de qué orden se interpreta ``grande''?
+  \item ¿En qué conjunto se está trabajando?
+  \item ¿Qué operación se llama ``cuadrado''?
 \end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}{Punto de partida}
-\begin{block}{Ejemplo de ambigüedad}
+\begin{block}{Una formulación con contexto}
+Sea \(n\) un número natural. Si \(n>10\), entonces \(n^2>100\).
+\end{block}
+
 \begin{itemize}
-  \item La frase ``todo número tiene un siguiente'' no es precisa por sí sola.
-  \item Hay que indicar el conjunto de trabajo y qué significa ``siguiente''.
-  \item En \(\mathbb{N}\), puede formularse como: para todo \(n\in\mathbb{N}\), existe \(m\in\mathbb{N}\) tal que \(m=n+1\).
+  \item \(n\) representa un número natural.
+  \item \(>\) es el orden usual en \(\N\).
+  \item \(n^2\) significa \(n\cdot n\).
+  \item La frase ya puede discutirse como enunciado matemático.
+\end{itemize}
+\end{frame}
+
+\section{Lenguaje matemático}
+
+\begin{frame}{Lenguaje matemático}
+\begin{block}{Lenguaje natural}
+\begin{itemize}
+  \item Flexible, contextual y expresivo.
+  \item Puede ser ambiguo si no se fijan los términos.
 \end{itemize}
 \end{block}
+
+\begin{block}{Lenguaje matemático}
+\begin{itemize}
+  \item Combina palabras, símbolos y reglas de interpretación.
+  \item Reduce ambigüedad mediante definiciones y convenciones.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Lenguaje matemático}
+\begin{block}{Principio de definición previa}
+\begin{center}
+  \Large Todo símbolo relevante debe definirse antes de utilizarse.
+\end{center}
+\end{block}
+
+\begin{itemize}
+  \item No es una regla decorativa: es una condición de lectura.
+  \item Permite reconstruir qué significa cada paso.
+  \item Obliga a declarar objetos, conjuntos, relaciones y operaciones.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Lenguaje matemático}
+\begin{block}{Definiciones, axiomas y teoremas}
+\begin{itemize}
+  \item Una definición introduce significado.
+  \item Un axioma fija una propiedad aceptada como punto de partida.
+  \item Un teorema afirma algo que debe demostrarse.
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Idea de trabajo}
+El orden de escritura importa: primero se fija el lenguaje, después se razona con él.
+\end{alertblock}
 \end{frame}
 
 \section{Objetos y símbolos}
 
 \begin{frame}{Objetos y símbolos}
 \begin{block}{Objeto matemático}
-\begin{itemize}
-  \item Un objeto matemático es una entidad definida dentro de un contexto.
-  \item Puede ser un número, conjunto, función, relación, operación o estructura.
-  \item El mismo símbolo puede representar objetos distintos en problemas distintos.
-\end{itemize}
+Un objeto matemático es una entidad definida dentro de un contexto: número,
+conjunto, función, relación, operación o estructura.
+\end{block}
+
+\begin{block}{Símbolo}
+Un símbolo es un signo que representa un objeto, una relación, una operación o una propiedad.
 \end{block}
 \end{frame}
 
 \begin{frame}{Objetos y símbolos}
-\begin{block}{Símbolos con significado}
-\begin{itemize}
-  \item En \(x\in A\), el símbolo \(x\) representa un objeto, \(A\) un conjunto y \(\in\) la relación de pertenencia.
-  \item La expresión solo está justificada si esos tres elementos han sido introducidos.
-  \item La notación no sustituye a la explicación.
-\end{itemize}
+\begin{block}{Anatomía de una expresión}
+\[
+  x\in A
+\]
+\begin{center}
+\begin{tabular}{ccl}
+\toprule
+Símbolo & Tipo esperado & Papel \\
+\midrule
+\(x\) & objeto & posible elemento \\
+\(A\) & conjunto & contenedor de objetos \\
+\(\in\) & relación & pertenencia \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}{Objetos y símbolos}
+\begin{block}{Introducción correcta}
+Sea \(A\) un conjunto y sea \(x\) un objeto. Escribiremos \(x\in A\) para indicar
+que \(x\) pertenece al conjunto \(A\).
+\end{block}
+
+\begin{block}{Uso prematuro}
+\[
+  x\in A \Rightarrow x\in B
+\]
+La intención puede intuirse, pero faltan \(x\), \(A\), \(B\), \(\in\) y \(\Rightarrow\).
 \end{block}
 \end{frame}
 
 \begin{frame}{Objetos y símbolos}
 \begin{block}{Variables y constantes}
 \begin{itemize}
-  \item Una variable puede representar distintos objetos dentro de un contexto.
+  \item Una variable puede representar distintos objetos de un contexto fijado.
   \item Una constante representa un objeto fijo.
-  \item Ejemplo: en ``sea \(n\in\mathbb{N}\)'', \(n\) es variable; \(0\) es una constante una vez definida.
+  \item El mismo símbolo puede cambiar de significado al cambiar de problema.
 \end{itemize}
 \end{block}
+
+\begin{exampleblock}{Ejemplo}
+En ``sea \(n\in\N\)'', \(n\) es variable. Una vez definido, \(0\) es una constante.
+\end{exampleblock}
+\end{frame}
+
+\section{Lectura activa}
+
+\begin{frame}{Lectura activa}
+\begin{block}{Método de lectura de una fórmula}
+\begin{enumerate}
+  \item Localizar todos los símbolos.
+  \item Decidir qué tipo de objeto representa cada uno.
+  \item Identificar relaciones y operaciones.
+  \item Reconstruir la frase en lenguaje natural.
+  \item Comprobar si falta alguna definición previa.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{Lectura activa}
+\begin{block}{Ejemplo guiado}
+\[
+  A\subseteq B
+\]
+\begin{itemize}
+  \item \(A\) y \(B\) deben ser conjuntos.
+  \item \(\subseteq\) expresa inclusión, no pertenencia.
+  \item Lectura: todo elemento de \(A\) es también elemento de \(B\).
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Pregunta}
+¿Qué habría que haber definido antes de escribir esta expresión?
+\end{alertblock}
 \end{frame}
 
 \section{Trabajo de aula}
 
 \begin{frame}{Trabajo de aula}
-\begin{block}{Actividad}
-\begin{itemize}
-  \item Localizar símbolos no definidos en un texto breve.
-  \item Reescribir una frase ambigua usando contexto explícito.
-  \item Separar objetos, propiedades y relaciones en una fórmula dada.
-\end{itemize}
+\begin{block}{Actividad 1: detectar símbolos no definidos}
+Texto inicial:
+\[
+  x\in A \Rightarrow f(x)\in B.
+\]
+\begin{enumerate}
+  \item Lista todos los símbolos.
+  \item Indica qué tipo de objeto debería ser cada uno.
+  \item Reescribe el texto introduciendo primero el contexto.
+\end{enumerate}
 \end{block}
 \end{frame}
 
-\section{Profundización}
-
-\begin{frame}{Profundización}
-\begin{block}{Criterio de lectura}
-\begin{itemize}
-  \item Al leer una fórmula, conviene identificar primero los objetos que aparecen.
-  \item Después se localizan las relaciones u operaciones que conectan esos objetos.
-  \item Finalmente se reconstruye la frase completa en lenguaje natural.
-\end{itemize}
+\begin{frame}{Trabajo de aula}
+\begin{block}{Una posible reescritura}
+Sean \(A\) y \(B\) dos conjuntos, sea \(f:A\to B\) una aplicación y sea \(x\in A\).
+Entonces \(f(x)\in B\).
 \end{block}
-\end{frame}
 
-\begin{frame}{Profundización}
-\begin{block}{Ejemplo guiado}
 \begin{itemize}
-  \item En \(x\in A\Rightarrow x\in B\), los símbolos \(x,A,B\) deben estar declarados.
-  \item La flecha \(\Rightarrow\) expresa una implicación, no una continuación de cálculo.
-  \item Una lectura posible es: si \(x\) pertenece a \(A\), entonces \(x\) pertenece a \(B\).
+  \item El dominio y el codominio de \(f\) quedan declarados.
+  \item El símbolo \(x\) aparece después de fijar su contexto.
+  \item La conclusión usa la información ya introducida.
 \end{itemize}
-\end{block}
-\end{frame}
-
-\begin{frame}{Profundización}
-\begin{block}{Preguntas de control}
-\begin{itemize}
-  \item ¿Qué símbolos aparecen en la expresión?
-  \item ¿Qué tipo de objeto representa cada símbolo?
-  \item ¿Hay algún símbolo que el texto use sin haber definido?
-\end{itemize}
-\end{block}
 \end{frame}
 
 \begin{frame}{Cierre}
 \begin{itemize}
-  \item Un símbolo sin definición no aporta rigor.
-  \item La precisión matemática empieza antes de calcular.
+  \item Una fórmula no es rigurosa si sus símbolos no han sido definidos.
+  \item El contexto determina el significado de objetos, relaciones y operaciones.
+  \item Leer matemáticas exige reconstruir significado, no solo reconocer símbolos.
   \item En la próxima clase: definiciones, enunciados, ejemplos y demostraciones.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Trabajo recomendado}
 \begin{itemize}
-  \item Releer las secciones correspondientes del manual.
-  \item Identificar definiciones, símbolos nuevos y enunciados principales.
-  \item Preparar dudas y ejemplos para el seminario asociado.
+  \item Leer las secciones 1.1 a 1.4 del manual.
+  \item Subrayar cada símbolo nuevo y anotar cuándo se define.
+  \item Reescribir dos frases ambiguas con contexto matemático explícito.
 \end{itemize}
 \end{frame}
 
