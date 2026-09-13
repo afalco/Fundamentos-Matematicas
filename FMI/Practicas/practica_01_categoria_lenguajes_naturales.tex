@@ -1,0 +1,266 @@
+% !TEX program = lualatex
+% Práctica guiada de Fundamentos de las Matemáticas I
+% Lenguaje matemático y definiciones: categoría de lenguajes naturales
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[a4paper,margin=2.7cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMGray}{RGB}{245,245,245}
+\definecolor{FdMRed}{RGB}{130,30,30}
+\definecolor{FdMGreen}{RGB}{25,100,60}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=FdMBlue,
+  urlcolor=FdMBlue
+}
+
+\newcommand{\Cat}{\mathcal{L}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\id}{\operatorname{id}}
+
+\setlist[itemize]{leftmargin=2em}
+\setlist[enumerate]{leftmargin=2.5em}
+
+\title{\textbf{Práctica guiada 1}\\
+Construcción idealizada de una categoría de lenguajes naturales}
+\author{Fundamentos de las Matemáticas I}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Objetivo}
+
+El objetivo de esta práctica es utilizar una definición matemática no trivial
+para entrenar las ideas del capítulo 1: declarar objetos, introducir símbolos,
+fijar operaciones y comprobar reglas.
+
+Trabajaremos con una construcción idealizada: una categoría cuyos objetos son
+lenguajes naturales y cuyos morfismos representan traducciones.
+
+\section*{Recordatorio: definición de categoría}
+
+Una categoría \(\mathcal{C}\) consta de los siguientes datos:
+
+\begin{itemize}
+  \item una colección de objetos, denotada \(\Ob(\mathcal{C})\);
+  \item para cada par de objetos \(A,B\), una colección de morfismos
+        \(\Hom_{\mathcal{C}}(A,B)\);
+  \item una operación de composición de morfismos;
+  \item para cada objeto \(A\), un morfismo identidad \(\id_A\).
+\end{itemize}
+
+Estos datos deben cumplir dos reglas:
+
+\begin{enumerate}
+  \item \textbf{Asociatividad.} Si las composiciones tienen sentido, entonces
+  \[
+    h\circ (g\circ f)=(h\circ g)\circ f.
+  \]
+
+  \item \textbf{Identidades.} Si \(f:A\to B\), entonces
+  \[
+    f\circ \id_A=f
+    \quad\text{y}\quad
+    \id_B\circ f=f.
+  \]
+\end{enumerate}
+
+\section*{Situación de partida}
+
+Queremos construir una categoría \(\Cat\) de lenguajes naturales. Para que el
+ejercicio sea manejable, trabajaremos con el siguiente conjunto de lenguajes:
+\[
+  \{\text{español},\text{inglés},\text{francés}\}.
+\]
+
+La idea intuitiva es que una traducción del español al inglés sea un morfismo
+del objeto ``español'' al objeto ``inglés''.
+
+\section*{Parte 1: objetos}
+
+\begin{enumerate}
+  \item Define explícitamente la colección de objetos de \(\Cat\):
+  \[
+    \Ob(\Cat)=\{\ldots\}.
+  \]
+
+  \item Explica en una frase qué representa cada objeto.
+
+  \item Añade un cuarto lenguaje a la colección y escribe de nuevo
+  \(\Ob(\Cat)\).
+\end{enumerate}
+
+\section*{Parte 2: morfismos}
+
+Para cada par de lenguajes \(A\) y \(B\), escribiremos
+\[
+  \Hom_{\Cat}(A,B)
+\]
+para referirnos a las traducciones idealizadas de \(A\) a \(B\).
+
+\begin{enumerate}
+  \item Escribe qué debería representar el conjunto
+  \[
+    \Hom_{\Cat}(\text{español},\text{inglés}).
+  \]
+
+  \item Escribe qué debería representar el conjunto
+  \[
+    \Hom_{\Cat}(\text{francés},\text{español}).
+  \]
+
+  \item Si \(t\in \Hom_{\Cat}(\text{español},\text{inglés})\), completa la frase:
+
+  \begin{quote}
+    El símbolo \(t\) representa \ldots
+  \end{quote}
+
+  \item Explica por qué no debemos escribir simplemente \(t\) sin indicar antes
+  en qué conjunto de morfismos vive.
+\end{enumerate}
+
+\section*{Parte 3: identidades}
+
+Para cada lenguaje \(A\), necesitamos un morfismo identidad
+\[
+  \id_A:A\to A.
+\]
+
+\begin{enumerate}
+  \item Describe con palabras qué debería ser
+  \[
+    \id_{\text{español}}.
+  \]
+
+  \item Describe con palabras qué debería ser
+  \[
+    \id_{\text{inglés}}.
+  \]
+
+  \item Explica por qué una identidad no debería cambiar el significado de un
+  texto.
+\end{enumerate}
+
+\section*{Parte 4: composición}
+
+Supongamos que tenemos dos traducciones idealizadas:
+\[
+  f:\text{español}\to \text{inglés},
+  \qquad
+  g:\text{inglés}\to \text{francés}.
+\]
+
+Entonces podemos formar la composición
+\[
+  g\circ f:\text{español}\to \text{francés}.
+\]
+
+\begin{enumerate}
+  \item Explica qué significa traducir primero mediante \(f\) y después mediante
+  \(g\).
+
+  \item Completa:
+  \[
+    f\in \Hom_{\Cat}(\ldots,\ldots),
+    \qquad
+    g\in \Hom_{\Cat}(\ldots,\ldots),
+  \]
+  y
+  \[
+    g\circ f\in \Hom_{\Cat}(\ldots,\ldots).
+  \]
+
+  \item Decide si la composición siguiente tiene sentido:
+  \[
+    f\circ g.
+  \]
+  Justifica la respuesta indicando dominios y codominios.
+\end{enumerate}
+
+\section*{Parte 5: comprobación de axiomas}
+
+Sean
+\[
+  f:\text{español}\to\text{inglés},
+  \qquad
+  g:\text{inglés}\to\text{francés},
+  \qquad
+  h:\text{francés}\to\text{alemán}.
+\]
+
+\begin{enumerate}
+  \item Escribe los dominios y codominios de \(g\circ f\) y de \(h\circ g\).
+
+  \item Explica con palabras qué significa
+  \[
+    h\circ(g\circ f).
+  \]
+
+  \item Explica con palabras qué significa
+  \[
+    (h\circ g)\circ f.
+  \]
+
+  \item En el modelo idealizado, ambas expresiones deberían representar la misma
+  traducción compuesta. ¿Qué axioma de categoría se está comprobando?
+\end{enumerate}
+
+\section*{Parte 6: límites del modelo}
+
+La construcción anterior es útil, pero las traducciones reales no se comportan
+exactamente como funciones perfectas.
+
+\begin{enumerate}
+  \item Da un ejemplo de una palabra o expresión que pueda tener más de una
+  traducción.
+
+  \item Explica por qué una traducción puede depender del contexto.
+
+  \item Explica qué puede perderse al traducir sucesivamente
+  \[
+    \text{español}\to\text{inglés}\to\text{francés}.
+  \]
+
+  \item Indica qué estamos idealizando cuando tratamos las traducciones como
+  morfismos de una categoría.
+\end{enumerate}
+
+\section*{Entrega}
+
+Entrega una respuesta breve, de una o dos páginas, que incluya:
+
+\begin{enumerate}
+  \item la definición de los objetos de \(\Cat\);
+  \item la interpretación de los morfismos;
+  \item la identidad de cada lenguaje;
+  \item un ejemplo de composición de traducciones;
+  \item una comprobación informal de asociatividad;
+  \item una explicación de los límites del modelo.
+\end{enumerate}
+
+\section*{Pregunta final}
+
+Explica en cinco o seis líneas por qué esta práctica ilustra el principio:
+
+\begin{quote}
+  Todo símbolo relevante debe definirse antes de utilizarse.
+\end{quote}
+
+\end{document}

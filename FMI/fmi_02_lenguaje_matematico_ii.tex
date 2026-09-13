@@ -98,6 +98,34 @@ Sea \(n\) un número entero. Diremos que \(n\) es par si existe un número enter
 \end{frame}
 
 \begin{frame}{Definir}
+\begin{block}{Ejemplo: categoría}
+Una categoría \(\mathcal{C}\) consta de:
+\begin{itemize}
+  \item una colección de objetos, denotada \(\operatorname{Ob}(\mathcal{C})\);
+  \item para cada par de objetos \(A,B\), una colección de morfismos
+        \(\operatorname{Hom}_{\mathcal{C}}(A,B)\);
+  \item una operación de composición de morfismos;
+  \item para cada objeto \(A\), un morfismo identidad \(\operatorname{id}_A\).
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Definir}
+\begin{block}{Axiomas de una categoría}
+Los datos anteriores deben cumplir:
+\begin{itemize}
+  \item la composición es asociativa siempre que esté definida;
+  \item los morfismos identidad actúan como neutros para la composición.
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Control de lenguaje}
+La definición declara primero los objetos, morfismos, composición e identidades;
+después impone las reglas que deben satisfacer.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Definir}
 \begin{block}{Definición de subconjunto}
 Sean \(A\) y \(B\) dos conjuntos. Diremos que \(A\) es un subconjunto de \(B\),
 y escribiremos \(A\subseteq B\), si todo elemento de \(A\) es también elemento
