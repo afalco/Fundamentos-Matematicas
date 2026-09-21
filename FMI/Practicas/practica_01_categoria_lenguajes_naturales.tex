@@ -66,6 +66,32 @@ Una categoría \(\mathcal{C}\) consta de los siguientes datos:
   \item para cada objeto \(A\), un morfismo identidad \(\id_A\).
 \end{itemize}
 
+\subsection*{Notación de morfismos y composición}
+
+Si \(A\) y \(B\) son objetos de una categoría \(\mathcal{C}\), un morfismo de
+\(A\) a \(B\) puede denotarse de dos formas equivalentes:
+\[
+  f:A\to B
+  \qquad\text{o bien}\qquad
+  f\in \Hom_{\mathcal{C}}(A,B).
+\]
+El objeto \(A\) se llama \emph{dominio} de \(f\), y el objeto \(B\) se llama
+\emph{codominio} de \(f\).
+
+Si tenemos dos morfismos
+\[
+  f:A\to B
+  \qquad\text{y}\qquad
+  g:B\to C,
+\]
+entonces podemos componerlos y obtenemos un nuevo morfismo
+\[
+  g\circ f:A\to C.
+\]
+La expresión \(g\circ f\) se lee: primero se aplica \(f\) y después se aplica
+\(g\). El orden es importante: para que la composición tenga sentido, el
+codominio de \(f\) debe coincidir con el dominio de \(g\).
+
 Estos datos deben cumplir dos reglas:
 
 \begin{enumerate}
