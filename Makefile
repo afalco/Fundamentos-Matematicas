@@ -8,6 +8,7 @@ TEXMFCACHE ?= $(TEXMFVAR)
 
 DOCS := Manual/manual_fundamentos_matematicas_esqueleto.tex \
         $(wildcard FMI/*.tex) \
+        $(wildcard FMI/Ejercicios/*.tex) \
         $(wildcard FMI/Practicas/*.tex) \
         $(wildcard FMII/*.tex)
 
