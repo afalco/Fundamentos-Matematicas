@@ -1,0 +1,722 @@
+% !TEX program = lualatex
+% Hoja de ejercicios: capítulo 3, teoría elemental de conjuntos
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[a4paper,margin=2.35cm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMLightBlue}{RGB}{235,241,248}
+\definecolor{FdMGray}{RGB}{90,96,104}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=FdMBlue,
+  urlcolor=FdMBlue,
+  pdftitle={Ejercicios: teoría elemental de conjuntos},
+  pdfauthor={Fundamentos de las Matemáticas I}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Fundamentos de las Matemáticas I}
+\rhead{Teoría de conjuntos}
+\cfoot{\thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlist[enumerate]{leftmargin=2.4em,itemsep=0.35em,topsep=0.4em}
+\setlist[itemize]{leftmargin=2em,itemsep=0.2em,topsep=0.3em}
+
+\newcounter{ejercicio}
+\newenvironment{ejercicio}[1][]{%
+  \refstepcounter{ejercicio}%
+  \par\medskip\noindent
+  {\color{FdMBlue}\sffamily\bfseries Ejercicio \theejercicio%
+  \if\relax\detokenize{#1}\relax\else\ --- #1\fi.}\quad
+}{\par\medskip}
+
+\newcommand{\respuesta}[1]{%
+  \par\vspace{#1}\noindent
+  \textcolor{FdMGray!45}{\rule{\linewidth}{0.3pt}}\par
+}
+
+\newcommand{\cajarecordatorio}[1]{%
+  \begin{center}
+    \colorbox{FdMLightBlue}{%
+      \begin{minipage}{0.91\linewidth}
+        \small #1
+      \end{minipage}}
+  \end{center}
+}
+
+\begin{document}
+
+\begin{center}
+  {\color{FdMBlue}\sffamily\bfseries\LARGE Hoja de ejercicios}\par
+  \vspace{0.2em}
+  {\sffamily\large Capítulo 3: teoría elemental de conjuntos}\par
+  \vspace{0.7em}
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+\noindent
+\begin{tabularx}{\linewidth}{@{}lX@{\hspace{1.5em}}lX@{}}
+  \textbf{Nombre y apellidos:} & \hrulefill &
+  \textbf{Fecha:} & \hrulefill
+\end{tabularx}
+
+\vspace{0.8em}
+\noindent
+En los ejercicios de demostración deben declararse los conjuntos de referencia,
+las variables y las hipótesis. Las igualdades entre conjuntos se justificarán
+mediante doble inclusión o mediante equivalencias de pertenencia.
+
+\cajarecordatorio{
+  \textbf{Notación básica.}
+  \(x\in A\) expresa pertenencia y \(A\subseteq B\) expresa inclusión.
+  Si \(A,B\subseteq U\), se usarán \(A\cup B\), \(A\cap B\),
+  \(A\setminus B\) y \(A^c=U\setminus A\). Además,
+  \(A\times B\) denota el producto cartesiano y \(\mathcal P(A)\) el
+  conjunto de todos los subconjuntos de \(A\).
+}
+
+\section*{A. Descripción de conjuntos y pertenencia}
+
+\begin{ejercicio}[Extensión y comprensión]
+Escribe por extensión, siempre que sea posible, los siguientes conjuntos y
+determina su número de elementos:
+\begin{enumerate}[label=\alph*)]
+  \item \(A=\{n\in\mathbb N:n<8\}\).
+  \item \(B=\{n\in\mathbb Z:-3\leq n<4\}\).
+  \item \(C=\{n\in\mathbb N:n\text{ divide a }24\}\).
+  \item \(D=\{x\in\mathbb R:x^2=4\}\).
+  \item \(E=\{x\in\mathbb R:x^2+1=0\}\).
+\end{enumerate}
+Después describe \(\{0,3,6,9,12\}\) por comprensión de dos formas distintas.
+\respuesta{5.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Colecciones bien definidas]
+Decide cuáles de las siguientes descripciones determinan un conjunto sin
+ambigüedad. En los casos problemáticos, explica qué información falta y propón
+una reformulación precisa.
+\begin{enumerate}[label=\alph*)]
+  \item Los números enteros próximos a \(0\).
+  \item Los números primos menores que \(100\).
+  \item Los estudiantes altos de una clase.
+  \item Los puntos del plano cuya distancia al origen es \(1\).
+  \item Los libros interesantes de una biblioteca.
+\end{enumerate}
+\respuesta{4.4cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Pertenencia]
+Sean
+\[
+  A=\{0,1,\{1\},\{0,1\},\varnothing\},
+  \qquad B=\{\varnothing,\{\varnothing\}\}.
+\]
+Determina el valor de verdad de cada afirmación y justifica las que sean falsas:
+\begin{enumerate}[label=\alph*)]
+  \item \(1\in A\). \qquad
+        \(\{1\}\in A\). \qquad
+        \(\{1\}\subseteq A\).
+  \item \(0\subseteq A\). \qquad
+        \(\varnothing\in A\). \qquad
+        \(\varnothing\subseteq A\).
+  \item \(\varnothing\in B\). \qquad
+        \(\{\varnothing\}\in B\). \qquad
+        \(\{\varnothing\}\subseteq B\).
+  \item \(B\in A\). \qquad \(B\subseteq A\).
+\end{enumerate}
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Igualdad por comprensión]
+Decide cuáles de las siguientes parejas describen el mismo conjunto. Justifica
+la respuesta sin limitarte a enumerar ejemplos.
+\begin{enumerate}[label=\alph*)]
+  \item \(\{2k:k\in\mathbb Z\}\) y \(\{n\in\mathbb Z:n\text{ es par}\}\).
+  \item \(\{x\in\mathbb R:x^2=1\}\) y \(\{1\}\).
+  \item \(\{n^2:n\in\mathbb Z\}\) y \(\{m\in\mathbb N:m\geq0\}\).
+  \item \(\{3k+1:k\in\mathbb Z\}\) y
+        \(\{n\in\mathbb Z:n-1\text{ es múltiplo de }3\}\).
+\end{enumerate}
+\respuesta{5.0cm}
+\end{ejercicio}
+
+\newpage
+\section*{B. Inclusión, igualdad y conjunto vacío}
+
+\begin{ejercicio}[Relaciones de inclusión]
+Sean \(A=\{1,2\}\), \(B=\{1,2,3\}\), \(C=\{2,3\}\) y
+\(D=\{1,2,\{1,2\}\}\). Determina todas las relaciones de inclusión que se
+cumplen entre dos conjuntos distintos de la lista \(A,B,C,D\).
+\respuesta{5.5cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Formalización de la inclusión]
+Escribe mediante cuantificadores y conectores lógicos:
+\begin{enumerate}[label=\alph*)]
+  \item \(A\subseteq B\).
+  \item \(A\nsubseteq B\).
+  \item \(A=B\).
+  \item \(A\neq B\).
+  \item \(A\subseteq B\subseteq C\).
+\end{enumerate}
+Explica qué tipo de testigo permite demostrar \(A\nsubseteq B\).
+\respuesta{5.3cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Propiedades de la inclusión]
+Demuestra a partir de la definición que, para cualesquiera conjuntos \(A,B,C\):
+\begin{enumerate}[label=\alph*)]
+  \item \(A\subseteq A\).
+  \item Si \(A\subseteq B\) y \(B\subseteq C\), entonces \(A\subseteq C\).
+  \item Si \(A\subseteq B\) y \(B\subseteq A\), entonces \(A=B\).
+\end{enumerate}
+\respuesta{8.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[El conjunto vacío]
+\begin{enumerate}[label=\alph*)]
+  \item Demuestra que \(\varnothing\subseteq A\) para todo conjunto \(A\).
+  \item Explica por qué la prueba no afirma que exista un elemento de
+        \(\varnothing\).
+  \item Determina \(\mathcal P(\varnothing)\) y
+        \(\mathcal P(\{\varnothing\})\).
+  \item Decide si \(\varnothing\in\mathcal P(\varnothing)\) y si
+        \(\varnothing\subseteq\mathcal P(\varnothing)\).
+\end{enumerate}
+\respuesta{6.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Cadenas de inclusiones]
+Sean \(A,B,C\) conjuntos tales que \(A\subseteq B\subseteq C\). Decide cuáles
+de las siguientes afirmaciones se deducen necesariamente. Demuestra las
+verdaderas y da un contraejemplo para las falsas.
+\begin{enumerate}[label=\alph*)]
+  \item \(A\cap C=A\).
+  \item \(A\cup C=C\).
+  \item \(B\setminus A\subseteq C\setminus A\).
+  \item \(C\setminus B\subseteq C\setminus A\).
+  \item \(C\setminus A=(C\setminus B)\cup(B\setminus A)\).
+\end{enumerate}
+\respuesta{8.3cm}
+\end{ejercicio}
+
+\newpage
+\section*{C. Operaciones con conjuntos}
+
+\begin{ejercicio}[Cálculo con conjuntos finitos]
+Sean
+\[
+ U=\{1,2,3,4,5,6,7,8,9,10\},\quad
+ A=\{1,2,3,5,8\},\quad B=\{2,4,6,8,10\},\quad C=\{1,4,7,10\}.
+\]
+Calcula:
+\begin{enumerate}[label=\alph*)]
+  \item \(A\cup B\), \(A\cap B\), \(A\setminus B\) y \(B\setminus A\).
+  \item \(A^c\), \(B^c\) y \(C^c\), respecto de \(U\).
+  \item \(A\cap(B\cup C)\) y \((A\cap B)\cup(A\cap C)\).
+  \item \((A\cup B)^c\) y \(A^c\cap B^c\).
+  \item \((A\setminus B)\cup(B\setminus A)\).
+\end{enumerate}
+\respuesta{6.2cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[El universo importa]
+Sea \(A=\{1,2,3\}\). Calcula el complementario de \(A\) respecto de cada uno
+de los universos siguientes:
+\[
+  U_1=\{1,2,3,4,5\},\qquad U_2=\mathbb N,
+  \qquad U_3=\mathbb Z.
+\]
+Explica por qué la notación \(A^c\) es ambigua si no se conoce el universo.
+\respuesta{5.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Operaciones con intervalos]
+Considera, como subconjuntos de \(\mathbb R\),
+\[
+  A=[-2,3),\qquad B=(1,5],\qquad C=(-\infty,0].
+\]
+Expresa mediante intervalos:
+\begin{enumerate}[label=\alph*)]
+  \item \(A\cap B\), \(A\cup B\) y \(A\setminus B\).
+  \item \(A\cap C\), \(B\cap C\) y \((A\cup B)\cap C\).
+  \item \(A^c\), \(B^c\) y \((A\cap B)^c\), tomando \(U=\mathbb R\).
+\end{enumerate}
+\respuesta{6.2cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Disjunción]
+Para cada afirmación, decide si es verdadera. Si lo es, demuéstrala; si no,
+da un contraejemplo.
+\begin{enumerate}[label=\alph*)]
+  \item Si \(A\cap B=\varnothing\), entonces \(A\subseteq B^c\).
+  \item Si \(A\subseteq B\), entonces \(A\cap B^c=\varnothing\).
+  \item Si \(A\cap B=\varnothing\) y \(A\cap C=\varnothing\), entonces
+        \(B\cap C=\varnothing\).
+  \item Si \(A\cup B=U\), entonces \(A\cap B=\varnothing\).
+\end{enumerate}
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Ecuaciones conjuntistas]
+Sean \(A,B\subseteq U\). Describe todos los conjuntos \(X\subseteq U\) que
+satisfacen cada ecuación, o demuestra que no existe ninguno:
+\begin{enumerate}[label=\alph*)]
+  \item \(X\cup A=A\).
+  \item \(X\cap A=A\).
+  \item \(X\setminus A=X\).
+  \item \(X\cap A=\varnothing\) y \(X\cup A=U\).
+\end{enumerate}
+\respuesta{6.5cm}
+\end{ejercicio}
+
+\newpage
+\section*{D. Lógica y lenguaje conjuntista}
+
+\begin{ejercicio}[Traducir pertenencia a lógica]
+Para un elemento arbitrario \(x\in U\), expresa cada pertenencia usando solo
+las proposiciones \(x\in A\), \(x\in B\), \(x\in C\) y conectores lógicos:
+\begin{enumerate}[label=\alph*)]
+  \item \(x\in(A\cup B)^c\).
+  \item \(x\in A\setminus(B\cap C)\).
+  \item \(x\in(A\setminus B)\cup(B\setminus A)\).
+  \item \(x\in(A\cup B)\setminus C\).
+  \item \(x\in(A\cap B^c)\cup(A^c\cap B)\).
+\end{enumerate}
+\respuesta{5.5cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Traducir lógica a conjuntos]
+Sean \(P(x)\), \(Q(x)\) y \(R(x)\) las proposiciones \(x\in A\), \(x\in B\) y
+\(x\in C\), respectivamente. Describe por operaciones conjuntistas el conjunto
+de elementos \(x\in U\) que satisfacen:
+\begin{enumerate}[label=\alph*)]
+  \item \(P(x)\wedge\neg Q(x)\).
+  \item \(\neg(P(x)\vee Q(x))\).
+  \item \((P(x)\vee Q(x))\wedge\neg R(x)\).
+  \item \((P(x)\Rightarrow Q(x))\).
+  \item Exactamente una de las proposiciones \(P(x)\) y \(Q(x)\).
+\end{enumerate}
+\respuesta{6.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Diferencia simétrica]
+Se define la diferencia simétrica por
+\[
+  A\mathbin{\triangle}B=(A\setminus B)\cup(B\setminus A).
+\]
+\begin{enumerate}[label=\alph*)]
+  \item Describe con palabras sus elementos y represéntala en un diagrama.
+  \item Demuestra que
+        \(A\mathbin{\triangle}B=(A\cup B)\setminus(A\cap B)\).
+  \item Calcula \(A\mathbin{\triangle}B\) para
+        \(A=\{1,2,3,4\}\) y \(B=\{3,4,5\}\).
+  \item ¿Cuándo se cumple \(A\mathbin{\triangle}B=\varnothing\)? Justifica.
+\end{enumerate}
+\respuesta{7.3cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Diagnóstico de expresiones]
+Corrige cada expresión que no esté bien formada o cuyo significado no coincida
+con la frase indicada:
+\begin{enumerate}[label=\alph*)]
+  \item «\(x\) es subconjunto de \(A\)»: \(x\in A\).
+  \item «\(A\) es un elemento de \(B\)»: \(A\subseteq B\).
+  \item «\(x\) no pertenece ni a \(A\) ni a \(B\)»:
+        \(x\notin A\cap B\).
+  \item «Todo elemento de \(A\) pertenece a \(B\)»:
+        \(\exists x\,(x\in A\Rightarrow x\in B)\).
+  \item «Algún elemento de \(A\) no pertenece a \(B\)»: \(A\subseteq B\).
+\end{enumerate}
+\respuesta{5.0cm}
+\end{ejercicio}
+
+\newpage
+\section*{E. Producto cartesiano}
+
+\begin{ejercicio}[Enumerar productos cartesianos]
+Sean \(A=\{1,2\}\), \(B=\{a,b,c\}\) y \(C=\varnothing\). Escribe por
+extensión \(A\times B\), \(B\times A\), \(A\times A\), \(A\times C\) y
+\(C\times B\). Compara sus cardinales.
+\respuesta{6.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Pertenencia a un producto]
+Sean \(A,B\) conjuntos y \(a,b,c,d\) objetos. Justifica las equivalencias:
+\begin{enumerate}[label=\alph*)]
+  \item \((a,b)\in A\times B\Longleftrightarrow a\in A\text{ y }b\in B\).
+  \item \((a,b)=(c,d)\Longleftrightarrow a=c\text{ y }b=d\).
+\end{enumerate}
+Después explica por qué \((a,b)\in A\times B\) no implica en general que
+\((b,a)\in A\times B\).
+\respuesta{5.5cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Cardinal del producto]
+Sean \(A\) y \(B\) conjuntos finitos con \(|A|=m\) y \(|B|=n\).
+\begin{enumerate}[label=\alph*)]
+  \item Explica por qué \(|A\times B|=mn\).
+  \item Si \(|A\times B|=12\), indica todas las posibilidades para
+        \((|A|,|B|)\) cuando ambos conjuntos son no vacíos.
+  \item Si \(|A\times A|=49\), determina \(|A|\).
+  \item ¿Qué puede afirmarse si \(A\times B=\varnothing\)? Demuéstralo.
+\end{enumerate}
+\respuesta{6.7cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Identidades con productos]
+Demuestra o refuta, según corresponda:
+\begin{enumerate}[label=\alph*)]
+  \item \(A\times(B\cup C)=(A\times B)\cup(A\times C)\).
+  \item \(A\times(B\cap C)=(A\times B)\cap(A\times C)\).
+  \item \((A\cup B)\times C=(A\times C)\cup(B\times C)\).
+  \item \((A\setminus B)\times C=(A\times C)\setminus(B\times C)\).
+  \item \(A\times B=B\times A\).
+\end{enumerate}
+\respuesta{8.0cm}
+\end{ejercicio}
+
+\newpage
+\section*{F. Conjunto de las partes}
+
+\begin{ejercicio}[Enumerar subconjuntos]
+Calcula explícitamente:
+\begin{enumerate}[label=\alph*)]
+  \item \(\mathcal P(\{a,b\})\).
+  \item \(\mathcal P(\{1,2,3\})\).
+  \item \(\mathcal P(\{\varnothing,1\})\).
+\end{enumerate}
+En cada caso comprueba que el número de elementos es una potencia de \(2\).
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Pertenencia e inclusión en un conjunto de partes]
+Sea \(A=\{1,2,3\}\). Decide si son verdaderas:
+\begin{enumerate}[label=\alph*)]
+  \item \(1\in\mathcal P(A)\). \qquad
+        \(\{1\}\in\mathcal P(A)\).
+  \item \(\{1\}\subseteq\mathcal P(A)\). \qquad
+        \(\{\{1\}\}\subseteq\mathcal P(A)\).
+  \item \(A\in\mathcal P(A)\). \qquad
+        \(A\subseteq\mathcal P(A)\).
+  \item \(\varnothing\in\mathcal P(A)\). \qquad
+        \(\varnothing\subseteq\mathcal P(A)\).
+\end{enumerate}
+Justifica cuidadosamente cada respuesta.
+\respuesta{6.5cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Contar subconjuntos]
+Sea \(A\) un conjunto con \(8\) elementos. Determina:
+\begin{enumerate}[label=\alph*)]
+  \item El número total de subconjuntos de \(A\).
+  \item El número de subconjuntos que contienen un elemento fijo \(a\in A\).
+  \item El número de subconjuntos que no contienen \(a\).
+  \item El número de subconjuntos que contienen dos elementos fijos distintos.
+  \item El número de subconjuntos que contienen \(a\) pero no otro elemento
+        fijo \(b\neq a\).
+\end{enumerate}
+Justifica cada recuento a partir de las decisiones de incluir o no cada elemento.
+\respuesta{6.5cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Inclusión y conjuntos de partes]
+Demuestra que, para cualesquiera conjuntos \(A\) y \(B\),
+\[
+  A\subseteq B
+  \quad\Longleftrightarrow\quad
+  \mathcal P(A)\subseteq\mathcal P(B).
+\]
+Señala con claridad qué conjunto eliges en la implicación de derecha a izquierda.
+\respuesta{7.5cm}
+\end{ejercicio}
+
+\newpage
+\section*{G. Familias de conjuntos}
+
+\begin{ejercicio}[Familia finita]
+Sean
+\[
+ A_1=\{1,2,3,4\},\quad A_2=\{2,4,6\},\quad
+ A_3=\{1,2,5,6\},\quad A_4=\{2,6,7\}.
+\]
+Calcula:
+\[
+ \bigcup_{i=1}^{4}A_i,\qquad
+ \bigcap_{i=1}^{4}A_i,\qquad
+ \bigcup_{i=2}^{3}A_i,\qquad
+ A_1\cap\left(\bigcup_{i=2}^{4}A_i\right).
+\]
+\respuesta{5.2cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Una familia aritmética]
+Para cada \(n\in\mathbb N\setminus\{0\}\), define
+\[
+  A_n=\{k\in\mathbb Z:n\mid k\}.
+\]
+\begin{enumerate}[label=\alph*)]
+  \item Describe \(A_1,A_2,A_3\) y \(A_6\).
+  \item Calcula \(A_2\cap A_3\) y compáralo con \(A_6\).
+  \item Calcula \(A_2\cup A_3\). ¿Coincide con algún \(A_n\)?
+  \item Determina \(\bigcap_{n\geq1}A_n\).
+\end{enumerate}
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Familias de intervalos]
+Para \(n\geq1\), sean
+\[
+  I_n=\left(-\frac1n,\frac1n\right),
+  \qquad J_n=[-n,n].
+\]
+Calcula y justifica:
+\begin{enumerate}[label=\alph*)]
+  \item \(\displaystyle\bigcap_{n=1}^{\infty}I_n\).
+  \item \(\displaystyle\bigcup_{n=1}^{\infty}I_n\).
+  \item \(\displaystyle\bigcap_{n=1}^{\infty}J_n\).
+  \item \(\displaystyle\bigcup_{n=1}^{\infty}J_n\).
+\end{enumerate}
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Cuantificadores en una familia]
+Sea \((A_i)_{i\in I}\) una familia de conjuntos. Escribe con cuantificadores
+las condiciones siguientes y niega correctamente cada una:
+\begin{enumerate}[label=\alph*)]
+  \item \(x\in\displaystyle\bigcup_{i\in I}A_i\).
+  \item \(x\in\displaystyle\bigcap_{i\in I}A_i\).
+  \item \(\displaystyle\bigcup_{i\in I}A_i\subseteq B\).
+  \item \(B\subseteq\displaystyle\bigcap_{i\in I}A_i\).
+\end{enumerate}
+\respuesta{6.3cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[De Morgan para familias]
+Sea \((A_i)_{i\in I}\) una familia de subconjuntos de \(U\). Demuestra:
+\[
+  \left(\bigcup_{i\in I}A_i\right)^c
+  =\bigcap_{i\in I}A_i^c,
+  \qquad
+  \left(\bigcap_{i\in I}A_i\right)^c
+  =\bigcup_{i\in I}A_i^c.
+\]
+Haz explícito el cambio de «existe» a «para todo» al negar los cuantificadores.
+\respuesta{8.0cm}
+\end{ejercicio}
+
+\section*{H. Identidades e inclusiones conjuntistas}
+
+\begin{ejercicio}[Leyes básicas]
+Demuestra mediante equivalencias de pertenencia:
+\begin{enumerate}[label=\alph*)]
+  \item \(A\cup\varnothing=A\) y \(A\cap U=A\).
+  \item \(A\cup A=A\) y \(A\cap A=A\).
+  \item \(A\cup A^c=U\) y \(A\cap A^c=\varnothing\).
+  \item \((A^c)^c=A\).
+\end{enumerate}
+\respuesta{6.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Conmutatividad y asociatividad]
+Demuestra:
+\begin{enumerate}[label=\alph*)]
+  \item \(A\cup B=B\cup A\) y \(A\cap B=B\cap A\).
+  \item \((A\cup B)\cup C=A\cup(B\cup C)\).
+  \item \((A\cap B)\cap C=A\cap(B\cap C)\).
+\end{enumerate}
+Explica por qué estas identidades permiten omitir paréntesis en uniones o
+intersecciones sucesivas.
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Distributividad]
+Demuestra por doble inclusión las dos identidades distributivas:
+\[
+ A\cap(B\cup C)=(A\cap B)\cup(A\cap C),
+\]
+\[
+ A\cup(B\cap C)=(A\cup B)\cap(A\cup C).
+\]
+\respuesta{8.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Leyes de De Morgan]
+Sean \(A,B\subseteq U\). Demuestra:
+\[
+  (A\cup B)^c=A^c\cap B^c,
+  \qquad
+  (A\cap B)^c=A^c\cup B^c.
+\]
+Presenta una de las pruebas por doble inclusión y la otra mediante equivalencias
+de pertenencia.
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Identidades con la diferencia]
+Demuestra las identidades:
+\begin{enumerate}[label=\alph*)]
+  \item \(A\setminus B=A\cap B^c\).
+  \item \(A\setminus(B\cup C)=(A\setminus B)\cap(A\setminus C)\).
+  \item \(A\setminus(B\cap C)=(A\setminus B)\cup(A\setminus C)\).
+  \item \((A\setminus B)\setminus C=A\setminus(B\cup C)\).
+\end{enumerate}
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Caracterizaciones de la inclusión]
+Demuestra que son equivalentes las afirmaciones siguientes:
+\[
+  A\subseteq B,\qquad A\cap B=A,\qquad A\cup B=B,
+  \qquad A\setminus B=\varnothing.
+\]
+Puedes probar una cadena de implicaciones o comparar cada igualdad con la
+definición de inclusión.
+\respuesta{8.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Detectar una prueba incompleta]
+Un estudiante intenta demostrar
+\[
+  A\cap(B\cup C)=(A\cap B)\cup(A\cap C)
+\]
+y escribe: «Sea \(x\in A\cap(B\cup C)\). Entonces \(x\in A\) y \(x\in B\) o
+\(x\in C\). Por tanto, \(x\in(A\cap B)\cup(A\cap C)\), luego los conjuntos son
+iguales».
+\begin{enumerate}[label=\alph*)]
+  \item Identifica la parte correcta y la conclusión que todavía no está
+        justificada.
+  \item Completa rigurosamente la demostración.
+  \item Reescribe el paso lógico ambiguo usando paréntesis.
+\end{enumerate}
+\respuesta{6.5cm}
+\end{ejercicio}
+
+\newpage
+\section*{I. Síntesis y problemas integradores}
+
+\begin{ejercicio}[Verdadero o falso]
+Decide si cada afirmación es verdadera para cualesquiera conjuntos. Demuestra
+las verdaderas y refuta las falsas con un contraejemplo lo más sencillo posible.
+\begin{enumerate}[label=\alph*)]
+  \item \(A\setminus B\subseteq A\).
+  \item \(A\subseteq A\cup B\).
+  \item Si \(A\cup B=A\cup C\), entonces \(B=C\).
+  \item Si \(A\cap B=A\cap C\), entonces \(B=C\).
+  \item Si \(A\setminus B=B\setminus A\), entonces \(A=B\).
+  \item \(\mathcal P(A\cap B)=\mathcal P(A)\cap\mathcal P(B)\).
+  \item \(\mathcal P(A\cup B)=\mathcal P(A)\cup\mathcal P(B)\).
+\end{enumerate}
+\respuesta{9.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Reconstrucción de conjuntos]
+En el universo \(U=\{1,2,3,4,5,6,7,8\}\), se sabe que
+\[
+ A\cap B=\{2,5\},\qquad A\setminus B=\{1,7\},\qquad
+ B\setminus A=\{3,8\}.
+\]
+\begin{enumerate}[label=\alph*)]
+  \item Determina \(A\), \(B\), \(A\cup B\) y \((A\cup B)^c\).
+  \item Calcula \(A\mathbin{\triangle}B\).
+  \item Determina todos los conjuntos \(C\subseteq U\) tales que
+        \(A\cup B\subseteq C\) y \(|C|=7\).
+\end{enumerate}
+\respuesta{7.0cm}
+\end{ejercicio}
+
+\begin{ejercicio}[Partes y producto cartesiano]
+Sean \(A=\{1,2\}\) y \(B=\{a,b\}\).
+\begin{enumerate}[label=\alph*)]
+  \item Enumera \(A\times B\) y calcula \(\mathcal P(A\times B)\).
+  \item Compara \(\mathcal P(A\times B)\) con
+        \(\mathcal P(A)\times\mathcal P(B)\): calcula sus cardinales y
+        describe el tipo de sus elementos.
+  \item Decide si ambos conjuntos pueden ser iguales y justifica la respuesta.
+\end{enumerate}
+\respuesta{7.5cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Una equivalencia completa]
+Sean \(A,B\subseteq U\). Demuestra que son equivalentes:
+\begin{enumerate}[label=\roman*)]
+  \item \(A=B\).
+  \item \(A\subseteq B\) y \(A^c\subseteq B^c\).
+  \item \(A\mathbin{\triangle}B=\varnothing\).
+  \item Para todo \(X\subseteq U\), se cumple
+        \(A\cap X=B\cap X\).
+\end{enumerate}
+Organiza la prueba indicando explícitamente qué implicaciones demuestras.
+\respuesta{9.0cm}
+\end{ejercicio}
+
+\newpage
+
+\begin{ejercicio}[Problema final de demostración]
+Sean \(A,B,C\subseteq U\). Demuestra la identidad
+\[
+  (A\cup B)\setminus C=(A\setminus C)\cup(B\setminus C)
+\]
+de dos maneras:
+\begin{enumerate}[label=\alph*)]
+  \item Mediante doble inclusión.
+  \item Traduciendo la pertenencia a una equivalencia lógica.
+\end{enumerate}
+Después formula y demuestra la identidad dual obtenida al intercambiar unión e
+intersección.
+\respuesta{8.5cm}
+\end{ejercicio}
+
+\end{document}
