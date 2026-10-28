@@ -1,0 +1,160 @@
+% !TEX program = lualatex
+% Prueba breve: teoría elemental de conjuntos
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[a4paper,margin=2.2cm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\definecolor{FdMBlue}{RGB}{20,55,100}
+\definecolor{FdMLightBlue}{RGB}{235,241,248}
+\definecolor{FdMGray}{RGB}{90,96,104}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=FdMBlue,
+  urlcolor=FdMBlue,
+  pdftitle={Prueba breve: teoría elemental de conjuntos},
+  pdfauthor={Fundamentos de las Matemáticas I}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Fundamentos de las Matemáticas I}
+\rhead{Prueba breve: conjuntos}
+\cfoot{\thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlist[enumerate]{leftmargin=2.4em,itemsep=0.28em,topsep=0.35em}
+\setlength{\parindent}{0pt}
+
+\newcounter{pregunta}
+\newenvironment{pregunta}[2][]{%
+  \refstepcounter{pregunta}%
+  \par\medskip\noindent
+  {\color{FdMBlue}\sffamily\bfseries Pregunta \thepregunta%
+  \if\relax\detokenize{#1}\relax\else\ --- #1\fi.}\hfill
+  {\sffamily\bfseries[#2 puntos]}\par\smallskip
+}{\par\medskip}
+
+\newcommand{\espaciorespuesta}[1]{%
+  \par\vspace{#1}\noindent
+  \textcolor{FdMGray!45}{\rule{\linewidth}{0.3pt}}\par
+}
+
+\newcommand{\cajainstrucciones}[1]{%
+  \begin{center}
+    \colorbox{FdMLightBlue}{%
+      \begin{minipage}{0.92\linewidth}
+        \small #1
+      \end{minipage}}
+  \end{center}
+}
+
+\begin{document}
+
+\begin{center}
+  {\color{FdMBlue}\sffamily\bfseries\LARGE Prueba breve}\par
+  \vspace{0.15em}
+  {\sffamily\large Teoría elemental de conjuntos}\par
+  \vspace{0.55em}
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+\begin{tabularx}{\linewidth}{@{}lX@{\hspace{1.2em}}lX@{}}
+  \textbf{Nombre y apellidos:} & \hrulefill &
+  \textbf{Fecha:} & \hrulefill
+\end{tabularx}
+
+\vspace{0.6em}
+\begin{tabularx}{\linewidth}{@{}lXlX@{}}
+  \textbf{Grupo:} & \hrulefill &
+  \textbf{Calificación:} & \hrulefill\ /\ 10
+\end{tabularx}
+
+\cajainstrucciones{
+  \textbf{Duración: 30 minutos.}
+  Justifica las respuestas. En las igualdades de conjuntos debe indicarse el
+  razonamiento utilizado; una respuesta sin explicación puede recibir solo
+  puntuación parcial.
+}
+
+\begin{pregunta}[Pertenencia e inclusión]{2}
+Sean
+\[
+  A=\{1,2,\{1,2\},\varnothing\},
+  \qquad B=\{1,2\}.
+\]
+Indica si cada afirmación es verdadera o falsa y justifica brevemente:
+\begin{enumerate}[label=\alph*)]
+  \item \(B\in A\).
+  \item \(A\subseteq B\).
+  \item \(\varnothing\in A\).
+  \item \(\varnothing\in B\).
+  \item \(\varnothing\subseteq B\).
+\end{enumerate}
+\espaciorespuesta{3.0cm}
+\end{pregunta}
+
+\begin{pregunta}[Operaciones con conjuntos]{2.5}
+En el universo \(U=\{1,2,3,4,5,6,7,8\}\), sean
+\[
+  C=\{1,2,4,6\},
+  \qquad D=\{2,3,6,7\}.
+\]
+Calcula:
+\[
+\begin{array}{lll}
+\text{a) }C\cup D, &
+\text{b) }C\cap D, &
+\text{c) }C\setminus D,\\[1mm]
+\text{d) }C^c, &
+\text{e) }(C\cup D)^c. &
+\end{array}
+\]
+Comprueba en este ejemplo que \((C\cup D)^c=C^c\cap D^c\).
+\espaciorespuesta{3.0cm}
+\end{pregunta}
+
+\newpage
+
+\begin{pregunta}[Producto cartesiano y conjunto de partes]{2.5}
+Sean \(E=\{1,2\}\) y \(F=\{a,b\}\).
+\begin{enumerate}[label=\alph*)]
+  \item Escribe por extensión \(E\times F\).
+  \item Calcula \(\mathcal P(E)\).
+  \item Decide, justificando cada respuesta, si son verdaderas:
+        \[
+          \{1\}\in\mathcal P(E),\qquad
+          1\in\mathcal P(E),\qquad
+          E\in\mathcal P(E).
+        \]
+  \item Indica \(|E\times F|\) y \(|\mathcal P(E\times F)|\).
+\end{enumerate}
+\espaciorespuesta{6.2cm}
+\end{pregunta}
+
+\begin{pregunta}[Demostración de una identidad]{3}
+Sean \(A,B,C\) subconjuntos de un universo \(U\). Demuestra, mediante
+equivalencias de pertenencia o por doble inclusión, que
+\[
+  A\setminus(B\cup C)
+  =(A\setminus B)\cap(A\setminus C).
+\]
+Debes señalar explícitamente dónde se utiliza la definición de diferencia.
+\espaciorespuesta{8.0cm}
+\end{pregunta}
+
+\end{document}
